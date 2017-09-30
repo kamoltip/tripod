@@ -2,19 +2,27 @@
   "name": "tripod",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "server": "node server.js",
+    "client": "cd client && npm run start",
+    "start": "./node_modules/.bin/concurrently \"nodemon\" \"npm run client\"",
+    "build": "cd client && npm run build",
+    "deploy": "npm run build && git add . && git commit -m \"Building for production\" && git push heroku master",
+    "seed": "node scripts/seedDB",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kamoltip/tripod.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kamoltip/tripod/issues"
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
   },
-  "homepage": "https://github.com/kamoltip/tripod#readme"
+  "dependencies": {
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7",
+    "react-router-dom": "^4.1.2"
+  }
 }
