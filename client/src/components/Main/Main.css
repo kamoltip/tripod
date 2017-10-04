@@ -1,0 +1,32 @@
+body{
+  background-image: url('https://cdn.theculturetrip.com/wp-content/uploads/2016/03/prynt.jpg');
+  background-size: cover;
+}
+.image1{
+  width:70%;
+  margin-top:5%;
+
+}
+.image2{
+  width:60%;
+  margin-top: 5%;
+}
+.image3{
+  width:50%;
+  margin-top: 8%;
+}
+.image4{
+  width:40%;
+  margin-top:15%;
+}
+img{
+  margin-left: 25%;
+}
+.mainHead {
+  background-color: grey;
+  height: 200px;
+  padding: 20px;
+  color: white;
+  position: relative;
+
+}

@@ -1,0 +1,22 @@
+body{
+  background-color: black;
+  background-image: url('https://images.unsplash.com/photo-1472806679307-eab7abd1eb32?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=');
+  background-size: cover;
+  color: black;
+}
+header{
+  margin-top: 3%;
+  margin-left: 65%;
+}
+h1{
+  font-size: 4em;
+  text-shadow: 10px 15px 15px grey;
+  border-radius: 10px;
+  font-family: 'Indie Flower', cursive;
+}
+h2{
+  font-size: 3em;
+  text-shadow: 10px 15px 15px grey;
+  border-radius: 10px;
+  font-family: 'Indie Flower', cursive;
+}
