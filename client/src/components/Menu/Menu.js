@@ -11,7 +11,7 @@ export default class MenuExampleLabeledIcons extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu pointing>
+      <Menu pointing size='tiny'>
         <Menu.Item name='camera' active={activeItem === 'camera'} onClick={this.handleItemClick}>
           <img src='http://www.stickpng.com/assets/images/584abe602912007028bd932f.png' alt='camera' />
           Take a Shot
@@ -25,6 +25,10 @@ export default class MenuExampleLabeledIcons extends Component {
         <Menu.Item name='search' active={activeItem === 'search'} onClick={this.handleItemClick}>
           <img src='https://maxcdn.icons8.com/Share/icon/Security//facial_recognition_scan1600.png' alt='scanFace' />
           Search
+        </Menu.Item>
+        <Menu.Item name='feature' active={activeItem === 'feature'} onClick={this.handleItemClick}>
+          < Icon name='info circle' size='big'/>
+          Feature
         </Menu.Item>
         <Menu.Menu position='right'>
           <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick}>
