@@ -6,11 +6,13 @@
   "scripts": {
     "server": "node server.js",
     "client": "cd client && npm run start",
-    "start": "./node_modules/.bin/concurrently \"nodemon\" \"npm run client\"",
+    "start": "npm-run-all --parallel open:client open:server",
     "build": "cd client && npm run build",
     "deploy": "npm run build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "seed": "node scripts/seedDB",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "open:client":"cd client && npm run start",
+    "open:server":"nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +25,7 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "mongoose": "^4.11.7",
+    "react-router": "^3.0.0",
     "react-router-dom": "^4.1.2",
     "semantic-ui-react": "^0.74.2"
   }

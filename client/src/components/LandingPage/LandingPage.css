@@ -5,10 +5,10 @@ body{
   color: black;
   background-repeat: no-repeat;
 }
-/*img{
-  width:10%;
+.head img{
+  width:15%;
   position: relative;
-}*/
+}
 Button{
   left: 23%;
 }

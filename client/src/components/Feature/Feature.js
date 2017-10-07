@@ -6,8 +6,9 @@ const Feature = () => (
   <Grid columns={3} divided>
     <Grid.Row>
       <Grid.Column>
+        <br />
         <Button className='button' inverted color='white' size='huge' content='Android' icon='' labelPosition='left'/>
-        <Button className='button' inverted color='white' size='huge' content='Iphone' icon='' labelPosition='right'/>
+        <Button className='button' inverted color='white' size='huge' content='Web browser' icon='' labelPosition='right'/>
         <div className='space'></div>
         <ul>
           <li>
@@ -27,7 +28,7 @@ const Feature = () => (
       </Grid.Column>
       <Grid.Column>
         <p className='tripod'>TRIPOD</p>
-        <img className='phone' src='https://www.shareicon.net/data/512x512/2015/09/26/646900_phone_512x512.png' alt='phone'/>
+        <img className='phone' src='https://image.freepik.com/free-vector/laptop-and-mobile-phone-design_1156-100.jpg' alt='phone'/>
 
       </Grid.Column>
       <Grid.Column>
@@ -75,6 +76,7 @@ const Feature = () => (
             <h4><Icon size='large' name='trello'/>Trello project manager</h4>
           </li>
         </ul>
+        <div className='space3'></div>
       </Grid.Column>
     </Grid.Row>
   </Grid>
