@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import './LandingPage.css'
 import { Image, Button, Icon } from 'semantic-ui-react'
+import tripod from '../../asset/images/tripod-logo' 
 
 const LandingPage = () => (
 <header className='head'>
-  <h1><Icon circular
+  <h1><Img circular
+    src={tripod}
     name='camera'
     size='medium' />
     <br/>

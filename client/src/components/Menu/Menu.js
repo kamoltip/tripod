@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Icon, Menu } from 'semantic-ui-react'
 import './Menu.css';
+import crew from '../../asset/images/user.png'
 
 export default class MenuExampleLabeledIcons extends Component {
   state = { activeItem: 'gamepad' }
@@ -31,6 +32,10 @@ export default class MenuExampleLabeledIcons extends Component {
           Feature
         </Menu.Item>
         <Menu.Menu position='right'>
+          <Menu.Item name='crew' active={activeItem === 'crew'} onClick={this.handleItemClick}>
+            <img src={crew} alt='crew' />
+            Crew
+          </Menu.Item>
           <Menu.Item name='Home' active={activeItem === 'Home'} onClick={this.handleItemClick}>
             <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSP4CLMcDvMhEGhbG_a9f0gwmdFvO3oXMK9JntkLPNoVyP_SSs' alt='home' />
             Home
