@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import Menu from './components/Menu/Menu'
-// import LandingPage from './components/LandingPage/LandingPage'
+import LandingPage from './components/LandingPage/LandingPage'
 // import Feature from './components/Feature/Feature'
-import Crew from './components/Crew/Crew'
+// import Crew from './components/Crew/Crew'
 import './App.css'
 
 class App extends Component {
@@ -11,10 +11,10 @@ class App extends Component {
       <div>
         <header className="App">
           <Menu/>
-          {/* <LandingPage /> */}
+          <LandingPage />
         </header>
         {/* <Feature/> */}
-        <Crew />
+        {/* <Crew /> */}
       </div>
     );
   }
