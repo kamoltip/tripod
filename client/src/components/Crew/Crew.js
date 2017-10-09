@@ -1,10 +1,12 @@
 import React from 'react'
-import './Crew.css'
+import './Crew.scss'
 import { Image, Button, Icon, Grid, Card, Divider, Container, Label, Segment, Header } from 'semantic-ui-react'
 import user from '../../asset/images/user.png'
+import Menu from '../Menu/Menu'
 
 const Crew = () => (
-<Container fluid>
+<Container fluid className='crewBox'>
+<Menu />
   <Container className='container'>
   <Grid columns='two' divided>
     <Grid.Row>
