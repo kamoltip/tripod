@@ -1,9 +1,12 @@
 import React from 'react'
 import {Grid, Image, Button, Header, Icon} from 'semantic-ui-react'
-import './Feature.css'
+import './Feature.scss'
+import Menu from '../Menu/Menu';
 
 const Feature = () => (
-  <Grid columns={3} divided>
+  <div className='featureBox'>
+    <Menu/>
+    <Grid columns={3} divided>
     <Grid.Row>
       <Grid.Column>
         <br />
@@ -12,7 +15,7 @@ const Feature = () => (
         <div className='space'></div>
         <ul>
           <li>
-            <h1>FRONTEND</h1>
+            <h1 className='topic'>FRONTEND</h1>
           </li>
           <li>
             <h4><Icon size='large' name='camera'/>
@@ -35,10 +38,10 @@ const Feature = () => (
         <div className='space2'></div>
         <ul>
           <li>
-            <h1>BACKEND</h1>
+            <h1 className='topic'>BACKEND</h1>
           </li>
           <li>
-            <h4><Icon size='large' name='image'/>Images store in the cloud using AWS</h4>
+            <h4><Icon size='large' name='image'/>Images store in the cloud using Api Cloudinary</h4>
           </li>
           <li>
             <h4><Icon size='large' name='eye'/>
@@ -64,7 +67,7 @@ const Feature = () => (
       <Grid.Column>
         <ul>
           <li>
-            <h2>It's nice to have</h2>
+            <h2 className='topic'>It's nice to have</h2>
           </li>
           <li>
             <h4><Icon size='large' name='slack'/>|<Icon size='large' name='github'/>Integrating Slack with Github</h4>
@@ -80,6 +83,7 @@ const Feature = () => (
       </Grid.Column>
     </Grid.Row>
   </Grid>
+  </div>
 )
 
 export default Feature

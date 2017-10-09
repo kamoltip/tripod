@@ -10,7 +10,7 @@ const path = require('path');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Serve up static assets
-app.use(express.static("client/build"));
+app.use(express.static("client"));
 // Add routes, both API and view
 // app.use(routes);
 
@@ -23,9 +23,15 @@ app.use(express.static("client/build"));
 //     useMongoClient: true
 //   }
 // );
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/client/public/index.html"))
+
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"))
 });
+
+// app.get("/api", (req, res) => {
+//     res.json({username:'accimes'})
+// });
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

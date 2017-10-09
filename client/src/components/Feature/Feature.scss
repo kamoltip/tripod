@@ -1,6 +1,7 @@
-body{
+.featureBox{
   background-color: grey;
-  color: white;
+  background-size: cover;
+  width:100%;
 }
 img.phone{
   width:90%;
@@ -38,6 +39,7 @@ p.tripod{
   text-shadow: 1px 5px 30px white, 1px 5px 200px white;
   /*color: black;*/
 }
-h1, h2{
+h1.topic, h2.topic{
+  color: white;
   text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;
 }
