@@ -3,10 +3,14 @@ import './Crew.scss'
 import { Image, Button, Icon, Grid, Card, Divider, Container, Label, Segment, Header } from 'semantic-ui-react'
 import user from '../../asset/images/user.png'
 import Menu from '../Menu/Menu'
+import Footer from '../Footer/Footer'
 
 const Crew = () => (
 <Container fluid className='crewBox'>
 <Menu />
+<p className='crewText'>OUR TEAM</p>
+
+<Divider section/>
   <Container className='container'>
   <Grid columns='two' divided>
     <Grid.Row>
@@ -60,6 +64,11 @@ const Crew = () => (
     </Grid.Row>
   </Grid>
 </Container>
+<Grid column={1}>
+  <Grid.Column>
+    <Footer/>
+  </Grid.Column>
+</Grid>
 </Container>
 )
 export default Crew

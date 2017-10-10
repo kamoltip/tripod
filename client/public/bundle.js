@@ -12156,12 +12156,11 @@ var LandingPage = function LandingPage() {
       _react2.default.createElement(
         'h1',
         { className: 'quote' },
-        _react2.default.createElement('img', { circular: true,
-          src: _tripodLogo2.default }),
+        _react2.default.createElement('img', { circular: true, src: _tripodLogo2.default }),
         _react2.default.createElement('br', null),
-        'Take On A New Experience ',
+        'Take On A New Experience',
         _react2.default.createElement('br', null),
-        ' With Your Journey'
+        'With Your Journey'
       ),
       _react2.default.createElement(
         'h3',
@@ -66041,6 +66040,10 @@ var _Menu = __webpack_require__(73);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
+var _Footer = __webpack_require__(806);
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Feature = function Feature() {
@@ -66048,6 +66051,12 @@ var Feature = function Feature() {
     'div',
     { className: 'featureBox' },
     _react2.default.createElement(_Menu2.default, null),
+    _react2.default.createElement(
+      'p',
+      { className: 'crewText' },
+      'FEATURES'
+    ),
+    _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
     _react2.default.createElement(
       _semanticUiReact.Grid,
       { columns: 3, divided: true },
@@ -66234,6 +66243,15 @@ var Feature = function Feature() {
           _react2.default.createElement('div', { className: 'space3' })
         )
       )
+    ),
+    _react2.default.createElement(
+      _semanticUiReact.Grid,
+      { column: 1 },
+      _react2.default.createElement(
+        _semanticUiReact.Grid.Column,
+        null,
+        _react2.default.createElement(_Footer2.default, null)
+      )
     )
   );
 };
@@ -66280,7 +66298,7 @@ exports = module.exports = __webpack_require__(28)(undefined);
 
 
 // module
-exports.push([module.i, ".featureBox {\n  background-color: grey;\n  background-size: cover;\n  width: 100%; }\n\nimg.phone {\n  width: 90%;\n  height: auto;\n  position: absolute;\n  margin-top: 30%;\n  box-shadow: 0px 0px 45px white;\n  border-radius: 10px;\n  margin-bottom: 15%;\n  margin-left: 1.5%; }\n\ndiv.space {\n  margin-top: 50%; }\n\ndiv.space2 {\n  margin-top: 20%; }\n\ndiv.space3 {\n  margin-top: 30%; }\n\nli {\n  list-style: none; }\n\nh4 {\n  line-height: 3em; }\n\np.tripod {\n  top: 95%;\n  left: 42%;\n  position: relative;\n  font-family: 'pacifico', cursive;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white;\n  /*color: black;*/ }\n\nh1.topic, h2.topic {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white; }\n", ""]);
+exports.push([module.i, ".featureBox {\n  background-color: grey;\n  background-size: cover;\n  width: 100%; }\n\np.featureText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-top: 1%;\n  margin-left: 2%;\n  padding: 1.5%; }\n\nimg.phone {\n  width: 90%;\n  height: auto;\n  position: absolute;\n  margin-top: 30%;\n  box-shadow: 0px 0px 45px white;\n  border-radius: 10px;\n  margin-bottom: 15%;\n  margin-left: 1.5%; }\n\ndiv.space {\n  margin-top: 50%; }\n\ndiv.space2 {\n  margin-top: 20%; }\n\ndiv.space3 {\n  margin-top: 30%; }\n\nli {\n  list-style: none; }\n\nh4 {\n  line-height: 3em; }\n\np.tripod {\n  top: 95%;\n  left: 42%;\n  position: relative;\n  font-family: 'pacifico', cursive;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white;\n  /*color: black;*/ }\n\nh1.topic, h2.topic {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white; }\n", ""]);
 
 // exports
 
@@ -66312,6 +66330,10 @@ var _Menu = __webpack_require__(73);
 
 var _Menu2 = _interopRequireDefault(_Menu);
 
+var _Footer = __webpack_require__(806);
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Crew = function Crew() {
@@ -66319,6 +66341,12 @@ var Crew = function Crew() {
     _semanticUiReact.Container,
     { fluid: true, className: 'crewBox' },
     _react2.default.createElement(_Menu2.default, null),
+    _react2.default.createElement(
+      'p',
+      { className: 'crewText' },
+      'OUR TEAM'
+    ),
+    _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
     _react2.default.createElement(
       _semanticUiReact.Container,
       { className: 'container' },
@@ -66416,6 +66444,15 @@ var Crew = function Crew() {
           )
         )
       )
+    ),
+    _react2.default.createElement(
+      _semanticUiReact.Grid,
+      { column: 1 },
+      _react2.default.createElement(
+        _semanticUiReact.Grid.Column,
+        null,
+        _react2.default.createElement(_Footer2.default, null)
+      )
     )
   );
 };
@@ -66461,7 +66498,7 @@ exports = module.exports = __webpack_require__(28)(undefined);
 
 
 // module
-exports.push([module.i, ".crewBox {\n  text-align: center;\n  background-color: grey;\n  background-image: url(\"https://images.unsplash.com/photo-1504036764568-17ae585d4619?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  background-repeat: no-repeat; }\n\nli {\n  list-style: none;\n  line-height: 1em; }\n\na.ui.raised.card {\n  box-shadow: 1px 1px 20px white; }\n\n@keyframes topFadeOut {\n  0% {\n    position: absolute;\n    top: -3rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    top: 25%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes bottomFadeOut {\n  0% {\n    position: absolute;\n    bottom: 2rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    bottom: 25%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes topFadeOutVertical {\n  0% {\n    position: absolute;\n    top: 3rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    top: 45%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes rightFadeInOut {\n  0% {\n    position: absolute;\n    right: 1rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    right: 10rem;\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 10rem; } }\n\n@keyframes fadeInOut {\n  0% {\n    opacity: 0; }\n  45% {\n    opacity: 1; }\n  100% {\n    opacity: 0%; } }\n\n.first-text {\n  font-size: 4.4rem;\n  position: absolute;\n  left: 2.5rem;\n  top: 6rem;\n  opacity: 0;\n  animation-name: topFadeOut;\n  animation-duration: 5s;\n  color: white; }\n\n.second-text {\n  font-size: 3.5rem;\n  position: absolute;\n  top: 13rem;\n  opacity: 0;\n  animation-name: rightFadeInOut;\n  animation-delay: 3s;\n  animation-duration: 6s;\n  color: #b6fcb6; }\n\n.third-text {\n  /*transform: rotate(-90deg);*/\n  font-size: 4.5rem;\n  position: absolute;\n  left: 0.5%;\n  top: 45%;\n  opacity: 0;\n  animation-name: topFadeOutVertical;\n  animation-delay: 7s;\n  animation-duration: 6s;\n  color: #856363;\n  white-space: nowrap; }\n\n.fourth-text {\n  font-size: 3.5rem;\n  position: absolute;\n  top: 13rem;\n  left: 1%;\n  opacity: 0;\n  color: grey;\n  animation-name: fadeInOut;\n  animation-delay: 8s;\n  animation-duration: 7s; }\n\n.fifth-text {\n  font-size: 5rem;\n  position: absolute;\n  left: 5%;\n  bottom: 35%;\n  opacity: 0;\n  color: white;\n  animation-name: bottomFadeOut;\n  animation-delay: 11.5s;\n  animation-duration: 10s; }\n\n.last-text {\n  font-size: 5rem;\n  position: absolute;\n  left: 0rem;\n  top: 15rem;\n  opacity: 0;\n  animation-name: topFadeOut;\n  animation-delay: 11s;\n  animation-duration: 15s;\n  color: #e1b941; }\n\n.air:hover {\n  content: url(\"https://media.giphy.com/media/MgX8LzWrA6dgY/giphy.gif\");\n  width: auto; }\n\n.jeff:hover {\n  content: url(\"https://media1.giphy.com/media/5ntdy5Ban1dIY/200.webp#16-grid1\");\n  width: auto; }\n\n.nelum:hover {\n  content: url(\"https://media0.giphy.com/media/3oEduLvxnhDsh83j3O/200.webp#39-grid1\");\n  width: auto; }\n\n.ben:hover {\n  content: url(\"https://media0.giphy.com/media/vuzsbbTZVrWnK/200w.webp#80-grid1\");\n  width: auto; }\n", ""]);
+exports.push([module.i, ".crewBox {\n  text-align: center;\n  background-image: url(\"https://images.unsplash.com/photo-1504036764568-17ae585d4619?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  background-repeat: no-repeat; }\n\np.crewText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-top: 1%;\n  margin-left: 2%;\n  padding: 1.5%;\n  text-align: left;\n  align-items: center; }\n\nli {\n  list-style: none;\n  line-height: 1em; }\n\na.ui.raised.card {\n  box-shadow: 1px 1px 20px white; }\n\n@keyframes topFadeOut {\n  0% {\n    position: absolute;\n    top: -3rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    top: 25%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes bottomFadeOut {\n  0% {\n    position: absolute;\n    bottom: 2rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    bottom: 25%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes topFadeOutVertical {\n  0% {\n    position: absolute;\n    top: 3rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    top: 45%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes rightFadeInOut {\n  0% {\n    position: absolute;\n    right: 1rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    right: 10rem;\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 10rem; } }\n\n@keyframes fadeInOut {\n  0% {\n    opacity: 0; }\n  45% {\n    opacity: 1; }\n  100% {\n    opacity: 0%; } }\n\n.first-text {\n  font-size: 4.4rem;\n  position: absolute;\n  left: 2.5rem;\n  top: 6rem;\n  opacity: 0;\n  animation-name: topFadeOut;\n  animation-duration: 5s;\n  color: white; }\n\n.second-text {\n  font-size: 3.5rem;\n  position: absolute;\n  top: 13rem;\n  opacity: 0;\n  animation-name: rightFadeInOut;\n  animation-delay: 3s;\n  animation-duration: 6s;\n  color: #b6fcb6; }\n\n.third-text {\n  /*transform: rotate(-90deg);*/\n  font-size: 4.5rem;\n  position: absolute;\n  left: 0.5%;\n  top: 45%;\n  opacity: 0;\n  animation-name: topFadeOutVertical;\n  animation-delay: 7s;\n  animation-duration: 6s;\n  color: #856363;\n  white-space: nowrap; }\n\n.fourth-text {\n  font-size: 3.5rem;\n  position: absolute;\n  top: 13rem;\n  left: 1%;\n  opacity: 0;\n  color: grey;\n  animation-name: fadeInOut;\n  animation-delay: 8s;\n  animation-duration: 7s; }\n\n.fifth-text {\n  font-size: 5rem;\n  position: absolute;\n  left: 5%;\n  bottom: 35%;\n  opacity: 0;\n  color: white;\n  animation-name: bottomFadeOut;\n  animation-delay: 11.5s;\n  animation-duration: 10s; }\n\n.last-text {\n  font-size: 5rem;\n  position: absolute;\n  left: 0rem;\n  top: 15rem;\n  opacity: 0;\n  animation-name: topFadeOut;\n  animation-delay: 11s;\n  animation-duration: 15s;\n  color: #e1b941; }\n\n.air:hover {\n  content: url(\"https://media.giphy.com/media/MgX8LzWrA6dgY/giphy.gif\");\n  width: auto; }\n\n.jeff:hover {\n  content: url(\"https://media1.giphy.com/media/5ntdy5Ban1dIY/200.webp#16-grid1\");\n  width: auto; }\n\n.nelum:hover {\n  content: url(\"https://media0.giphy.com/media/3oEduLvxnhDsh83j3O/200.webp#39-grid1\");\n  width: auto; }\n\n.ben:hover {\n  content: url(\"https://media0.giphy.com/media/vuzsbbTZVrWnK/200w.webp#80-grid1\");\n  width: auto; }\n", ""]);
 
 // exports
 
@@ -66491,26 +66528,45 @@ var _Menu2 = _interopRequireDefault(_Menu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import Footer from '../Footer/Footer'
 var Activity = function Activity() {
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'activityDiv' },
     _react2.default.createElement(_Menu2.default, null),
+    _react2.default.createElement(
+      'p',
+      { className: 'actText' },
+      'ACTIVITIES'
+    ),
+    _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
     _react2.default.createElement(
       _semanticUiReact.Container,
       { className: 'ActivityBox' },
       _react2.default.createElement(
-        'div',
-        { className: 'fileDiv' },
+        _semanticUiReact.Grid,
+        { columns: 'three', divided: true },
         _react2.default.createElement(
-          _semanticUiReact.Button,
-          { fluid: true, size: 'small' },
-          _react2.default.createElement('input', { type: 'file' })
-        ),
-        _react2.default.createElement(
-          'div',
+          _semanticUiReact.Grid.Row,
           null,
-          _react2.default.createElement(_semanticUiReact.Button, { fluid: true, size: 'big', color: 'white', content: 'camera', icon: 'camera', labelPosition: 'right' })
+          _react2.default.createElement(
+            _semanticUiReact.Grid.Column,
+            null,
+            _react2.default.createElement(
+              'div',
+              { className: 'fileDiv' },
+              _react2.default.createElement(
+                _semanticUiReact.Button,
+                { fluid: true, size: 'small' },
+                _react2.default.createElement('input', { type: 'file' })
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(_semanticUiReact.Button, { fluid: true, size: 'big', color: 'white', content: 'camera', icon: 'camera', labelPosition: 'right' })
+              )
+            )
+          )
         )
       )
     )
@@ -66559,7 +66615,7 @@ exports = module.exports = __webpack_require__(28)(undefined);
 
 
 // module
-exports.push([module.i, "div.fileDiv {\n  text-align: center; }\n", ""]);
+exports.push([module.i, "div.fileDiv {\n  text-align: center; }\n\n.activityDiv {\n  background-image: url(\"https://images.unsplash.com/photo-1489269210681-663aefbb16fb?dpr=1&auto=compress,format&fit=crop&w=2552&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  height: 100vh; }\n\n.footerDiv2 {\n  margin-bottom: 60vh; }\n\ndiv.column.forFooter {\n  bottom: 0;\n  position: absolute; }\n\np.actText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-top: 1%;\n  margin-left: 2%;\n  padding: 1.5%; }\n", ""]);
 
 // exports
 
@@ -66843,6 +66899,122 @@ exports = module.exports = __webpack_require__(28)(undefined);
 
 // module
 exports.push([module.i, ".App {\n  text-align: center; }\n\n.App-logo {\n  animation: App-logo-spin infinite 20s linear;\n  height: 80px; }\n\n.App-header {\n  background-color: #222;\n  height: 180px;\n  padding: 20px;\n  color: white; }\n\n.App-title {\n  font-size: 1.5em; }\n\n.App-intro {\n  font-size: large; }\n\n@keyframes App-logo-spin {\n  from {\n    transform: rotate(0deg); }\n  to {\n    transform: rotate(360deg); } }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 806 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(807);
+
+var _semanticUiReact = __webpack_require__(52);
+
+var _Menu = __webpack_require__(73);
+
+var _Menu2 = _interopRequireDefault(_Menu);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Footer = function Footer() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'footerDiv' },
+    _react2.default.createElement(
+      'footer',
+      { className: 'footerBox' },
+      _react2.default.createElement(
+        _semanticUiReact.Grid,
+        { columns: 3, relaxed: true },
+        _react2.default.createElement(
+          _semanticUiReact.Grid.Column,
+          null,
+          _react2.default.createElement(
+            _semanticUiReact.Segment,
+            { basic: true },
+            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.'
+          )
+        ),
+        _react2.default.createElement(_semanticUiReact.Divider, { vertical: true }),
+        _react2.default.createElement(
+          _semanticUiReact.Grid.Column,
+          null,
+          _react2.default.createElement(
+            _semanticUiReact.Segment,
+            { basic: true },
+            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.'
+          )
+        ),
+        _react2.default.createElement(_semanticUiReact.Divider, { vertical: true }),
+        _react2.default.createElement(
+          _semanticUiReact.Grid.Column,
+          null,
+          _react2.default.createElement(
+            _semanticUiReact.Segment,
+            { basic: true },
+            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.'
+          )
+        )
+      )
+    )
+  );
+};
+
+exports.default = Footer;
+
+/***/ }),
+/* 807 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(808);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(29)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/sass-loader/lib/loader.js!./Footer.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/sass-loader/lib/loader.js!./Footer.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 808 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(28)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "footer.footerBox {\n  display: block;\n  bottom: 0;\n  position: absolute;\n  color: black;\n  font-size: 1em;\n  text-align: center;\n  height: 30vh; }\n\ndiv.footerDiv {\n  height: 30vh; }\n", ""]);
 
 // exports
 
