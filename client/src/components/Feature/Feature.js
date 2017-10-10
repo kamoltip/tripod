@@ -11,7 +11,9 @@ const Feature = () => (
       <Grid.Column>
         <br />
         <Button className='button' inverted color='white' size='huge' content='Android' icon='' labelPosition='left'/>
+        <Button className='button' inverted color='white' size='huge' content='IOS' icon='' labelPosition='center'/>
         <Button className='button' inverted color='white' size='huge' content='Web browser' icon='' labelPosition='right'/>
+
         <div className='space'></div>
         <ul>
           <li>
@@ -30,7 +32,7 @@ const Feature = () => (
         </ul>
       </Grid.Column>
       <Grid.Column>
-        <p className='tripod'>TRIPOD</p>
+        {/* <p className='tripod'>TRIPOD</p> */}
         <img className='phone' src='https://image.freepik.com/free-vector/laptop-and-mobile-phone-design_1156-100.jpg' alt='phone'/>
 
       </Grid.Column>
@@ -67,7 +69,7 @@ const Feature = () => (
       <Grid.Column>
         <ul>
           <li>
-            <h2 className='topic'>It's nice to have</h2>
+            <h2 className='topic'>Other nice stuff</h2>
           </li>
           <li>
             <h4><Icon size='large' name='slack'/>|<Icon size='large' name='github'/>Integrating Slack with Github</h4>
