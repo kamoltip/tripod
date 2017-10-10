@@ -1,10 +1,21 @@
+
 .crewBox{
   text-align: center;
-  background-color: grey;
+  // background-color: black;
   background-image: url('https://images.unsplash.com/photo-1504036764568-17ae585d4619?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=
 ');
   background-size: cover;
   background-repeat: no-repeat;
+}
+p.crewText{
+  color: white;
+  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;
+  font-size: 2.5em;
+  margin-top: 1%;
+  margin-left: 2%;
+  padding: 1.5%;
+  text-align: left;
+  align-items: center;
 }
 li{
   list-style: none;
