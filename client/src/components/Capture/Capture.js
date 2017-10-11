@@ -1,13 +1,17 @@
-import React from 'react';
-import { Icon } from 'semantic-ui-react'
+import React , { component } from 'react';
+import { render } from 'react-dom';
+import { Icon } from 'semantic-ui-react';
+import API from '../../utils/API';
 
 class Capture extends React.Component {
+
   constructor(props) {
     super(props);
     this.takePicture = this.takePicture.bind(this);
-  }
+  };
 
   takePicture(event) {
+
     console.log(event);
     const file = event.target.files;
     console.log(file);
@@ -16,7 +20,15 @@ class Capture extends React.Component {
     this.img.src = windowURL.createObjectURL(file[0]);
     this.img.onload = () => { URL.revokeObjectURL(this.src); }
     }
+
+    // Cloudinary Upload
+    API.postCloudinary({
+      file: event.target.files[0]
+    })
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   }
+
 
   render() {
     return (
