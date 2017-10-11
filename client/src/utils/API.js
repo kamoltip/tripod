@@ -1,6 +1,29 @@
-// import axios from "axios";
-//
+import axios from "axios";
+
+// const Cloudinary_Url = 'https://api.cloudinary.com/v1_1/tripod/upload';
+// const Coudinary_Upload_preset = 'mtmzmtt5';
+
 // export default {
+
+// 	cloudinary.v2.uploader.upload("http://www.example.com/sample.jpg", 
+//         function(result) {console.log(result); });
+
+
+
+	
+
+     // Get News for the news feed
+      // saveCloudinary: function(details) {
+      // 	const config = { 
+      // 		headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+      // 	}
+      //   return axios.post(Cloudinary_Url, details);
+        
+      // }
+
+
+
+
 //   // Gets all books
 //   getBooks: function() {
 //     return axios.get("/api/books");
@@ -17,4 +40,4 @@
 //   saveBook: function(bookData) {
 //     return axios.post("/api/books", bookData);
 //   }
-// };
+};
