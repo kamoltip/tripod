@@ -12,7 +12,7 @@
     "seed": "node scripts/seedDB",
     "test": "echo \"Error: no test specified\" && exit 1",
     "open:client": "webpack -w",
-    "open:server": "nodemon server.js"
+    "open:server": "node server.js"
   },
   "author": "",
   "license": "ISC",
