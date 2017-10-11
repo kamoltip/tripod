@@ -1,19 +1,9 @@
 import React , { component } from 'react';
-import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 import { render } from 'react-dom';
 import { Icon } from 'semantic-ui-react';
 import API from '../../utils/API';
-import axios from "axios";
-
-
-
-const Cloudinary_Url = '    https://api.cloudinary.com/v1_1/tripod/upload';
-const API_Key = '447781538358186'
-var Coudinary_Upload_preset = 'mtmzmtt5'
-
 
 class Capture extends React.Component {
-
 
   constructor(props) {
     super(props);
@@ -31,22 +21,12 @@ class Capture extends React.Component {
     this.img.onload = () => { URL.revokeObjectURL(this.src); }
     }
 
-    // Cloudinary Image Upload Start
-    const formData = new FormData();
-    formData.append("file",event.target.files[0]);
-    formData.append("tags", `codeinfuse, medium, gist`);
-    formData.append("upload_preset", "mtmzmtt5"); // Replace the preset name with your own
-    formData.append("api_key", "447781538358186"); // Replace API key with your own Cloudinary key
-    formData.append("timestamp", (Date.now() / 1000) | 0);
-    
-    return axios.post("https://api.cloudinary.com/v1_1/tripod/upload", formData, {
-      headers: { "X-Requested-With": "XMLHttpRequest" },
-    }).then(response => {
-      const data = response.data;
-      const fileURL = data.secure_url // You should store this URL for future references in your app
-      console.log(data);
+    // Cloudinary Upload
+    API.postCloudinary({
+      file: event.target.files[0]
     })
-    // Cloudinary Image Upload End
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   }
 
 
