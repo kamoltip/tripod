@@ -66831,6 +66831,9 @@ var Capture = function (_React$Component) {
 }(_react2.default.Component);
 
 var style = {
+  icon: {
+    height: '100%'
+  },
   photoIcon: {
     color: 'white'
   },

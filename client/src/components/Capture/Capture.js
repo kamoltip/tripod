@@ -46,6 +46,9 @@ class Capture extends React.Component {
 }
 
 const style = {
+  icon: {
+    height: '100%'
+  },
   photoIcon: {
     color: 'white',
   },
