@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+// const open = require("open");
+// open("http://localhost:3001/");
 // const mongoose = require("mongoose");
 // const routes = require("./routes");
 const app = express();
