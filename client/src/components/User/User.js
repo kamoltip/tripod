@@ -16,7 +16,7 @@ const User = () => (
 		<Checkbox id='agree' label=" I agree to the Terms and Conditions" />
     </Form.Field>
 		<Button Secondary>Submit</Button>
-			<div className='Or'> 
+			<div className='Or'>
 				<hr className='hr'/>
 				<p>or </p>
 				<hr className='hr'/>
@@ -27,7 +27,7 @@ const User = () => (
 			<br/>
 		<Button color='google'>
 			<Icon name='google' />Google
-		</Button>		
+		</Button>
 
  </Form>
 

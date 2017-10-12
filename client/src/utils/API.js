@@ -10,11 +10,12 @@ export default {
 
 	//Cloudinary upload
 	postCloudinary: function( picData ) {
+		console.log(picData.file.coords);
 	  const formData = new FormData();
 	  formData.append("file",picData.file);
 	  formData.append("tags", `codeinfuse, medium, gist`);
-	  formData.append("upload_preset", Coudinary_Upload_preset); 
-	  formData.append("api_key", API_Key); 
+	  formData.append("upload_preset", Coudinary_Upload_preset);
+	  formData.append("api_key", API_Key);
 	  formData.append("timestamp", (Date.now() / 1000) | 0);
 
 	  return axios.post(Cloudinary_Url, formData, {

@@ -2,6 +2,7 @@ import React , { component } from 'react';
 import { render } from 'react-dom';
 import { Icon } from 'semantic-ui-react';
 import API from '../../utils/API';
+import Location from '../../utils/Location';
 
 class Capture extends React.Component {
 
@@ -11,10 +12,17 @@ class Capture extends React.Component {
   };
 
   takePicture(event) {
-
-    console.log(event);
-    const file = event.target.files;
+    const file = event.target.files[0];
     console.log(file);
+    Location.getLocation(coords => {
+      file.coords = coords;
+      API.postCloudinary({
+        file: file,
+      })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+    });
+
     if(file.length>0) {
     const windowURL = window.URL || window.webkitURL;
     this.img.src = windowURL.createObjectURL(file[0]);
@@ -22,11 +30,7 @@ class Capture extends React.Component {
     }
 
     // Cloudinary Upload
-    API.postCloudinary({
-      file: event.target.files[0]
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+
   }
 
 
