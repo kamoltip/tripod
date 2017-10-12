@@ -10,7 +10,7 @@ export default {
 
 	//Cloudinary upload
 	postCloudinary: function( picData ) {
-		console.log(picData.file.coords);
+	  console.log(picData.file.coords);	  
 	  const formData = new FormData();
 	  formData.append("file",picData.file);
 	  formData.append("tags", `codeinfuse, medium, gist`);
@@ -21,6 +21,11 @@ export default {
 	  return axios.post(Cloudinary_Url, formData, {
       	  sheaders: { "X-Requested-With": "XMLHttpRequest" },
       });
+	},
+
+	savePicDetails: function( details ) {
+	  console.log("Save Mongo : " + details);
+	  return axios.post("/api/activity", { details });
 	}
 
 
