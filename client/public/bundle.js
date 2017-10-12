@@ -44420,15 +44420,15 @@ var _Activity = __webpack_require__(804);
 
 var _Activity2 = _interopRequireDefault(_Activity);
 
-var _LoginForm = __webpack_require__(828);
+var _LoginForm = __webpack_require__(829);
 
 var _LoginForm2 = _interopRequireDefault(_LoginForm);
 
-var _SignupForm = __webpack_require__(831);
+var _SignupForm = __webpack_require__(832);
 
 var _SignupForm2 = _interopRequireDefault(_SignupForm);
 
-var _App = __webpack_require__(834);
+var _App = __webpack_require__(835);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -68678,7 +68678,8 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 828 */
+/* 828 */,
+/* 829 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68692,7 +68693,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(829);
+__webpack_require__(830);
 
 var _semanticUiReact = __webpack_require__(32);
 
@@ -68709,13 +68710,13 @@ var LoginForm = function LoginForm() {
 exports.default = LoginForm;
 
 /***/ }),
-/* 829 */
+/* 830 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(830);
+var content = __webpack_require__(831);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -68740,7 +68741,7 @@ if(false) {
 }
 
 /***/ }),
-/* 830 */
+/* 831 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(29)(undefined);
@@ -68754,7 +68755,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 831 */
+/* 832 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68768,7 +68769,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(832);
+__webpack_require__(833);
 
 var _semanticUiReact = __webpack_require__(32);
 
@@ -68798,13 +68799,13 @@ var SignupForm = function SignupForm() {
 exports.default = SignupForm;
 
 /***/ }),
-/* 832 */
+/* 833 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(833);
+var content = __webpack_require__(834);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -68829,7 +68830,7 @@ if(false) {
 }
 
 /***/ }),
-/* 833 */
+/* 834 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(29)(undefined);
@@ -68843,7 +68844,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 834 */
+/* 835 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68863,7 +68864,7 @@ var _LandingPage = __webpack_require__(241);
 
 var _LandingPage2 = _interopRequireDefault(_LandingPage);
 
-__webpack_require__(835);
+__webpack_require__(836);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -68903,13 +68904,13 @@ var App = function (_Component) {
 exports.default = App;
 
 /***/ }),
-/* 835 */
+/* 836 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(836);
+var content = __webpack_require__(837);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -68934,7 +68935,7 @@ if(false) {
 }
 
 /***/ }),
-/* 836 */
+/* 837 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(29)(undefined);
