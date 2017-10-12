@@ -3842,7 +3842,7 @@ var MenuExampleLabeledIcons = function (_Component) {
             _semanticUiReact.Menu.Item,
             { name: 'activity', active: activeItem === 'activity', onClick: this.handleItemClick },
             _react2.default.createElement(_semanticUiReact.Icon, { name: 'mixcloud', size: 'big' }),
-            'Activity'
+            'Capture'
           )
         ),
         _react2.default.createElement(
@@ -12537,6 +12537,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -12549,36 +12551,58 @@ var _tripodLogo = __webpack_require__(412);
 
 var _tripodLogo2 = _interopRequireDefault(_tripodLogo);
 
-var _Menu = __webpack_require__(63);
-
-var _Menu2 = _interopRequireDefault(_Menu);
+var _reactRouter = __webpack_require__(229);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import Menu from '../Menu/Menu'
+
 var LandingPage = function LandingPage() {
   return _react2.default.createElement(
-    'header',
-    { className: 'head' },
-    _react2.default.createElement(_Menu2.default, null),
+    'div',
+    null,
+    _react2.default.createElement(_semanticUiReact.Responsive, _extends({}, _semanticUiReact.Responsive.onlyMobile, _semanticUiReact.Responsive.onlyTablet, _semanticUiReact.Responsive.onlyComputer, _semanticUiReact.Responsive.onlyLargeScreen, _semanticUiReact.Responsive.onlyWidescreen, { as: _semanticUiReact.Segment })),
+    ' ',
     _react2.default.createElement(
-      'div',
-      { className: 'content' },
+      'header',
+      { className: 'head' },
       _react2.default.createElement(
-        'h1',
-        { className: 'quote' },
-        _react2.default.createElement('img', { circular: true, src: _tripodLogo2.default }),
-        _react2.default.createElement('br', null),
-        'Take On A New Experience',
-        _react2.default.createElement('br', null),
-        'With Your Journey'
-      ),
-      _react2.default.createElement(
-        'h3',
-        { className: 'subQuote' },
-        'And See The World from Different "ANGLES"'
-      ),
-      _react2.default.createElement(_semanticUiReact.Button, { inverted: true, color: 'white', size: 'huge', content: 'Login', icon: 'user circle', labelPosition: 'left' }),
-      _react2.default.createElement(_semanticUiReact.Button, { inverted: true, color: 'white', size: 'huge', content: 'Signup', icon: 'signup', labelPosition: 'right' })
+        'div',
+        { className: 'content' },
+        _react2.default.createElement(
+          'h1',
+          { className: 'quote' },
+          _react2.default.createElement('img', { circular: true, src: _tripodLogo2.default }),
+          _react2.default.createElement('br', null),
+          'Take On A New Experience',
+          _react2.default.createElement('br', null),
+          'Let The Moment Capture You'
+        ),
+        _react2.default.createElement(
+          'h3',
+          { className: 'subQuote' },
+          'And See The World from Different "ANGLES"'
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.Button,
+          { className: 'login', size: 'large' },
+          'Login'
+        ),
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/activity' },
+          _react2.default.createElement(
+            _semanticUiReact.Button,
+            { size: 'large', className: 'main' },
+            'Main'
+          )
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.Button,
+          { size: 'large', className: 'signup' },
+          'Signup'
+        )
+      )
     )
   );
 };
@@ -47581,7 +47605,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, ".head {\n  background-color: black;\n  background-image: url(\"https://images.unsplash.com/photo-1442507210693-938e0e77fef2?dpr=1&auto=compress,format&fit=crop&w=2534&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  color: black;\n  background-repeat: no-repeat;\n  height: 100vh;\n  width: 100%;\n  top: 0%; }\n\n.head img {\n  width: 15%;\n  position: relative; }\n\n.content {\n  margin-left: 45%;\n  text-align: center;\n  align-items: center; }\n\nh3.subQuote {\n  font-size: 1.5em;\n  text-shadow: 2px 3px 3px black;\n  font-family: 'Indie Flower', cursive;\n  margin-top: 11%;\n  color: white;\n  text-align: center; }\n\nh1.quote {\n  font-size: 3em;\n  text-shadow: 2px 5px 10px white;\n  font-family: 'Indie Flower', cursive;\n  position: relative;\n  color: black;\n  text-align: center;\n  -webkit-animation: mymove 10s infinite;\n  /* Safari 4.0 - 8.0 */\n  animation: mymove 10s infinite; }\n\n/* Safari 4.0 - 8.0 */\n@-webkit-keyframes mymove {\n  0% {\n    top: 0px; }\n  25% {\n    top: 80px; }\n  75% {\n    top: 50px; }\n  100% {\n    top: 100px; } }\n\n/* Standard syntax */\n@keyframes mymove {\n  100% {\n    top: 10px; }\n  75% {\n    top: 30px; }\n  25% {\n    top: 60px; }\n  0% {\n    top: 10px; } }\n", ""]);
+exports.push([module.i, ".head {\n  background-color: black;\n  background-image: url(\"https://images.unsplash.com/photo-1485646485012-f09e6a19d9c4?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  color: white;\n  height: 100vh;\n  width: 100%; }\n\n.head img {\n  position: relative;\n  height: 27vh; }\n\ndiv.content {\n  text-align: center;\n  align-items: center;\n  height: 100vh;\n  margin-left: 2%; }\n\nh3.subQuote {\n  font-size: 2em;\n  text-shadow: 5px 10px 30px white, 5px 10px 80px white, 5px 10px 80px white;\n  font-family: 'Indie Flower', cursive;\n  margin-top: 13vh;\n  margin-bottom: 8vh;\n  color: black;\n  text-align: center; }\n\nh1.quote {\n  font-size: 2.8em;\n  text-shadow: 1px 5px 100px white, 1px 3px 100px white;\n  font-family: 'Indie Flower', cursive;\n  position: relative;\n  color: black;\n  text-align: center;\n  -webkit-animation: mymove 10s infinite;\n  /* Safari 4.0 - 8.0 */\n  animation: mymove 10s infinite; }\n\n/* Safari 4.0 - 8.0 */\n@-webkit-keyframes mymove {\n  0% {\n    top: 0px; }\n  25% {\n    top: 30px; }\n  75% {\n    top: 50px; }\n  100% {\n    top: 100px; } }\n\n/* Standard syntax */\n@keyframes mymove {\n  100% {\n    top: 10px; }\n  75% {\n    top: 30px; }\n  25% {\n    top: 60px; }\n  0% {\n    top: 10px; } }\n", ""]);
 
 // exports
 
@@ -66784,6 +66808,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _semanticUiReact = __webpack_require__(32);
 
+var _reactRouter = __webpack_require__(229);
+
 __webpack_require__(797);
 
 var _Menu = __webpack_require__(63);
@@ -66794,17 +66820,25 @@ var _Footer = __webpack_require__(414);
 
 var _Footer2 = _interopRequireDefault(_Footer);
 
+var _tripodLogo = __webpack_require__(412);
+
+var _tripodLogo2 = _interopRequireDefault(_tripodLogo);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Feature = function Feature() {
   return _react2.default.createElement(
     'div',
     { className: 'featureBox' },
-    _react2.default.createElement(_Menu2.default, null),
     _react2.default.createElement(
       'p',
       { className: 'crewText' },
       'FEATURES'
+    ),
+    _react2.default.createElement(
+      _reactRouter.Link,
+      { to: '/activity' },
+      _react2.default.createElement('img', { src: _tripodLogo2.default, position: 'right' })
     ),
     _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
     _react2.default.createElement(
@@ -67048,7 +67082,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, ".featureBox {\n  background-color: grey;\n  background-size: cover;\n  width: 100%; }\n\np.featureText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-top: 1%;\n  margin-left: 2%;\n  padding: 1.5%; }\n\nimg.phone {\n  width: 90%;\n  height: auto;\n  position: absolute;\n  margin-top: 30%;\n  box-shadow: 0px 0px 45px white;\n  border-radius: 10px;\n  margin-bottom: 15%;\n  margin-left: 1.5%; }\n\ndiv.space {\n  margin-top: 50%; }\n\ndiv.space2 {\n  margin-top: 20%; }\n\ndiv.space3 {\n  margin-top: 30%; }\n\nli {\n  list-style: none; }\n\nh4 {\n  line-height: 3em; }\n\np.tripod {\n  top: 95%;\n  left: 42%;\n  position: relative;\n  font-family: 'pacifico', cursive;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white;\n  /*color: black;*/ }\n\nh1.topic, h2.topic {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white; }\n", ""]);
+exports.push([module.i, ".featureBox {\n  background-color: grey;\n  background-size: cover;\n  width: 100%;\n  text-align: center; }\n\np.featureText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-top: 1%;\n  margin-left: 2%;\n  padding: 1.5%; }\n\nimg.tripod {\n  width: 20vh; }\n\nimg.phone {\n  width: 90%;\n  height: auto;\n  position: absolute;\n  margin-top: 30%;\n  box-shadow: 0px 0px 45px white;\n  border-radius: 10px;\n  margin-bottom: 15%;\n  margin-left: 1.5%; }\n\ndiv.space {\n  margin-top: 50%; }\n\ndiv.space2 {\n  margin-top: 20%; }\n\ndiv.space3 {\n  margin-top: 30%; }\n\nli {\n  list-style: none; }\n\nh4 {\n  line-height: 3em; }\n\np.tripod {\n  top: 95%;\n  left: 42%;\n  position: relative;\n  font-family: 'pacifico', cursive;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white;\n  /*color: black;*/ }\n\nh1.topic, h2.topic {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white; }\n", ""]);
 
 // exports
 
@@ -67109,6 +67143,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
@@ -67121,25 +67157,32 @@ var _user = __webpack_require__(413);
 
 var _user2 = _interopRequireDefault(_user);
 
-var _Menu = __webpack_require__(63);
+var _tripodLogo = __webpack_require__(412);
 
-var _Menu2 = _interopRequireDefault(_Menu);
+var _tripodLogo2 = _interopRequireDefault(_tripodLogo);
 
-var _Footer = __webpack_require__(414);
-
-var _Footer2 = _interopRequireDefault(_Footer);
+var _reactRouter = __webpack_require__(229);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// import Menu from '../Menu/Menu'
+// import Footer from '../Footer/Footer'
 
 var Crew = function Crew() {
   return _react2.default.createElement(
     _semanticUiReact.Container,
     { fluid: true, className: 'crewBox' },
-    _react2.default.createElement(_Menu2.default, null),
+    _react2.default.createElement(_semanticUiReact.Responsive, _extends({}, _semanticUiReact.Responsive.onlyMobile, _semanticUiReact.Responsive.onlyTablet, _semanticUiReact.Responsive.onlyComputer, _semanticUiReact.Responsive.onlyLargeScreen, _semanticUiReact.Responsive.onlyWidescreen, {
+      as: _semanticUiReact.Segment })),
     _react2.default.createElement(
       'p',
       { className: 'crewText' },
       'OUR TEAM'
+    ),
+    _react2.default.createElement(
+      _reactRouter.Link,
+      { to: '/activity' },
+      _react2.default.createElement('img', { src: _tripodLogo2.default })
     ),
     _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
     _react2.default.createElement(
@@ -67151,43 +67194,7 @@ var Crew = function Crew() {
         _react2.default.createElement(
           _semanticUiReact.Grid.Row,
           null,
-          _react2.default.createElement(
-            _semanticUiReact.Grid.Column,
-            null,
-            _react2.default.createElement(
-              _semanticUiReact.Header,
-              { as: 'h1' },
-              _react2.default.createElement(
-                'ul',
-                null,
-                _react2.default.createElement(
-                  'li',
-                  { className: 'first-text' },
-                  'we are designers'
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'second-text' },
-                  'we are thinkers'
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'third-text' },
-                  'we are learners'
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'fourth-text' },
-                  'we are creators'
-                ),
-                _react2.default.createElement(
-                  'li',
-                  { className: 'last-text' },
-                  'MEET THE CREW'
-                )
-              )
-            )
-          ),
+          _react2.default.createElement(_semanticUiReact.Grid.Column, null),
           _react2.default.createElement(
             _semanticUiReact.Grid.Column,
             null,
@@ -67195,14 +67202,14 @@ var Crew = function Crew() {
               _semanticUiReact.Card.Group,
               { itemsPerRow: 2 },
               _react2.default.createElement(_semanticUiReact.Card, {
-                href: 'http://google.com', target: '_blank',
-                header: 'Kamoltip Cardenas',
-                className: 'air',
+                href: 'http://google.com', target: '_blank'
+                // header='Kamoltip Cardenas'
+                , className: 'air',
                 raised: true, image: _user2.default }),
               _react2.default.createElement(_semanticUiReact.Card, {
-                href: 'http://google.com', target: '_blank',
-                header: 'Jeff Liifpert',
-                className: 'jeff',
+                href: 'http://google.com', target: '_blank'
+                // header='Jeff Liifpert'
+                , className: 'jeff',
                 raised: true, image: _user2.default })
             )
           )
@@ -67226,14 +67233,76 @@ var Crew = function Crew() {
               _semanticUiReact.Card.Group,
               { itemsPerRow: 2 },
               _react2.default.createElement(_semanticUiReact.Card, {
-                href: 'http://google.com', target: '_blank',
-                header: 'Nelum',
-                className: 'nelum',
+                href: 'http://google.com', target: '_blank'
+                // header='Nelum'
+                , className: 'nelum',
                 raised: true, image: _user2.default }),
               _react2.default.createElement(_semanticUiReact.Card, {
-                href: 'http://google.com', target: '_blank',
-                header: 'Ben',
-                className: 'ben',
+                href: 'http://google.com', target: '_blank'
+                // header='Ben'
+                , className: 'ben',
+                raised: true, image: _user2.default })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.Grid.Row,
+          null,
+          _react2.default.createElement(
+            _semanticUiReact.Grid.Column,
+            null,
+            _react2.default.createElement(
+              'h1',
+              { className: 'fifth-text' },
+              'WE ARE DEVELOPERS'
+            )
+          ),
+          _react2.default.createElement(
+            _semanticUiReact.Grid.Column,
+            null,
+            _react2.default.createElement(
+              _semanticUiReact.Card.Group,
+              { itemsPerRow: 2 },
+              _react2.default.createElement(_semanticUiReact.Card, {
+                href: 'http://google.com', target: '_blank'
+                // header='Nelum'
+                , className: 'nelum',
+                raised: true, image: _user2.default }),
+              _react2.default.createElement(_semanticUiReact.Card, {
+                href: 'http://google.com', target: '_blank'
+                // header='Ben'
+                , className: 'ben',
+                raised: true, image: _user2.default })
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _semanticUiReact.Grid.Row,
+          null,
+          _react2.default.createElement(
+            _semanticUiReact.Grid.Column,
+            null,
+            _react2.default.createElement(
+              'h1',
+              { className: 'fifth-text' },
+              'WE ARE DEVELOPERS'
+            )
+          ),
+          _react2.default.createElement(
+            _semanticUiReact.Grid.Column,
+            null,
+            _react2.default.createElement(
+              _semanticUiReact.Card.Group,
+              { itemsPerRow: 2 },
+              _react2.default.createElement(_semanticUiReact.Card, {
+                href: 'http://google.com', target: '_blank'
+                // header='Nelum'
+                , className: 'nelum',
+                raised: true, image: _user2.default }),
+              _react2.default.createElement(_semanticUiReact.Card, {
+                href: 'http://google.com', target: '_blank'
+                // header='Ben'
+                , className: 'ben',
                 raised: true, image: _user2.default })
             )
           )
@@ -67243,11 +67312,7 @@ var Crew = function Crew() {
     _react2.default.createElement(
       _semanticUiReact.Grid,
       { column: 1 },
-      _react2.default.createElement(
-        _semanticUiReact.Grid.Column,
-        null,
-        _react2.default.createElement(_Footer2.default, null)
-      )
+      _react2.default.createElement(_semanticUiReact.Grid.Column, null)
     )
   );
 };
@@ -67293,7 +67358,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, ".crewBox {\n  text-align: center;\n  background-image: url(\"https://images.unsplash.com/photo-1504036764568-17ae585d4619?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  background-repeat: no-repeat; }\n\np.crewText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-top: 1%;\n  margin-left: 2%;\n  padding: 1.5%;\n  text-align: left;\n  align-items: center; }\n\nli {\n  list-style: none;\n  line-height: 1em; }\n\na.ui.raised.card {\n  box-shadow: 1px 1px 20px white; }\n\n@keyframes topFadeOut {\n  0% {\n    position: absolute;\n    top: -3rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    top: 25%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes bottomFadeOut {\n  0% {\n    position: absolute;\n    bottom: 2rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    bottom: 25%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes topFadeOutVertical {\n  0% {\n    position: absolute;\n    top: 3rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    top: 45%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes rightFadeInOut {\n  0% {\n    position: absolute;\n    right: 1rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    right: 10rem;\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 10rem; } }\n\n@keyframes fadeInOut {\n  0% {\n    opacity: 0; }\n  45% {\n    opacity: 1; }\n  100% {\n    opacity: 0%; } }\n\n.first-text {\n  font-size: 4.4rem;\n  position: absolute;\n  left: 2.5rem;\n  top: 6rem;\n  opacity: 0;\n  animation-name: topFadeOut;\n  animation-duration: 5s;\n  color: white; }\n\n.second-text {\n  font-size: 3.5rem;\n  position: absolute;\n  top: 13rem;\n  opacity: 0;\n  animation-name: rightFadeInOut;\n  animation-delay: 3s;\n  animation-duration: 6s;\n  color: #b6fcb6; }\n\n.third-text {\n  /*transform: rotate(-90deg);*/\n  font-size: 4.5rem;\n  position: absolute;\n  left: 0.5%;\n  top: 45%;\n  opacity: 0;\n  animation-name: topFadeOutVertical;\n  animation-delay: 7s;\n  animation-duration: 6s;\n  color: #856363;\n  white-space: nowrap; }\n\n.fourth-text {\n  font-size: 3.5rem;\n  position: absolute;\n  top: 13rem;\n  left: 1%;\n  opacity: 0;\n  color: grey;\n  animation-name: fadeInOut;\n  animation-delay: 8s;\n  animation-duration: 7s; }\n\n.fifth-text {\n  font-size: 5rem;\n  position: absolute;\n  left: 5%;\n  bottom: 35%;\n  opacity: 0;\n  color: white;\n  animation-name: bottomFadeOut;\n  animation-delay: 11.5s;\n  animation-duration: 10s; }\n\n.last-text {\n  font-size: 5rem;\n  position: absolute;\n  left: 0rem;\n  top: 15rem;\n  opacity: 0;\n  animation-name: topFadeOut;\n  animation-delay: 11s;\n  animation-duration: 15s;\n  color: #e1b941; }\n\n.air:hover {\n  content: url(\"https://media.giphy.com/media/MgX8LzWrA6dgY/giphy.gif\");\n  width: auto; }\n\n.jeff:hover {\n  content: url(\"https://media1.giphy.com/media/5ntdy5Ban1dIY/200.webp#16-grid1\");\n  width: auto; }\n\n.nelum:hover {\n  content: url(\"https://media0.giphy.com/media/3oEduLvxnhDsh83j3O/200.webp#39-grid1\");\n  width: auto; }\n\n.ben:hover {\n  content: url(\"https://media0.giphy.com/media/vuzsbbTZVrWnK/200w.webp#80-grid1\");\n  width: auto; }\n", ""]);
+exports.push([module.i, "body {\n  background-color: black;\n  box-sizing: border-box;\n  padding: 0%;\n  margin: 0%; }\n\n.crewBox {\n  text-align: center;\n  background-image: url(\"https://images.unsplash.com/photo-1504036764568-17ae585d4619?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  width: 100vh;\n  height: 106vh; }\n\nimg.tripod {\n  width: 20vh; }\n\np.crewText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-top: 1%;\n  margin-left: 2%;\n  padding: 1.5%;\n  text-align: left;\n  align-items: center; }\n\nli {\n  list-style: none;\n  line-height: 1em; }\n\na.ui.raised.card {\n  box-shadow: 1px 1px 20px white; }\n\n@keyframes topFadeOut {\n  0% {\n    position: absolute;\n    top: -3rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    top: 25%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes bottomFadeOut {\n  0% {\n    position: absolute;\n    bottom: 2rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    bottom: 25%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes topFadeOutVertical {\n  0% {\n    position: absolute;\n    top: 3rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    top: 45%;\n    opacity: 1; }\n  100% {\n    opacity: 0; } }\n\n@keyframes rightFadeInOut {\n  0% {\n    position: absolute;\n    right: 1rem;\n    opacity: 0; }\n  75% {\n    position: absolute;\n    right: 10rem;\n    opacity: 1; }\n  100% {\n    opacity: 0;\n    right: 10rem; } }\n\n@keyframes fadeInOut {\n  0% {\n    opacity: 0; }\n  45% {\n    opacity: 1; }\n  100% {\n    opacity: 0%; } }\n\n.first-text {\n  font-size: 4.4rem;\n  position: absolute;\n  left: 2.5rem;\n  top: 6rem;\n  opacity: 0;\n  animation-name: topFadeOut;\n  animation-duration: 5s;\n  color: white; }\n\n.second-text {\n  font-size: 3.5rem;\n  position: absolute;\n  top: 13rem;\n  opacity: 0;\n  animation-name: rightFadeInOut;\n  animation-delay: 3s;\n  animation-duration: 6s;\n  color: #b6fcb6; }\n\n.third-text {\n  /*transform: rotate(-90deg);*/\n  font-size: 4.5rem;\n  position: absolute;\n  left: 0.5%;\n  top: 45%;\n  opacity: 0;\n  animation-name: topFadeOutVertical;\n  animation-delay: 7s;\n  animation-duration: 6s;\n  color: #856363;\n  white-space: nowrap; }\n\n.fourth-text {\n  font-size: 3.5rem;\n  position: absolute;\n  top: 13rem;\n  left: 1%;\n  opacity: 0;\n  color: grey;\n  animation-name: fadeInOut;\n  animation-delay: 8s;\n  animation-duration: 7s; }\n\n.fifth-text {\n  font-size: 5rem;\n  position: absolute;\n  left: 5%;\n  bottom: 35%;\n  opacity: 0;\n  color: white;\n  animation-name: bottomFadeOut;\n  animation-delay: 11.5s;\n  animation-duration: 10s; }\n\n.last-text {\n  font-size: 5rem;\n  position: absolute;\n  left: 0rem;\n  top: 15rem;\n  opacity: 0;\n  animation-name: topFadeOut;\n  animation-delay: 11s;\n  animation-duration: 15s;\n  color: #e1b941; }\n\n.air:hover {\n  content: url(\"https://media.giphy.com/media/MgX8LzWrA6dgY/giphy.gif\");\n  width: auto; }\n\n.jeff:hover {\n  content: url(\"https://media1.giphy.com/media/5ntdy5Ban1dIY/200.webp#16-grid1\");\n  width: auto; }\n\n.nelum:hover {\n  content: url(\"https://media0.giphy.com/media/3oEduLvxnhDsh83j3O/200.webp#39-grid1\");\n  width: auto; }\n\n.ben:hover {\n  content: url(\"https://media0.giphy.com/media/vuzsbbTZVrWnK/200w.webp#80-grid1\");\n  width: auto; }\n", ""]);
 
 // exports
 
@@ -67309,17 +67374,28 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+// import Menu from '../Menu/Menu';
+// import Footer from '../Footer/Footer'
+
+
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
 __webpack_require__(805);
 
+var _reactRouter = __webpack_require__(229);
+
+var _user = __webpack_require__(413);
+
+var _user2 = _interopRequireDefault(_user);
+
+var _tripodLogo = __webpack_require__(412);
+
+var _tripodLogo2 = _interopRequireDefault(_tripodLogo);
+
 var _semanticUiReact = __webpack_require__(32);
-
-var _Menu = __webpack_require__(63);
-
-var _Menu2 = _interopRequireDefault(_Menu);
 
 var _Capture = __webpack_require__(807);
 
@@ -67331,33 +67407,180 @@ var Activity = function Activity() {
   return _react2.default.createElement(
     'div',
     { className: 'activityDiv' },
-    _react2.default.createElement(_Menu2.default, null),
+    _react2.default.createElement(_semanticUiReact.Responsive, _extends({}, _semanticUiReact.Responsive.onlyMobile, _semanticUiReact.Responsive.onlyTablet, _semanticUiReact.Responsive.onlyComputer, _semanticUiReact.Responsive.onlyLargeScreen, _semanticUiReact.Responsive.onlyWidescreen, {
+      as: _user2.default })),
+    _react2.default.createElement('p', { className: 'actText' }),
     _react2.default.createElement(
-      'p',
-      { className: 'actText' },
-      'ACTIVITIES'
+      'div',
+      { className: 'logoPad' },
+      _react2.default.createElement('img', { className: 'logo', position: 'left', src: _tripodLogo2.default })
     ),
     _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
     _react2.default.createElement(
       _semanticUiReact.Container,
-      { className: 'ActivityBox' },
+      { className: 'activityBox' },
       _react2.default.createElement(
-        _semanticUiReact.Grid,
-        { columns: 'three', divided: true },
+        'div',
+        { className: 'buttonDiv' },
         _react2.default.createElement(
-          _semanticUiReact.Grid.Row,
+          _semanticUiReact.Button,
+          { fluid: true, secondary: true },
+          _react2.default.createElement(
+            _semanticUiReact.Grid,
+            { columns: 'one' },
+            _react2.default.createElement(
+              _semanticUiReact.Grid.Row,
+              null,
+              _react2.default.createElement(
+                _semanticUiReact.Grid.Column,
+                null,
+                _react2.default.createElement(
+                  _reactRouter.Link,
+                  { to: '' },
+                  _react2.default.createElement(_Capture2.default, null)
+                )
+              )
+            )
+          )
+        ),
+        _react2.default.createElement(
+          'div',
           null,
           _react2.default.createElement(
-            _semanticUiReact.Grid.Column,
+            _semanticUiReact.Button,
+            { fluid: true, secondary: true },
+            _react2.default.createElement(
+              _semanticUiReact.Grid,
+              { columns: 'one' },
+              _react2.default.createElement(
+                _semanticUiReact.Grid.Row,
+                null,
+                _react2.default.createElement(
+                  _semanticUiReact.Grid.Column,
+                  null,
+                  _react2.default.createElement(
+                    _reactRouter.Link,
+                    { to: '' },
+                    _react2.default.createElement(_semanticUiReact.Icon, { name: 'search', size: 'massive', color: 'skyblue', className: 'search' })
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
             null,
-            _react2.default.createElement(_Capture2.default, null)
+            _react2.default.createElement(
+              'div',
+              null,
+              _react2.default.createElement(
+                _semanticUiReact.Button,
+                { fluid: true, secondary: true },
+                _react2.default.createElement(
+                  _semanticUiReact.Grid,
+                  { columns: 'one' },
+                  _react2.default.createElement(
+                    _semanticUiReact.Grid.Row,
+                    null,
+                    _react2.default.createElement(
+                      _semanticUiReact.Grid.Column,
+                      null,
+                      _react2.default.createElement(
+                        _reactRouter.Link,
+                        { to: '/crew' },
+                        _react2.default.createElement(
+                          _semanticUiReact.Container,
+                          { fluid: true, className: 'ninja' },
+                          _react2.default.createElement('img', { size: 'small', color: 'lavender', className: 'crew', src: 'https://cdn4.iconfinder.com/data/icons/user-avatar-flat-icons/512/User_Avatar-31-512.png', alt: 'crew' })
+                        )
+                      )
+                    )
+                  )
+                )
+              ),
+              _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                  _semanticUiReact.Button,
+                  { fluid: true, secondary: true },
+                  _react2.default.createElement(
+                    _semanticUiReact.Grid,
+                    { columns: 'one' },
+                    _react2.default.createElement(
+                      _semanticUiReact.Grid.Row,
+                      null,
+                      _react2.default.createElement(
+                        _semanticUiReact.Grid.Column,
+                        null,
+                        _react2.default.createElement(
+                          _reactRouter.Link,
+                          { to: '/home' },
+                          _react2.default.createElement(_semanticUiReact.Icon, { name: 'home', size: 'massive', color: 'red', className: 'logoutButton' })
+                        )
+                      )
+                    )
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  null,
+                  _react2.default.createElement(
+                    _semanticUiReact.Button,
+                    { fluid: true, secondary: true },
+                    _react2.default.createElement(
+                      _semanticUiReact.Grid,
+                      { columns: 'one' },
+                      _react2.default.createElement(
+                        _semanticUiReact.Grid.Row,
+                        null,
+                        _react2.default.createElement(
+                          _semanticUiReact.Grid.Column,
+                          null,
+                          _react2.default.createElement(
+                            _reactRouter.Link,
+                            { to: '/feature' },
+                            _react2.default.createElement(_semanticUiReact.Icon, { name: 'info', size: 'massive', color: 'orange', className: 'feature' })
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement(
+                      _semanticUiReact.Button,
+                      { fluid: true, secondary: true },
+                      _react2.default.createElement(
+                        _semanticUiReact.Grid,
+                        { columns: 'one' },
+                        _react2.default.createElement(
+                          _semanticUiReact.Grid.Row,
+                          null,
+                          _react2.default.createElement(
+                            _semanticUiReact.Grid.Column,
+                            null,
+                            _react2.default.createElement(
+                              _reactRouter.Link,
+                              { to: '/signupForm' },
+                              _react2.default.createElement(_semanticUiReact.Icon, { name: 'log out', size: 'massive', color: 'purple', className: 'logout' })
+                            )
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+              )
+            )
           )
         )
       )
     )
   );
 };
-// import Footer from '../Footer/Footer'
+
 exports.default = Activity;
 
 {/* <div className='fileDiv'>
@@ -67365,7 +67588,8 @@ exports.default = Activity;
    <div>
      <Button fluid size='big' color='white' content='camera' icon='camera' labelPosition='right' />
    </div>
-  </div> */}
+  </div> */
+}
 
 /***/ }),
 /* 805 */
@@ -67407,7 +67631,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "div.fileDiv {\n  text-align: center; }\n\n.activityDiv {\n  background-image: url(\"https://images.unsplash.com/photo-1489269210681-663aefbb16fb?dpr=1&auto=compress,format&fit=crop&w=2552&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  height: 100vh; }\n\n.footerDiv2 {\n  margin-bottom: 60vh; }\n\ndiv.column.forFooter {\n  bottom: 0;\n  position: absolute; }\n\np.actText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-top: 1%;\n  margin-left: 2%;\n  padding: 1.5%; }\n", ""]);
+exports.push([module.i, "div.fileDiv {\n  text-align: center; }\n\n.activityDiv {\n  background-image: url(\"https://images.unsplash.com/photo-1463171515643-952cee54d42a?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=\");\n  background-size: cover;\n  height: 100vh;\n  width: auto;\n  text-align: center; }\n\n.footerDiv2 {\n  margin-bottom: 60vh; }\n\ndiv.column.forFooter {\n  bottom: 0;\n  position: absolute; }\n\np.actText {\n  color: white;\n  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;\n  font-size: 2.5em;\n  margin-left: 2%;\n  padding: 1.5%; }\n\ndiv.buttonDiv {\n  opacity: 0.7; }\n\ni.photo.huge.icon {\n  font-size: 6.8em; }\n\nimg.crew {\n  width: 25%; }\n\ndiv.logoPad {\n  position: relative;\n  width: 100%;\n  height: 30%;\n  padding: 3%; }\n\nimg.tripod {\n  width: 20vh; }\n", ""]);
 
 // exports
 
@@ -67499,7 +67723,7 @@ var Capture = function (_React$Component) {
             _react2.default.createElement(
               'span',
               { style: style.photoIcon },
-              _react2.default.createElement(_semanticUiReact.Icon, { name: 'photo', size: 'massive' })
+              _react2.default.createElement(_semanticUiReact.Icon, { name: 'photo', size: 'huge', color: 'green' })
             ),
             _react2.default.createElement('input', { type: 'file',
               name: 'image',
@@ -67525,9 +67749,6 @@ var Capture = function (_React$Component) {
 }(_react2.default.Component);
 
 var style = {
-  icon: {
-    height: '100%'
-  },
   photoIcon: {
     color: 'white'
   },

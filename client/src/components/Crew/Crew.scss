@@ -1,11 +1,20 @@
 
+body{
+    background-color: black;
+    box-sizing: border-box;
+    padding: 0%;
+    margin:0%;
+}
 .crewBox{
   text-align: center;
-  // background-color: black;
   background-image: url('https://images.unsplash.com/photo-1504036764568-17ae585d4619?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=
 ');
   background-size: cover;
-  background-repeat: no-repeat;
+  width: 100vh;
+  height: 106vh;
+}
+img.tripod{
+  width: 20vh;
 }
 p.crewText{
   color: white;
