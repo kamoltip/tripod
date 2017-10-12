@@ -23,7 +23,7 @@ class Capture extends React.Component {
     })
     .then(res => console.log("details Saved"))
     .catch(err => console.log(err));
-  }
+  };
 
   takePicture(event) {
     const file = event.target.files[0];
@@ -42,7 +42,7 @@ class Capture extends React.Component {
     this.img.src = windowURL.createObjectURL(file[0]);
     this.img.onload = () => { URL.revokeObjectURL(this.src); }
     }
-  }
+  };
 
 
   render() {

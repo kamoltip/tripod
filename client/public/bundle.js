@@ -67603,7 +67603,7 @@ exports.default = {
 			sheaders: { "X-Requested-With": "XMLHttpRequest" }
 		});
 	},
-
+	// Save in Mongo
 	savePicDetails: function savePicDetails(details) {
 		console.log("Save Mongo : " + details);
 		return _axios2.default.post("/api/activity", { details: details });
