@@ -8,14 +8,17 @@ import {
   Divider,
   Segment
 } from 'semantic-ui-react';
+import {Link} from 'react-router';
 import './Feature.scss';
 import Menu from '../Menu/Menu';
 import Footer from '../Footer/Footer';
+import tripod from '../../asset/images/tripod-logo.png'
 
 const Feature = () => (
   <div className='featureBox'>
-    <Menu/>
+    {/* <Menu/> */}
     <p className='crewText'>FEATURES</p>
+    <Link to = '/activity'><img src={tripod} position='right'/></Link>
 
     <Divider section/>
     <Grid columns={3} divided>

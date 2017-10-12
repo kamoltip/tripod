@@ -1,21 +1,31 @@
 import React from 'react'
 import './Crew.scss'
-import { Image, Button, Icon, Grid, Card, Divider, Container, Label, Segment, Header } from 'semantic-ui-react'
+import { Image, Button, Icon, Grid, Card, Divider, Container, Label, Segment, Header, Responsive } from 'semantic-ui-react'
 import user from '../../asset/images/user.png'
-import Menu from '../Menu/Menu'
-import Footer from '../Footer/Footer'
+import tripod from '../../asset/images/tripod-logo.png'
+import {Link} from 'react-router'
+// import Menu from '../Menu/Menu'
+// import Footer from '../Footer/Footer'
 
 const Crew = () => (
 <Container fluid className='crewBox'>
-<Menu />
+  <Responsive
+            {...Responsive.onlyMobile}
+            {...Responsive.onlyTablet}
+            {...Responsive.onlyComputer}
+            {...Responsive.onlyLargeScreen}
+            {...Responsive.onlyWidescreen}
+             as = {Segment} />
+{/* <Menu /> */}
 <p className='crewText'>OUR TEAM</p>
+<Link to = '/activity'><img src={tripod}/></Link>
 
 <Divider section/>
   <Container className='container'>
   <Grid columns='two' divided>
     <Grid.Row>
       <Grid.Column>
-        <Header as='h1'>
+{/* <Header as='h1'>
           <ul>
             <li className='first-text'>we are designers</li>
             <li className='second-text'>we are thinkers</li>
@@ -23,20 +33,21 @@ const Crew = () => (
             <li className='fourth-text'>we are creators</li>
             <li className='last-text'>MEET THE CREW</li>
           </ul>
-        </Header>
+        </Header> */
+}
       </Grid.Column>
 
       <Grid.Column>
         <Card.Group itemsPerRow={2}>
           <Card
             href='http://google.com' target='_blank'
-            header='Kamoltip Cardenas'
+            // header='Kamoltip Cardenas'
             className='air'
             raised image={user}/>
 
           <Card
             href='http://google.com' target='_blank'
-            header='Jeff Liifpert'
+            // header='Jeff Liifpert'
             className='jeff'
             raised image={user} />
         </Card.Group>
@@ -51,12 +62,52 @@ const Crew = () => (
         <Card.Group itemsPerRow={2}>
           <Card
             href='http://google.com' target='_blank'
-            header='Nelum'
+            // header='Nelum'
             className='nelum'
             raised image={user}/>
           <Card
             href='http://google.com' target='_blank'
-            header='Ben'
+            // header='Ben'
+            className='ben'
+            raised image={user} />
+        </Card.Group>
+      </Grid.Column>
+    </Grid.Row>
+
+    <Grid.Row>
+      <Grid.Column>
+          <h1 className='fifth-text'>WE ARE DEVELOPERS</h1>
+      </Grid.Column>
+      <Grid.Column>
+        <Card.Group itemsPerRow={2}>
+          <Card
+            href='http://google.com' target='_blank'
+            // header='Nelum'
+            className='nelum'
+            raised image={user}/>
+          <Card
+            href='http://google.com' target='_blank'
+            // header='Ben'
+            className='ben'
+            raised image={user} />
+        </Card.Group>
+      </Grid.Column>
+    </Grid.Row>
+
+    <Grid.Row>
+      <Grid.Column>
+          <h1 className='fifth-text'>WE ARE DEVELOPERS</h1>
+      </Grid.Column>
+      <Grid.Column>
+        <Card.Group itemsPerRow={2}>
+          <Card
+            href='http://google.com' target='_blank'
+            // header='Nelum'
+            className='nelum'
+            raised image={user}/>
+          <Card
+            href='http://google.com' target='_blank'
+            // header='Ben'
             className='ben'
             raised image={user} />
         </Card.Group>
@@ -66,7 +117,7 @@ const Crew = () => (
 </Container>
 <Grid column={1}>
   <Grid.Column>
-    <Footer/>
+    {/* <Footer/> */}
   </Grid.Column>
 </Grid>
 </Container>

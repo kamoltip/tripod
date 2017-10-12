@@ -5,10 +5,7 @@ import Menu from '../Menu/Menu'
 
 const LoginForm = () => (
 <div>
-  <Menu />
-  <Container>
-    <h1>i am LOG in form page</h1>
-  </Container>
+
 </div>
 )
 

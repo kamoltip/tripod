@@ -39,7 +39,7 @@ class Capture extends React.Component {
       <div style={style.container}>
         <form encType="multipart/form-data">
           <label htmlFor="upload">
-            <span style={style.photoIcon}><Icon name='photo' size='massive' /></span>
+            <span style={style.photoIcon}><Icon name='photo' size='huge' color='green'/></span>
             <input type="file"
               name="image"
               id="upload"
@@ -62,9 +62,6 @@ class Capture extends React.Component {
 }
 
 const style = {
-  icon: {
-    height: '100%'
-  },
   photoIcon: {
     color: 'white',
   },
