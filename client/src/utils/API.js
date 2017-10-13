@@ -1,3 +1,4 @@
+
 import axios from "axios";
 
 // Cloudinary help files
@@ -23,10 +24,30 @@ export default {
       });
 	},
 
-	savePicDetails: function( details ) {
-	  console.log("Save Mongo : " + details);
-	  return axios.post("/api/activity", { details });
+	getPicDetails: function(){
+		return axios.get("/activity/api/savePic")
+			.then(function(res){
+				console.log("axios resutls",res);
+				return res;
+			});
+	},
+
+	// Save in Mongo
+	savePicDetails: function( url,lat,long ) {
+	  var newPic = {pic_url: url, pic_latitude: lat, pic_longitude: long}
+	  console.log("Save Mongo : " + url);	  
+	  return axios.post("activity/api/savePic", newPic)
+	  	.then(function(res){
+	  		console.log("axios result" , response.data._id);
+	  		return res.data_id;
+	  		//return response.data._id;
+	  	})
 	}
+
+	// savePicDetails: function( details ) {
+	//   console.log("Save Mongo : " + details);
+	//   return axios.post("/api/activity", {details});
+	// }
 
 
 };

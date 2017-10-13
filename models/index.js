@@ -1,3 +1,3 @@
 module.exports = {
-  picDetails: require("./picDetails")
+  PicDetails: require("./picDetails")
 };
