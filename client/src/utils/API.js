@@ -33,14 +33,13 @@ export default {
 	},
 
 	// Save in Mongo
-	savePicDetails: function( url,lat,long ) {
-	  var newPic = {pic_url: url, pic_latitude: lat, pic_longitude: long}
+	savePicDetails: function( url, lat, long ) {
+	  var newPic = { pic_url: url, pic_latitude: lat, pic_longitude: long };
 	  console.log("Save Mongo : " + url);	  
-	  return axios.post("activity/api/savePic", newPic)
+	  return axios.post("/activity/api/savePic", newPic)
 	  	.then(function(res){
 	  		console.log("axios result" , response.data._id);
 	  		return res.data_id;
-	  		//return response.data._id;
 	  	})
 	}
 
