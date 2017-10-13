@@ -8,8 +8,8 @@ const picDetailsSchema = new Schema({
 	pic_description: String,
 	pic_latitude: String,
 	pic_longitude: String,
-	pic_date: {type: Date, default: Date.now },
-	pic_user_id: String
+	pic_user_id: String,
+	pic_date: {type: Date, default: Date.now }
 });
 
 const PicDetails = mongoose.model("PicDetails", picDetailsSchema);

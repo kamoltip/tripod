@@ -19,7 +19,7 @@ class Capture extends React.Component {
       pic_description: "not included", 
       pic_latitude: lat,
       pic_longitude: long,
-      pic_user_id: "not included",
+      pic_user_id: "not included"
     })
     .then(res => console.log("details Saved"))
     .catch(err => console.log(err));
@@ -44,13 +44,12 @@ class Capture extends React.Component {
     }
   };
 
-
   render() {
     return (
       <div style={style.container}>
         <form encType="multipart/form-data">
           <label htmlFor="upload">
-            <span style={style.photoIcon}><Icon name='photo' size='massive' /></span>
+            <span style={style.photoIcon}><Icon name='photo' size='huge' color='green'/></span>
             <input type="file"
               name="image"
               id="upload"
@@ -73,9 +72,6 @@ class Capture extends React.Component {
 }
 
 const style = {
-  icon: {
-    height: '100%'
-  },
   photoIcon: {
     color: 'white',
   },

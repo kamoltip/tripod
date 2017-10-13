@@ -25,7 +25,7 @@ export default {
 	// Save in Mongo
 	savePicDetails: function( details ) {
 	  console.log("Save Mongo : " + details);
-	  return axios.post("/api/activity", { details });
+	  return axios.post("/api/activity", {details});
 	}
 
 

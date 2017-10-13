@@ -31,7 +31,7 @@ export default class MenuExampleLabeledIcons extends Component {
       <Link to ='/activity'>
         <Menu.Item name='activity' active={activeItem === 'activity'} onClick={this.handleItemClick}>
           <Icon name='mixcloud' size='big'/>
-          Activity
+          Capture
         </Menu.Item>
       </Link>
           <Link to ='/feature'>
