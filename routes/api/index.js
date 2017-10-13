@@ -1,7 +1,7 @@
-const router = require("express").Router();
+// const router = require("express").Router();
 
-cost tripodRoutes = require("./tripodRoutes");
+// const tripodRoutes = require("./tripodRoutes");
 
-router.use("/activity",tripodRoutes);
+// router.use("/activity",tripodRoutes);
 
-module.exports = router;
+// module.exports = router;

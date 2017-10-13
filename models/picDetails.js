@@ -1,9 +1,9 @@
 
 const mongoose = require("mongoose");
-const Shema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const picDetailsSchema = new Schema({
-	pic_url: {type: String required: true },
+	pic_url: {type: String, required: true },
 	pic_title: String,
 	pic_description: String,
 	pic_latitude: String,
