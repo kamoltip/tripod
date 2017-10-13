@@ -13,12 +13,12 @@ const LandingPage = () => (
     <header className='head'>
       <div className='content'>
         <h1 className='quote'>
-          <img circular src={tripod}/>
+          <img src={tripod}/>
           <br/>
           Take On A New Experience
           <br/>
           Let The Moment Capture You</h1>
-        <h3 className='subQuote'>And See The World from Different "ANGLES"</h3>
+        <h3 className='subQuote'></h3>
 
           <Button className='login' size='large'>Login</Button>
 

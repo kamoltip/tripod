@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './Activity.scss'
-import {Link} from 'react-router';
+import {Link} from 'react-router'
 import crew from '../../asset/images/user.png'
 import tripod from '../../asset/images/tripod-logo.png'
 
@@ -48,7 +48,7 @@ const Activity = () => (
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
-                  <Link to=''><Icon name='search' size='massive' color='skyblue' className='search'/></Link>
+                  <Link to=''><Icon name='search' size='massive' color='blue' className='search'/></Link>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
