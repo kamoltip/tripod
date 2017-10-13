@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 
 
 const mongoose = require("mongoose");
-const PicDetails = require("./models");
+var PicDetails = require("./models/picDetails");
 
 // const routes = require("./routes");
 
@@ -39,7 +39,7 @@ app.use(express.static("client"));
 
 // ******************************************
 // Set up promises with mongoose and connect to Mongo with Mongoose
-// mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
 // mongoose.connect(
 //   process.env.MONGODB_URI || "mongodb://admin:tripod@ds117605.mlab.com:17605/heroku_r1s063tw",
@@ -59,7 +59,7 @@ db.once("open", function() {
 	console.log("Mongoose connection successful");
 });
 
-app.get("activity/api/savePic", function(req,res){
+app.get("/activity/api/savePic", function(req,res){
 	PicDetails.find({})
 	.exec(function(err,doc){
 		if(err) {
@@ -71,11 +71,15 @@ app.get("activity/api/savePic", function(req,res){
 	});
 });
 
-
-app.post("activity/api/savePic",function(req,res){
-	var newPicDetails = new PicDetails(req.body);	
+app.post("/activity/api/savePic", function(req,res){
+	var result = {}
+		result.pic_url = req.body.pic_url
+		result.pic_latitude = req.body.pic_latitude
+		result.pic_longitude = req.body.pic_longitude
+	
+	var newPic = new PicDetails(result);	
 	console.log("here......");
-	newPicDetails.save(function(err,doc){
+	newPic.save(function(err,doc){
 		if(err) {
 		console.log(err);
 	}
