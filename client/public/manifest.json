@@ -3,13 +3,13 @@
   "name": "Tripod  App",
   "icons": [
     {
-      "src": "tripod.ico",
-      "sizes": "32x32",
-      "type": "image/png/ico"
+      "src": "favicon2.ico",
+      "sizes": "200x200",
+      "type": "image/png"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "black"
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff"
 }

@@ -2,11 +2,14 @@ div.fileDiv{
   text-align: center;
 }
 .activityDiv{
-  background-image: url('https://images.unsplash.com/photo-1463171515643-952cee54d42a?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=');
+  background-image: url('https://images.unsplash.com/photo-1463171515643-952cee54d42a?dpr=1&auto=compress,format&fit=crop&w=2000&h=&q=80&cs=tinysrgb&crop=');
   background-size: cover;
-  height: 100vh;
+  height: 100%;
   width:auto;
   text-align: center;
+}
+i.purple.log.out.massive.icon.logout{
+  margin-bottom: 5%;
 }
 .footerDiv2{
   margin-bottom: 60vh;
@@ -19,7 +22,6 @@ p.actText{
   color: white;
   text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;
   font-size: 2.5em;
-  // margin-top: 5%;
   margin-left: 2%;
   padding: 1.5%;
 

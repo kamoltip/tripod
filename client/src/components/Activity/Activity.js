@@ -25,11 +25,11 @@ const Activity = () => (
                 {...Responsive.onlyComputer}
                 {...Responsive.onlyLargeScreen}
                 {...Responsive.onlyWidescreen}
-                as={crew}/>
-                {/* <Menu/> */}
+                as={Segment}/>
+
     <p className='actText'></p>
     <div className='logoPad'>
-    <img className='logo' position='left' src={tripod} />
+    <Link to = '/activity'><img className='logo' position='left' src={tripod} /></Link>
   </div>
     <Divider section/>
     <Container className='activityBox'>
@@ -48,7 +48,7 @@ const Activity = () => (
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
-                  <Link to=''><Icon name='search' size='massive' color='blue' className='search'/></Link>
+                  <Link to=''><Icon name='image' size='massive' color='blue' className='search'/></Link>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -89,7 +89,7 @@ const Activity = () => (
                       <Grid columns='one'>
                         <Grid.Row>
                           <Grid.Column>
-                            <Link to='/LoginForm'><Icon name='log out' size='massive' color='purple' className='logout'/></Link>
+                            <Link to='/user'><Icon name='log out' size='massive' color='purple' className='logout'/></Link>
                           </Grid.Column>
                         </Grid.Row>
                       </Grid>
