@@ -1,3 +1,4 @@
+
 import axios from "axios";
 
 // Cloudinary help files
@@ -10,7 +11,7 @@ export default {
 
 	//Cloudinary upload
 	postCloudinary: function( picData ) {
-	  console.log(picData.file.coords);	  
+	  console.log(picData.file.coords);
 	  const formData = new FormData();
 	  formData.append("file",picData.file);
 	  formData.append("tags", `codeinfuse, medium, gist`);
@@ -23,10 +24,29 @@ export default {
       });
 	},
 
-	savePicDetails: function( details ) {
-	  console.log("Save Mongo : " + details);
-	  return axios.post("/api/activity", { details });
+	getPicDetails: function(){
+		return axios.get("/activity/api/savePic")
+			.then(function(res){
+				console.log("axios resutls",res);
+				return res;
+			});
+	},
+
+	// Save in Mongo
+	savePicDetails: function( url, lat, long ) {
+	  var newPic = { pic_url: url, pic_latitude: lat, pic_longitude: long };
+	  console.log("Save Mongo : " + url);
+	  return axios.post("/activity/api/savePic", newPic)
+	  	.then(function(res){
+	  		console.log("axios result" , res.data._id);
+	  		return res.data_id;
+	  	})
 	}
+
+	// savePicDetails: function( details ) {
+	//   console.log("Save Mongo : " + details);
+	//   return axios.post("/api/activity", {details});
+	// }
 
 
 };

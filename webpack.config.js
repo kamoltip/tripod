@@ -17,7 +17,8 @@ module.exports = {
 				include:/client/,
 				loader:'babel-loader',
 				query:{
-					presets:['react', 'es2015']
+					presets:['react', 'es2015'],
+					compact: 'false'
 				}
 			},
 

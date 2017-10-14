@@ -24,11 +24,11 @@ const LoginForm = () => (
   				<p>or </p>
   				<hr className='hr'/>
   			</div>
-  		<Button color='facebook'>
+  		<Button color='white'>
   			<Icon name='facebook' />Facebook
   		</Button>
   			<br/>
-  		<Button color='google'>
+  		<Button color='white'>
   			<Icon name='google' />Google
   		</Button>
 
