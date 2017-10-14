@@ -1,32 +1,45 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-
-
 const mongoose = require("mongoose");
-const PicDetails = require("./models/picDetails");
-
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const routes = require("./routes");
+// const users = require('./routes/users') //may not need this!
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const path = require('path');
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: "application/vnd.api+json" }));
+app.use(cookieParser());
+app.use(require('express-session')({
+    secret: 'fighting whale',
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 // Serve up static assets
 app.use(express.static("./client/public"));
 // Add routes, both API and view
 app.use(routes);
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-  next();
-});
+const Account = require('./models/account');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+//   next();
+// });
 // app.get("/api", (req, res) => {
 //     res.json({username:'accimes'})
 // });
@@ -62,27 +75,6 @@ db.once("open", function() {
 // 		};
 // 	});
 // });
-//
-// app.post("/activity/api/savePic", function(req,res){
-// 	var result = {}
-// 		result.pic_url = req.body.pic_url
-// 		result.pic_latitude = req.body.pic_latitude
-// 		result.pic_longitude = req.body.pic_longitude
-//
-// 	var newPic = new PicDetails(result);
-// 	console.log("here......");
-// 	newPic.save(function(err,doc){
-// 		if(err) {
-// 		console.log(err);
-// 	}
-// 	else{
-// 		res.send(doc);
-// 	}
-// 	});
-// });
-
-
-
 
 // ******************************************
 
