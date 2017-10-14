@@ -13,16 +13,14 @@ const path = require('path');
 
 // Configure body parser for AJAX requests
 app.use(bodyParser.urlencoded({ extended: false }));
-
 app.use(bodyParser.json());
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Serve up static assets
 
 
 // Add routes, both API and view
 // app.use(routes);
-
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -31,7 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static("client"));
+app.use(express.static("./client/public/"));
 // app.get("/api", (req, res) => {
 //     res.json({username:'accimes'})
 // });
@@ -76,8 +74,8 @@ app.post("/activity/api/savePic", function(req,res){
 		result.pic_url = req.body.pic_url
 		result.pic_latitude = req.body.pic_latitude
 		result.pic_longitude = req.body.pic_longitude
-	
-	var newPic = new PicDetails(result);	
+
+	var newPic = new PicDetails(result);
 	console.log("here......");
 	newPic.save(function(err,doc){
 		if(err) {
@@ -86,7 +84,7 @@ app.post("/activity/api/savePic", function(req,res){
 	else{
 		res.send(doc);
 	}
-	});	
+	});
 });
 
 
@@ -95,7 +93,7 @@ app.post("/activity/api/savePic", function(req,res){
 // ******************************************
 
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "index.html"))
+    res.sendFile(path.join(__dirname, "./client/public/index.html"))
 });
 
 app.listen(PORT, function() {
