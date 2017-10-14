@@ -21,16 +21,16 @@ import Capture from '../Capture/Capture';
 const Activity = () => (
   <div className='activityDiv'>
     <Responsive {...Responsive.onlyMobile}
-                {...Responsive.onlyTablet}
-                {...Responsive.onlyComputer}
-                {...Responsive.onlyLargeScreen}
-                {...Responsive.onlyWidescreen}
-                as={crew}/>
-                {/* <Menu/> */}
+      {...Responsive.onlyTablet}
+      {...Responsive.onlyComputer}
+      {...Responsive.onlyLargeScreen}
+      {...Responsive.onlyWidescreen}
+      as={crew}/>
+    {/* <Menu/> */}
     <p className='actText'></p>
     <div className='logoPad'>
-    <img className='logo' position='left' src={tripod} />
-  </div>
+      <img className='logo' position='left' src={tripod} />
+    </div>
     <Divider section/>
     <Container className='activityBox'>
       <div className='buttonDiv'>
@@ -48,7 +48,7 @@ const Activity = () => (
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
-                  <Link to=''><Icon name='search' size='massive' color='skyblue' className='search'/></Link>
+                  <Link to=''><Icon name='search' size='massive' color='blue' className='search'/></Link>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

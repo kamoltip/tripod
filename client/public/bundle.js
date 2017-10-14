@@ -73266,7 +73266,7 @@ var Activity = function Activity() {
                   _react2.default.createElement(
                     _reactRouter.Link,
                     { to: '' },
-                    _react2.default.createElement(_semanticUiReact.Icon, { name: 'search', size: 'massive', color: 'skyblue', className: 'search' })
+                    _react2.default.createElement(_semanticUiReact.Icon, { name: 'search', size: 'massive', color: 'blue', className: 'search' })
                   )
                 )
               )
@@ -73499,7 +73499,6 @@ var Capture = function (_React$Component) {
   _createClass(Capture, [{
     key: 'saveMongoDb',
 
-
     // saveMongoDb(pic,lat,long){
     //   console.log("pic details : " + pic + "..... " + lat + "...." + long);
     //   API.savePicDetails({
@@ -73524,21 +73523,21 @@ var Capture = function (_React$Component) {
     value: function takePicture(event) {
       var _this2 = this;
 
-      var file = event.target.files[0];
+      var file = event.target.files;
       console.log(file);
-      _Location2.default.getLocation(function (coords) {
-        file.coords = coords;
-        _API2.default.postCloudinary({
-          file: file
-        }).then(function (res) {
-          return console.log(_this2.saveMongoDb(res.data.secure_url, file.coords.lat, file.coords.long));
-        }) //res.data.secure_url + "......" + file.coords.lat + "....." + file.coords.long)) 
-        .catch(function (err) {
-          return console.log(err);
-        });
-      });
-
       if (file.length > 0) {
+        _Location2.default.getLocation(function (coords) {
+          file[0].coords = coords;
+          _API2.default.postCloudinary({
+            file: file[0]
+          }).then(function (res) {
+            return console.log(_this2.saveMongoDb(res.data.secure_url, file[0].coords.lat, file[0].coords.long));
+          }) //res.data.secure_url + "......" + file.coords.lat + "....." + file.coords.long))
+          .catch(function (err) {
+            return console.log(err);
+          });
+        });
+
         var windowURL = window.URL || window.webkitURL;
         this.img.src = windowURL.createObjectURL(file[0]);
         this.img.onload = function () {
@@ -73554,6 +73553,9 @@ var Capture = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         { style: style.container },
+        _react2.default.createElement('img', { style: style.captureImage, ref: function ref(img) {
+            _this3.img = img;
+          } }),
         _react2.default.createElement(
           'form',
           { encType: 'multipart/form-data' },
@@ -73574,13 +73576,7 @@ var Capture = function (_React$Component) {
               style: style.captureInput
             })
           )
-        ),
-        _react2.default.createElement('img', {
-          style: style.captureImage,
-          ref: function ref(img) {
-            _this3.img = img;
-          }
-        })
+        )
       );
     }
   }]);
@@ -73594,7 +73590,8 @@ var style = {
   },
   captureImage: {
     height: 'auto',
-    width: '100%'
+    width: '100%',
+    margin: '5px 0 15px 0'
   },
   captureInput: {
     display: 'none'
@@ -73641,7 +73638,7 @@ exports.default = {
 			sheaders: { "X-Requested-With": "XMLHttpRequest" }
 		});
 	},
-
+	//change round to /api/activity
 	getPicDetails: function getPicDetails() {
 		return _axios2.default.get("/activity/api/savePic").then(function (res) {
 			console.log("axios resutls", res);
@@ -73653,18 +73650,15 @@ exports.default = {
 	savePicDetails: function savePicDetails(url, lat, long) {
 		var newPic = { pic_url: url, pic_latitude: lat, pic_longitude: long };
 		console.log("Save Mongo : " + url);
-		return _axios2.default.post("/activity/api/savePic", newPic).then(function (res) {
+		return _axios2.default.post("/api/activity", newPic).then(function (res) {
 			console.log("axios result", res.data._id);
 			return res.data_id;
 		});
 	}
-
 	// savePicDetails: function( details ) {
 	//   console.log("Save Mongo : " + details);
 	//   return axios.post("/api/activity", {details});
 	// }
-
-
 };
 
 /***/ }),

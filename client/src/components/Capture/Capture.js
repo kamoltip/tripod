@@ -16,7 +16,6 @@ class Capture extends React.Component {
     super(props);
     this.takePicture = this.takePicture.bind(this);
   };
-
   // saveMongoDb(pic,lat,long){
   //   console.log("pic details : " + pic + "..... " + lat + "...." + long);
   //   API.savePicDetails({
@@ -35,20 +34,19 @@ class Capture extends React.Component {
     .catch(err => console.log(err));
   };
 
-
   takePicture(event) {
-    const file = event.target.files[0];
+    const file = event.target.files;
     console.log(file);
+    if(file.length>0) {
     Location.getLocation(coords => {
-      file.coords = coords;
+      file[0].coords = coords;
       API.postCloudinary({
-        file: file
+        file: file[0]
       })
-      .then(res => console.log(this.saveMongoDb(res.data.secure_url,file.coords.lat,file.coords.long)))   //res.data.secure_url + "......" + file.coords.lat + "....." + file.coords.long)) 
+      .then(res => console.log(this.saveMongoDb(res.data.secure_url,file[0].coords.lat,file[0].coords.long)))   //res.data.secure_url + "......" + file.coords.lat + "....." + file.coords.long))
       .catch(err => console.log(err));
     });
 
-    if(file.length>0) {
     const windowURL = window.URL || window.webkitURL;
     this.img.src = windowURL.createObjectURL(file[0]);
     this.img.onload = () => { URL.revokeObjectURL(this.src); }
@@ -58,8 +56,9 @@ class Capture extends React.Component {
   render() {
     return (
       <div style={style.container}>
-        <form encType="multipart/form-data">
-          <label htmlFor="upload">
+        <img style={style.captureImage} ref={(img) => {this.img = img;}} />
+          <form encType="multipart/form-data">
+            <label htmlFor="upload">
             <span style={style.photoIcon}><Icon name='photo' size='huge' color='green'/></span>
             <input type="file"
               name="image"
@@ -71,12 +70,7 @@ class Capture extends React.Component {
             />
           </label>
         </form>
-        <img
-          style={style.captureImage}
-          ref={(img) => {
-            this.img = img;
-          }}
-        />
+
       </div>
     );
   }
@@ -84,11 +78,12 @@ class Capture extends React.Component {
 
 const style = {
   photoIcon: {
-    color: 'white',
+    color: 'white'
   },
   captureImage: {
     height: 'auto',
     width: '100%',
+    margin: '5px 0 15px 0'
   },
   captureInput: {
     display: 'none'
