@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './Activity.scss'
-import {Link} from 'react-router'
+import {Link} from 'react-router';
 import crew from '../../asset/images/user.png'
 import tripod from '../../asset/images/tripod-logo.png'
 
@@ -21,16 +21,16 @@ import Capture from '../Capture/Capture';
 const Activity = () => (
   <div className='activityDiv'>
     <Responsive {...Responsive.onlyMobile}
-                {...Responsive.onlyTablet}
-                {...Responsive.onlyComputer}
-                {...Responsive.onlyLargeScreen}
-                {...Responsive.onlyWidescreen}
-                as={Segment}/>
-
+      {...Responsive.onlyTablet}
+      {...Responsive.onlyComputer}
+      {...Responsive.onlyLargeScreen}
+      {...Responsive.onlyWidescreen}
+      as={crew}/>
+    {/* <Menu/> */}
     <p className='actText'></p>
     <div className='logoPad'>
-    <Link to = '/activity'><img className='logo' position='left' src={tripod} /></Link>
-  </div>
+      <img className='logo' position='left' src={tripod} />
+    </div>
     <Divider section/>
     <Container className='activityBox'>
       <div className='buttonDiv'>
@@ -48,7 +48,7 @@ const Activity = () => (
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
-                  <Link to=''><Icon name='image' size='massive' color='blue' className='search'/></Link>
+                  <Link to=''><Icon name='search' size='massive' color='blue' className='search'/></Link>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -89,7 +89,7 @@ const Activity = () => (
                       <Grid columns='one'>
                         <Grid.Row>
                           <Grid.Column>
-                            <Link to='/user'><Icon name='log out' size='massive' color='purple' className='logout'/></Link>
+                            <Link to='/signupForm'><Icon name='log out' size='massive' color='purple' className='logout'/></Link>
                           </Grid.Column>
                         </Grid.Row>
                       </Grid>
