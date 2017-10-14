@@ -29,7 +29,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static("./client/public/"));
+app.use(express.static("./client/build/"));
 // app.get("/api", (req, res) => {
 //     res.json({username:'accimes'})
 // });

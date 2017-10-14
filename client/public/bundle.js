@@ -73654,7 +73654,7 @@ exports.default = {
 		var newPic = { pic_url: url, pic_latitude: lat, pic_longitude: long };
 		console.log("Save Mongo : " + url);
 		return _axios2.default.post("/activity/api/savePic", newPic).then(function (res) {
-			console.log("axios result", response.data._id);
+			console.log("axios result", res.data._id);
 			return res.data_id;
 		});
 	}
