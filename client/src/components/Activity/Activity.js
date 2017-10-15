@@ -88,7 +88,7 @@ const Activity = () => (
                       <Grid columns='one'>
                         <Grid.Row>
                           <Grid.Column>
-                            <Link to='/signupForm'><Icon name='log out' size='massive' color='purple' className='logout'/></Link>
+                            <Link to='/user'><Icon name='log out' size='massive' color='purple' className='logout'/></Link>
                           </Grid.Column>
                         </Grid.Row>
                       </Grid>

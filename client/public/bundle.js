@@ -67540,7 +67540,7 @@ var Activity = function Activity() {
                             null,
                             _react2.default.createElement(
                               _reactRouter.Link,
-                              { to: '/signupForm' },
+                              { to: '/user' },
                               _react2.default.createElement(_semanticUiReact.Icon, { name: 'log out', size: 'massive', color: 'purple', className: 'logout' })
                             )
                           )
