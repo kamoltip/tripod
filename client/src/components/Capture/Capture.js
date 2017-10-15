@@ -11,9 +11,9 @@ class Capture extends React.Component {
     this.takePicture = this.takePicture.bind(this);
   };
 
-  saveMongoDb(pic,lat,long){
-    console.log("pic details : " + pic + "..... " + lat + "...." + long);
-    API.savePicDetails(pic, lat, long)
+  saveMongoDb(pic,lat,long, pid){
+    console.log("pic details : " + pic + "..... "+ "Public Id : " + pid + "...." + long);
+    API.savePicDetails(pic, lat, long, pid)
     .then(res => console.log("details Saved"))
     .catch(err => console.log(err));
   };
@@ -27,7 +27,7 @@ class Capture extends React.Component {
       API.postCloudinary({
         file: file[0]
       })
-      .then(res => console.log(this.saveMongoDb(res.data.secure_url,file[0].coords.lat,file[0].coords.long,res.data.public_id)))   //res.data.secure_url + "......" + file.coords.lat + "....." + file.coords.long))
+      .then(res => console.log(this.saveMongoDb(res.data.secure_url,file[0].coords.lat,file[0].coords.long,res.data.public_id))) 
       .catch(err => console.log(err));
     });
 

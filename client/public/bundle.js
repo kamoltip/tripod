@@ -73461,9 +73461,9 @@ var Capture = function (_React$Component) {
 
   _createClass(Capture, [{
     key: 'saveMongoDb',
-    value: function saveMongoDb(pic, lat, long) {
-      console.log("pic details : " + pic + "..... " + lat + "...." + long);
-      _API2.default.savePicDetails(pic, lat, long).then(function (res) {
+    value: function saveMongoDb(pic, lat, long, pid) {
+      console.log("pic details : " + pic + "..... " + "Public Id : " + pid + "...." + long);
+      _API2.default.savePicDetails(pic, lat, long, pid).then(function (res) {
         return console.log("details Saved");
       }).catch(function (err) {
         return console.log(err);
@@ -73483,8 +73483,7 @@ var Capture = function (_React$Component) {
             file: file[0]
           }).then(function (res) {
             return console.log(_this2.saveMongoDb(res.data.secure_url, file[0].coords.lat, file[0].coords.long, res.data.public_id));
-          }) //res.data.secure_url + "......" + file.coords.lat + "....." + file.coords.long))
-          .catch(function (err) {
+          }).catch(function (err) {
             return console.log(err);
           });
         });
@@ -73589,11 +73588,12 @@ exports.default = {
 			sheaders: { "X-Requested-With": "XMLHttpRequest" }
 		});
 	},
-	//change round to /api/activity
+
+	// Read from Mongo
 	getPicDetails: function getPicDetails() {
-		return _axios2.default.get("/activity/api/savePic").then(function (res) {
+		return _axios2.default.get("/api/activity").then(function (res) {
 			console.log("axios resutls", res);
-			return res;
+			// return res;
 		});
 	},
 
