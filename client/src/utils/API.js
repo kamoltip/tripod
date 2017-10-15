@@ -29,7 +29,7 @@ export default {
 	  return axios.get("/api/activity")
 		.then(function(res){
 		  console.log("axios resutls",res);
-			// return res;
+			return res;
 		});
 	},
 
