@@ -46,7 +46,7 @@ const Activity = () => (
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
-                  <Link to=''><Icon name='search' size='massive' color='blue' className='search'/></Link>
+                  <Link to='/search'><Icon name='image' size='massive' color='blue' className='search'/></Link>
                 </Grid.Column>
               </Grid.Row>
             </Grid>

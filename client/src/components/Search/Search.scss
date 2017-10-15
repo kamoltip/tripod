@@ -1,0 +1,46 @@
+
+
+div.searchDiv{
+  text-align: left;
+  background-image: url('https://images.unsplash.com/photo-1465161191540-aac346fcbaff?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=');
+  align-items: center;
+  position: fixed;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+img.tripod{
+  width: 20vh;
+}
+div.searchText{
+  margin: 10% 0 5% 5%;
+  color: white;
+  font-size: 3em;
+}
+
+div.metaDiv{
+  width: 100%;
+  background-color: rgba(120, 60%, 70%, 0.65);
+  position: relative;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  color: white;
+  font-size: 2em;
+}
+div.thirdDiv{
+  width: 100%;
+  height: 15%;
+  background-color: #8b8589;
+  align-items: center;
+  text-align: center;
+  display:inline-grid;
+  opacity: 0.8;
+}
+
+div.fourthDiv{
+  width: 100%;
+  height: 60%;
+  background-color: black;
+}
