@@ -1,11 +1,6 @@
 import React, {Component} from 'react'
 import './Activity.scss'
-<<<<<<< HEAD
 import {Link} from 'react-router'
-=======
-import {Link} from 'react-router';
-import crew from '../../asset/images/user.png'
->>>>>>> development
 import tripod from '../../asset/images/tripod-logo.png'
 
 import {
@@ -32,13 +27,8 @@ const Activity = () => (
     {/* <Menu/> */}
     <p className='actText'></p>
     <div className='logoPad'>
-<<<<<<< HEAD
     <Link to = '/activity'><img className='logo' src={tripod} /></Link>
   </div>
-=======
-      <img className='logo' position='left' src={tripod} />
-    </div>
->>>>>>> development
     <Divider section/>
     <Container className='activityBox'>
       <div className='buttonDiv'>
