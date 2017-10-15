@@ -20,11 +20,11 @@ const LandingPage = () => (
           Let The Moment Capture You</h1>
         <h3 className='subQuote'></h3>
 
-          <Button className='login' size='large'>Login</Button>
+          <Link to ='/user'><Button className='login' size='large'>Login</Button></Link>
 
           <Link to='/activity'><Button size='large' className='main'>Main</Button></Link>
 
-          <Button size='large' className='signup'>Signup</Button>
+          <Link to='/user'><Button size='large' className='signup'>Signup</Button></Link>
 
       </div>
 

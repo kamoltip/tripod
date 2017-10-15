@@ -1,125 +1,85 @@
-import React from 'react'
+import React, {component} from 'react'
 import './Crew.scss'
-import { Image, Button, Icon, Grid, Card, Divider, Container, Label, Segment, Header, Responsive } from 'semantic-ui-react'
-import user from '../../asset/images/user.png'
+import {
+  Image,
+  Button,
+  Icon,
+  Grid,
+  Card,
+  Divider,
+  Container,
+  Label,
+  Segment,
+  Header,
+  Responsive
+} from 'semantic-ui-react'
 import tripod from '../../asset/images/tripod-logo.png'
+import jeff from '../../asset/images/b-wJeff2.png'
+import nelum from '../../asset/images/b-wNelum2.png'
+import air from '../../asset/images/airPicTripod2.png'
+import ben from '../../asset/images/b-wBen2.png'
 import {Link} from 'react-router'
-// import Menu from '../Menu/Menu'
+
 // import Footer from '../Footer/Footer'
 
 const Crew = () => (
-<Container fluid className='crewBox'>
-  <Responsive
-            {...Responsive.onlyMobile}
-            {...Responsive.onlyTablet}
-            {...Responsive.onlyComputer}
-            {...Responsive.onlyLargeScreen}
-            {...Responsive.onlyWidescreen}
-             as = {Segment} />
-{/* <Menu /> */}
-<p className='crewText'>OUR TEAM</p>
-<Link to = '/activity'><img src={tripod}/></Link>
+  <div className='crewBox'>
+    <Responsive {...Responsive.onlyMobile}
+                {...Responsive.onlyTablet}
+                {...Responsive.onlyComputer}
+                {...Responsive.onlyLargeScreen}
+                {...Responsive.onlyWidescreen}
+                as={Segment}/>
 
-<Divider section/>
-  <Container className='container'>
-  <Grid columns='two' divided>
-    <Grid.Row>
-      <Grid.Column>
-{/* <Header as='h1'>
-          <ul>
-            <li className='first-text'>we are designers</li>
-            <li className='second-text'>we are thinkers</li>
-            <li className='third-text'>we are learners</li>
-            <li className='fourth-text'>we are creators</li>
-            <li className='last-text'>MEET THE CREW</li>
-          </ul>
-        </Header> */
-}
-      </Grid.Column>
 
-      <Grid.Column>
-        <Card.Group itemsPerRow={2}>
-          <Card
-            href='http://google.com' target='_blank'
-            // header='Kamoltip Cardenas'
-            className='air'
-            raised image={user}/>
+    <Link to='/activity'><img src={tripod}/></Link>
+    <Divider section/>
+        <p className='featureText'>THE CREW</p>
+    <Container className='gridBox'>
+      <Grid divided='vertically'>
 
-          <Card
-            href='http://google.com' target='_blank'
-            // header='Jeff Liifpert'
-            className='jeff'
-            raised image={user} />
-        </Card.Group>
-      </Grid.Column>
-    </Grid.Row>
+        <Grid.Row columns={2}>
+          <Grid.Column>
+            <Image src={jeff} className='jeff'/>
+            <h1>Jeff Liipert</h1>
+            <h3></h3>
+            <Icon name='github' size='big'/>
+            <Icon name='linkedin' size='big'/>
+            <Icon name='twitter' size='big'/>
+          </Grid.Column>
+          <Grid.Column>
+            <Image src={air} className='air'/>
+            <h1>Kamoltip Cardenas</h1>
+            <h3></h3>
+            <Icon name='github' size='big'/>
+            <Icon name='linkedin' size='big'/>
+            <Icon name='twitter' size='big'/>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+      <Divider/>
+      <Grid divided='vertically'>
+        <Grid.Row columns={2}>
+          <Grid.Column>
+            <Image src={nelum} className='nelum'/>
+            <h1>Kamoltip Cardenas</h1>
+            <h3></h3>
+            <Icon name='github' size='big'/>
+            <Icon name='linkedin' size='big'/>
+            <Icon name='twitter' size='big'/>
+          </Grid.Column>
+          <Grid.Column>
+            <Image src={ben} className='ben'/>
+            <h1>Kamoltip Cardenas</h1>
+            <h3></h3>
+            <Icon name='github' size='big'/>
+            <Icon name='linkedin' size='big'/>
+            <Icon name='twitter' size='big'/>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Container>
+  </div>
 
-    <Grid.Row>
-      <Grid.Column>
-          <h1 className='fifth-text'>WE ARE DEVELOPERS</h1>
-      </Grid.Column>
-      <Grid.Column>
-        <Card.Group itemsPerRow={2}>
-          <Card
-            href='http://google.com' target='_blank'
-            // header='Nelum'
-            className='nelum'
-            raised image={user}/>
-          <Card
-            href='http://google.com' target='_blank'
-            // header='Ben'
-            className='ben'
-            raised image={user} />
-        </Card.Group>
-      </Grid.Column>
-    </Grid.Row>
-
-    <Grid.Row>
-      <Grid.Column>
-          <h1 className='fifth-text'>WE ARE DEVELOPERS</h1>
-      </Grid.Column>
-      <Grid.Column>
-        <Card.Group itemsPerRow={2}>
-          <Card
-            href='http://google.com' target='_blank'
-            // header='Nelum'
-            className='nelum'
-            raised image={user}/>
-          <Card
-            href='http://google.com' target='_blank'
-            // header='Ben'
-            className='ben'
-            raised image={user} />
-        </Card.Group>
-      </Grid.Column>
-    </Grid.Row>
-
-    <Grid.Row>
-      <Grid.Column>
-          <h1 className='fifth-text'>WE ARE DEVELOPERS</h1>
-      </Grid.Column>
-      <Grid.Column>
-        <Card.Group itemsPerRow={2}>
-          <Card
-            href='http://google.com' target='_blank'
-            // header='Nelum'
-            className='nelum'
-            raised image={user}/>
-          <Card
-            href='http://google.com' target='_blank'
-            // header='Ben'
-            className='ben'
-            raised image={user} />
-        </Card.Group>
-      </Grid.Column>
-    </Grid.Row>
-  </Grid>
-</Container>
-<Grid column={1}>
-  <Grid.Column>
-    {/* <Footer/> */}
-  </Grid.Column>
-</Grid>
-</Container>
 )
 export default Crew
