@@ -4,192 +4,206 @@ body{
     padding: 0%;
     margin:0%;
 }
-.crewBox{
+div.crewBox{
   text-align: center;
-  background-image: url('https://images.unsplash.com/photo-1504036764568-17ae585d4619?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=
-');
+  background-image: url('https://images.unsplash.com/photo-1501696045407-7613cdd8f968?dpr=1&auto=compress,format&fit=crop&w=2534&h=&q=80&cs=tinysrgb&crop=');
+  align-items: center;
   background-size: cover;
-  width: 100vh;
-  height: 106vh;
+  width: 100%;
+  height: 100%;
 }
+
 img.tripod{
   width: 20vh;
 }
-p.crewText{
-  color: white;
-  text-shadow: 1px 5px 30px white, 1px 5px 200px white, 1px 5px 200px white;
-  font-size: 2.5em;
-  margin-top: 1%;
-  margin-left: 2%;
-  padding: 1.5%;
-  text-align: left;
-  align-items: center;
-}
-li{
-  list-style: none;
-  line-height: 1em;
-}
-a.ui.raised.card{
-  box-shadow: 1px 1px 20px white;
-}
-@keyframes topFadeOut {
-  0% {
-    position: absolute;
-    top: -3rem;
-    opacity: 0;
-  }
 
-  75% {
-    position: absolute;
-    top: 25%;
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
+.gridBox{
+  width: 100%;
+  border-radius: 10px;
+  background-color: rgba(120, 60%, 70%, 0.55);
+  padding: 10% 3% 10% 3%;
 }
 
-@keyframes bottomFadeOut {
-  0% {
-    position: absolute;
-    bottom: 2rem;
-    opacity: 0;
-  }
-
-  75% {
-    position: absolute;
-    bottom: 25%;
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-
+img.ui.image.air{
+display: inline-block;
+border-radius: 10px;
+box-shadow: 1px 2px 100px white;
+}
+img.ui.image.jeff{
+display: inline-block;
+border-radius: 10px;
+box-shadow: 1px 2px 100px white;
+}
+img.ui.image.nelum{
+display: inline-block;
+border-radius: 10px;
+box-shadow: 1px 2px 100px white;
+}
+img.ui.image.ben{
+display: inline-block;
+border-radius: 10px;
+box-shadow: 1px 2px 100px white;
 }
 
-@keyframes topFadeOutVertical {
-  0% {
-    position: absolute;
-    top: 3rem;
-    opacity: 0;
-  }
-
-  75% {
-    position: absolute;
-    top: 45%;
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes rightFadeInOut {
-  0% {
-    position: absolute;
-    right: 1rem;
-    opacity: 0;
-  }
-
-  75% {
-    position: absolute;
-    right: 10rem;
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-    right: 10rem;
-  }
-}
-
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-
-  45% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0%;
-  }
-}
-
-.first-text {
-  font-size: 4.4rem;
-  position: absolute;
-  left: 2.5rem;
-  top: 6rem;
-  opacity: 0;
-  animation-name: topFadeOut;
-  animation-duration: 5s;
-  color: white;
-}
-
-.second-text {
-  font-size: 3.5rem;
-  position: absolute;
-  top: 13rem;
-  opacity: 0;
-  animation-name: rightFadeInOut;
-  animation-delay: 3s;
-  animation-duration: 6s;
-  color:#b6fcb6;
-}
-
-.third-text {
-  /*transform: rotate(-90deg);*/
-  font-size: 4.5rem;
-  position: absolute;
-  left: 0.5%;
-  top: 45%;
-  opacity: 0;
-  animation-name: topFadeOutVertical;
-  animation-delay: 7s;
-  animation-duration: 6s;
-  color: #856363;
-  white-space: nowrap;
-}
-
-.fourth-text {
-  font-size: 3.5rem;
-  position: absolute;
-  top: 13rem;
-  left: 1%;
-  opacity: 0;
-  color: grey;
-  animation-name: fadeInOut;
-  animation-delay: 8s;
-  animation-duration: 7s;
-}
-
-.fifth-text {
-  font-size: 5rem;
-  position: absolute;
-  left: 5%;
-  bottom: 35%;
-  opacity: 0;
-  color:white;
-  animation-name: bottomFadeOut;
-  animation-delay: 11.5s;
-  animation-duration: 10s;
-}
-.last-text {
-  font-size: 5rem;
-  position: absolute;
-  left: 0rem;
-  top: 15rem;
-  opacity: 0;
-  animation-name: topFadeOut;
-  animation-delay: 11s;
-  animation-duration: 15s;
-  color: #e1b941;
-}
+//
+// @keyframes topFadeOut {
+//   0% {
+//     position: absolute;
+//     top: -3rem;
+//     opacity: 0;
+//   }
+//
+//   75% {
+//     position: absolute;
+//     top: 25%;
+//     opacity: 1;
+//   }
+//
+//   100% {
+//     opacity: 0;
+//   }
+// }
+//
+// @keyframes bottomFadeOut {
+//   0% {
+//     position: absolute;
+//     bottom: 2rem;
+//     opacity: 0;
+//   }
+//
+//   75% {
+//     position: absolute;
+//     bottom: 25%;
+//     opacity: 1;
+//   }
+//
+//   100% {
+//     opacity: 0;
+//   }
+//
+// }
+//
+// @keyframes topFadeOutVertical {
+//   0% {
+//     position: absolute;
+//     top: 3rem;
+//     opacity: 0;
+//   }
+//
+//   75% {
+//     position: absolute;
+//     top: 45%;
+//     opacity: 1;
+//   }
+//
+//   100% {
+//     opacity: 0;
+//   }
+// }
+//
+// @keyframes rightFadeInOut {
+//   0% {
+//     position: absolute;
+//     right: 1rem;
+//     opacity: 0;
+//   }
+//
+//   75% {
+//     position: absolute;
+//     right: 10rem;
+//     opacity: 1;
+//   }
+//
+//   100% {
+//     opacity: 0;
+//     right: 10rem;
+//   }
+// }
+//
+// @keyframes fadeInOut {
+//   0% {
+//     opacity: 0;
+//   }
+//
+//   45% {
+//     opacity: 1;
+//   }
+//
+//   100% {
+//     opacity: 0%;
+//   }
+// }
+//
+// .first-text {
+//   font-size: 4.4rem;
+//   position: absolute;
+//   left: 2.5rem;
+//   top: 6rem;
+//   opacity: 0;
+//   animation-name: topFadeOut;
+//   animation-duration: 5s;
+//   color: white;
+// }
+//
+// .second-text {
+//   font-size: 3.5rem;
+//   position: absolute;
+//   top: 13rem;
+//   opacity: 0;
+//   animation-name: rightFadeInOut;
+//   animation-delay: 3s;
+//   animation-duration: 6s;
+//   color:#b6fcb6;
+// }
+//
+// .third-text {
+//   /*transform: rotate(-90deg);*/
+//   font-size: 4.5rem;
+//   position: absolute;
+//   left: 0.5%;
+//   top: 45%;
+//   opacity: 0;
+//   animation-name: topFadeOutVertical;
+//   animation-delay: 7s;
+//   animation-duration: 6s;
+//   color: #856363;
+//   white-space: nowrap;
+// }
+//
+// .fourth-text {
+//   font-size: 3.5rem;
+//   position: absolute;
+//   top: 13rem;
+//   left: 1%;
+//   opacity: 0;
+//   color: grey;
+//   animation-name: fadeInOut;
+//   animation-delay: 8s;
+//   animation-duration: 7s;
+// }
+//
+// .fifth-text {
+//   font-size: 5rem;
+//   position: absolute;
+//   left: 5%;
+//   bottom: 35%;
+//   opacity: 0;
+//   color:white;
+//   animation-name: bottomFadeOut;
+//   animation-delay: 11.5s;
+//   animation-duration: 10s;
+// }
+// .last-text {
+//   font-size: 5rem;
+//   position: absolute;
+//   left: 0rem;
+//   top: 15rem;
+//   opacity: 0;
+//   animation-name: topFadeOut;
+//   animation-delay: 11s;
+//   animation-duration: 15s;
+//   color: #e1b941;
+// }
 .air:hover{
   content: url('https://media.giphy.com/media/MgX8LzWrA6dgY/giphy.gif');
   width: auto;

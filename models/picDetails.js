@@ -10,6 +10,7 @@ const picDetailsSchema = new Schema({
   pic_longitude: String,
   pic_user_id: String,
   pic_date: { type: Date, default: Date.now },
+  pic_public_id: String,
 });
 
 const PicDetails = mongoose.model('PicDetails', picDetailsSchema);

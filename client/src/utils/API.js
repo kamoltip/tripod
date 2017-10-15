@@ -23,18 +23,19 @@ export default {
       	  sheaders: { "X-Requested-With": "XMLHttpRequest" },
       });
 	},
-	//change round to /api/activity
+
+	// Read from Mongo
 	getPicDetails: function(){
-		return axios.get("/activity/api/savePic")
-			.then(function(res){
-				console.log("axios resutls",res);
-				return res;
-			});
+	  return axios.get("/api/activity")
+		.then(function(res){
+		  console.log("axios resutls",res);
+			return res;
+		});
 	},
 
 	// Save in Mongo
-	savePicDetails: ( url, lat, long ) => {
-	  const newPic = { pic_url: url, pic_latitude: lat, pic_longitude: long };
+	savePicDetails: ( url, lat, long, pid ) => {
+	  const newPic = { pic_url: url, pic_latitude: lat, pic_longitude: long ,pic_public_id: pid };
 	  console.log("Save Mongo : " + url);
 	  return axios.post("/api/activity", newPic)
 	  	.then(function(res) {
@@ -42,8 +43,5 @@ export default {
 	  		return res.data_id;
 	  	})
 	}
-	// savePicDetails: function( details ) {
-	//   console.log("Save Mongo : " + details);
-	//   return axios.post("/api/activity", {details});
-	// }
+
 };
