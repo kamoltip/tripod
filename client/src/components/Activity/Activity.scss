@@ -27,10 +27,15 @@ p.actText{
 
 }
 div.buttonDiv{
-  opacity: 0.7;
+  opacity: 0.95;
+  // box-shadow: 1px 1px 10px grey;
 }
 i.photo.huge.icon{
   font-size: 6.8em;
+}
+button.ui.fluid.button{
+  box-shadow: 1px 10px 100px rgba(192,192,192,0.95);
+
 }
 img.crew{
   width: 25%;

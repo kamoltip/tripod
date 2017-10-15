@@ -16,18 +16,17 @@ import tripod from '../../asset/images/tripod-logo.png'
 
 const Feature = () => (
   <div className='featureBox'>
-    {/* <Menu/> */}
-    <p className='crewText'>FEATURES</p>
     <Link to = '/activity'><img src={tripod} position='right'/></Link>
 
     <Divider section/>
+      <p className='featureText'>FEATURES</p>
     <Grid columns={3} divided>
       <Grid.Row>
         <Grid.Column>
           <br/>
-          <Button className='button' inverted color='white' size='huge' content='Android' icon='' labelPosition='left'/>
-          <Button className='button' inverted color='white' size='huge' content='IOS' icon='' labelPosition='center'/>
-          <Button className='button' inverted color='white' size='huge' content='Web browser' icon='' labelPosition='right'/>
+          <Button className='button' inverted color='olive' size='huge' content='Android' labelPosition='left'/>
+          <Button className='button' inverted color='olive' size='huge' content='IOS' labelPosition='right'/>
+          <Button className='button' inverted color='olive' size='huge' content='Web browser' labelPosition='right'/>
 
           <div className='space'></div>
           <ul>

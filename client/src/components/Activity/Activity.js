@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import './Activity.scss'
 import {Link} from 'react-router'
-import crew from '../../asset/images/user.png'
 import tripod from '../../asset/images/tripod-logo.png'
 
 import {
@@ -14,7 +13,6 @@ import {
   Divider,
   Responsive
 } from 'semantic-ui-react'
-// import Menu from '../Menu/Menu';
 // import Footer from '../Footer/Footer'
 import Capture from '../Capture/Capture';
 
@@ -29,12 +27,12 @@ const Activity = () => (
 
     <p className='actText'></p>
     <div className='logoPad'>
-    <Link to = '/activity'><img className='logo' position='left' src={tripod} /></Link>
+    <Link to = '/activity'><img className='logo' src={tripod} /></Link>
   </div>
     <Divider section/>
     <Container className='activityBox'>
       <div className='buttonDiv'>
-        <Button fluid secondary>
+        <Button fluid basic>
           <Grid columns='one'>
             <Grid.Row>
               <Grid.Column>
@@ -44,7 +42,7 @@ const Activity = () => (
           </Grid>
         </Button>
         <div>
-          <Button fluid secondary>
+          <Button fluid basic>
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
@@ -54,18 +52,8 @@ const Activity = () => (
             </Grid>
           </Button>
           <div>
-            <div>
-              <Button fluid secondary>
-                <Grid columns='one'>
-                  <Grid.Row>
-                    <Grid.Column>
-                      <Link to='/crew'><Container fluid className='ninja'><img size='small' color='lavender' className='crew' src='https://cdn4.iconfinder.com/data/icons/user-avatar-flat-icons/512/User_Avatar-31-512.png' alt='crew'/></Container></Link>
-                    </Grid.Column>
-                  </Grid.Row>
-                </Grid>
-              </Button>
               <div>
-                <Button fluid secondary>
+                <Button fluid basic>
                   <Grid columns='one'>
                     <Grid.Row>
                       <Grid.Column>
@@ -74,18 +62,29 @@ const Activity = () => (
                     </Grid.Row>
                   </Grid>
                 </Button>
-                <div>
-                  <Button fluid secondary>
-                    <Grid columns='one'>
-                      <Grid.Row>
-                        <Grid.Column>
-                          <Link to='/feature'><Icon name='info' size='massive' color='orange' className='feature'/></Link>
-                        </Grid.Column>
-                      </Grid.Row>
-                    </Grid>
-                  </Button>
+
                   <div>
-                    <Button fluid secondary>
+                    <div>
+                      <Button fluid basic>
+                        <Grid columns='one'>
+                          <Grid.Row>
+                            <Grid.Column>
+                              <Link to='/crew'><Icon name='users' size='massive' color='black' className='user'/></Link>
+                            </Grid.Column>
+                          </Grid.Row>
+                        </Grid>
+                      </Button>
+                      <div>
+                        <Button fluid basic>
+                          <Grid columns='one'>
+                            <Grid.Row>
+                              <Grid.Column>
+                                <Link to='/feature'><Icon name='info' size='massive' color='orange' className='feature'/></Link>
+                              </Grid.Column>
+                            </Grid.Row>
+                          </Grid>
+                        </Button>
+                    <Button fluid inverted>
                       <Grid columns='one'>
                         <Grid.Row>
                           <Grid.Column>
@@ -94,6 +93,7 @@ const Activity = () => (
                         </Grid.Row>
                       </Grid>
                     </Button>
+
                   </div>
                 </div>
               </div>
@@ -107,10 +107,3 @@ const Activity = () => (
 )
 
 export default Activity
-{/* <div className='fileDiv'>
-  <Button fluid size='small'><input type='file'/></Button>
-  <div>
-    <Button fluid size='big' color='white' content='camera' icon='camera' labelPosition='right' />
-  </div>
-</div> */
-}
