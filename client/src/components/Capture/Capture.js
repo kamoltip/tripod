@@ -6,26 +6,10 @@ import Location from '../../utils/Location';
 
 class Capture extends React.Component {
 
-  // state = {
-  //   pic: "",
-  //   lat: "",
-  //   long: ""
-  // }
-
   constructor(props) {
     super(props);
     this.takePicture = this.takePicture.bind(this);
   };
-  // saveMongoDb(pic,lat,long){
-  //   console.log("pic details : " + pic + "..... " + lat + "...." + long);
-  //   API.savePicDetails({
-  //     pic_url: pic,
-  //     pic_latitude: lat,
-  //     pic_longitude: long,
-  //   })
-  //   .then(res => console.log("details Saved"))
-  //   .catch(err => console.log(err));
-  // };
 
   saveMongoDb(pic,lat,long){
     console.log("pic details : " + pic + "..... " + lat + "...." + long);
@@ -43,7 +27,7 @@ class Capture extends React.Component {
       API.postCloudinary({
         file: file[0]
       })
-      .then(res => console.log(this.saveMongoDb(res.data.secure_url,file[0].coords.lat,file[0].coords.long)))   //res.data.secure_url + "......" + file.coords.lat + "....." + file.coords.long))
+      .then(res => console.log(this.saveMongoDb(res.data.secure_url,file[0].coords.lat,file[0].coords.long,res.data.public_id)))   //res.data.secure_url + "......" + file.coords.lat + "....." + file.coords.long))
       .catch(err => console.log(err));
     });
 
@@ -80,8 +64,8 @@ const style = {
     color: 'white',
   },
   captureImage: {
-    height: 'auto',
-    width: '100%',
+    height: '50%',
+    width: '50%',
     margin: '5px 0 15px 0'
   },
   captureInput: {
