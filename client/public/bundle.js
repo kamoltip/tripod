@@ -44351,6 +44351,10 @@ var _User = __webpack_require__(833);
 
 var _User2 = _interopRequireDefault(_User);
 
+var _Search = __webpack_require__(839);
+
+var _Search2 = _interopRequireDefault(_Search);
+
 var _App = __webpack_require__(836);
 
 var _App2 = _interopRequireDefault(_App);
@@ -44367,7 +44371,8 @@ var Routes = function Routes() {
         _react2.default.createElement(_reactRouter.Route, { path: '/crew', component: _Crew2.default }),
         _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _LandingPage2.default }),
         _react2.default.createElement(_reactRouter.Route, { path: '/activity', component: _Activity2.default }),
-        _react2.default.createElement(_reactRouter.Route, { path: '/user', component: _User2.default })
+        _react2.default.createElement(_reactRouter.Route, { path: '/user', component: _User2.default }),
+        _react2.default.createElement(_reactRouter.Route, { path: '/search', component: _Search2.default })
     );
 };
 
@@ -67441,8 +67446,8 @@ var Activity = function Activity() {
                   null,
                   _react2.default.createElement(
                     _reactRouter.Link,
-                    { to: '' },
-                    _react2.default.createElement(_semanticUiReact.Icon, { name: 'search', size: 'massive', color: 'blue', className: 'search' })
+                    { to: '/search' },
+                    _react2.default.createElement(_semanticUiReact.Icon, { name: 'image', size: 'massive', color: 'blue', className: 'search' })
                   )
                 )
               )
@@ -68976,6 +68981,130 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 // module
 exports.push([module.i, ".App {\n  text-align: center; }\n\n.App-logo {\n  animation: App-logo-spin infinite 20s linear;\n  height: 80px; }\n\n.App-header {\n  background-color: #222;\n  height: 180px;\n  padding: 20px;\n  color: white; }\n\n.App-title {\n  font-size: 1.5em; }\n\n.App-intro {\n  font-size: large; }\n\n@keyframes App-logo-spin {\n  from {\n    transform: rotate(0deg); }\n  to {\n    transform: rotate(360deg); } }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 839 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(840);
+
+var _reactRouter = __webpack_require__(54);
+
+var _semanticUiReact = __webpack_require__(43);
+
+var _tripodLogo = __webpack_require__(75);
+
+var _tripodLogo2 = _interopRequireDefault(_tripodLogo);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Search = function Search() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(_semanticUiReact.Responsive, _extends({}, _semanticUiReact.Responsive.onlyMobile, _semanticUiReact.Responsive.onlyTablet, _semanticUiReact.Responsive.onlyComputer, _semanticUiReact.Responsive.onlyLargeScreen, _semanticUiReact.Responsive.onlyWidescreen, { as: _semanticUiReact.Grid })),
+    _react2.default.createElement(
+      'div',
+      { className: 'searchDiv' },
+      _react2.default.createElement(
+        'div',
+        { className: 'metaDiv' },
+        _react2.default.createElement(
+          _reactRouter.Link,
+          { to: '/activity' },
+          _react2.default.createElement('img', { className: 'logo', src: _tripodLogo2.default })
+        ),
+        _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
+        _react2.default.createElement(
+          'div',
+          { className: 'thirdDiv' },
+          _react2.default.createElement(
+            'p',
+            { className: 'text' },
+            'Find your photos',
+            _react2.default.createElement('br', null),
+            'collection'
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'fourthDiv' },
+            _react2.default.createElement(
+              'h1',
+              null,
+              'This space reserved for rendering the grid and photo from the backend for EVENT DELEGATION'
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'fifthDiv' },
+              _react2.default.createElement(_semanticUiReact.Button, { fluid: true, size: 'large', color: 'green', content: 'Download' }),
+              _react2.default.createElement(_semanticUiReact.Button, { fluid: true, size: 'large', color: 'green', content: 'Sort Date' })
+            )
+          )
+        )
+      )
+    )
+  );
+};
+
+exports.default = Search;
+
+/***/ }),
+/* 840 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(841);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(30)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/sass-loader/lib/loader.js!./Search.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/sass-loader/lib/loader.js!./Search.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 841 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(29)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "div.searchDiv {\n  text-align: left;\n  background-image: url(\"https://images.unsplash.com/photo-1465161191540-aac346fcbaff?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=\");\n  align-items: center;\n  position: fixed;\n  background-size: cover;\n  width: 100%;\n  height: 100%;\n  position: absolute; }\n\nimg.tripod {\n  width: 20vh; }\n\ndiv.searchText {\n  margin: 10% 0 5% 5%;\n  color: white;\n  font-size: 3em; }\n\ndiv.metaDiv {\n  width: 100%;\n  background-color: rgba(120, 153, 179, 0.65);\n  position: relative;\n  height: 100%;\n  text-align: center;\n  align-items: center;\n  color: white;\n  font-size: 2em; }\n\ndiv.thirdDiv {\n  width: 100%;\n  height: 15%;\n  background-color: #8b8589;\n  align-items: center;\n  text-align: center;\n  display: inline-grid;\n  opacity: 0.8; }\n\ndiv.fourthDiv {\n  width: 100%;\n  height: 60%;\n  background-color: black; }\n", ""]);
 
 // exports
 

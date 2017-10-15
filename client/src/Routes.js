@@ -5,17 +5,19 @@ import Feature from './components/Feature/Feature';
 import Crew from './components/Crew/Crew';
 import Activity from './components/Activity/Activity';
 import User from './components/User/User';
+import Search from './components/Search/Search';
 import App from './App';
 
 const Routes = () => (
   <Router history={browserHistory}>
-      <Route path="/" component={App} />
+      <Route path = '/' component={App} />
       <Route path = '/feature' component={Feature}/>
       <Route path = '/landing' component={LandingPage}/>
       <Route path = '/crew' component={Crew} />
       <Route path = '/home' component={LandingPage} />
       <Route path = '/activity' component={Activity} />
       <Route path = '/user' component={User} />
+      <Route path = '/search' component={Search} />
   </Router>
 );
 
