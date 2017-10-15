@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {component} from 'react'
 import './Crew.scss'
 import {
   Image,
@@ -83,52 +83,3 @@ const Crew = () => (
 
 )
 export default Crew
-
-{/* <Header as='h1'>
-<ul>
-<li className='first-text'>we are designers</li>
-<li className='second-text'>we are thinkers</li>
-<li className='third-text'>we are learners</li>
-<li className='fourth-text'>we are creators</li>
-<li className='last-text'>MEET THE CREW</li>
-</ul>
-</Header> */
-}
-
-{/*
-<div className='secondBase'>
-  <div className='lastDiv'>
-  <img src={air} className='topBase' />
-
-    <div className='story'><h1>KAMOLTIP CARDENAS</h1>
-    <h3>front-end</h3>
-    <Icon name='github' size='huge'/>
-    <Icon name='linkedin' size='huge'/>
-    <Icon name='twitter' size='huge'/>
-    </div>
-
-    </div>
-    </div>
-
-</Container>
-
-<Container>
-
-<div className='secondBase'>
-  <div className='lastDiv'>
-  <img src={air} className='topBase' />
-
-    <div className='story'><h1>KAMOLTIP CARDENAS</h1>
-    <h3>front-end</h3>
-    <Icon name='github' size='huge'/>
-    <Icon name='linkedin' size='huge'/>
-    <Icon name='twitter' size='huge'/>
-    </div>
-
-    </div>
-    </div>
-
-</Container>
-
-</Container> */
-}

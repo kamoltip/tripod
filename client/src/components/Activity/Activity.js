@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './Activity.scss'
 import {Link} from 'react-router'
 import tripod from '../../asset/images/tripod-logo.png'
-
+import Capture from '../Capture/Capture';
 import {
   Image,
   Button,
@@ -14,17 +14,17 @@ import {
   Responsive
 } from 'semantic-ui-react'
 // import Footer from '../Footer/Footer'
-import Capture from '../Capture/Capture';
 
 const Activity = () => (
   <div className='activityDiv'>
-    <Responsive {...Responsive.onlyMobile}
+    <Responsive
+      {...Responsive.onlyMobile}
       {...Responsive.onlyTablet}
       {...Responsive.onlyComputer}
       {...Responsive.onlyLargeScreen}
       {...Responsive.onlyWidescreen}
-      as={crew}/>
-    {/* <Menu/> */}
+      as={Grid}/>
+
     <p className='actText'></p>
     <div className='logoPad'>
     <Link to = '/activity'><img className='logo' src={tripod} /></Link>
