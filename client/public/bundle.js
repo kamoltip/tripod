@@ -68932,7 +68932,7 @@ var Search = function (_Component) {
       event.preventDefault();
       _API2.default.getPicDetails().then(function (res) {
         return _this2.setState({ images: res.data });
-      }) ////console.log(res.data)) 
+      }) ////console.log(res.data))
       .catch(function (err) {
         return console.log(err);
       });
@@ -68955,20 +68955,21 @@ var Search = function (_Component) {
               { to: '/activity' },
               _react2.default.createElement('img', { className: 'logo', src: _tripodLogo2.default })
             ),
-            _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
             _react2.default.createElement(
               'div',
               { className: 'thirdDiv' },
               _react2.default.createElement(
-                'p',
-                { className: 'text' },
-                'Find your photos',
-                _react2.default.createElement('br', null),
-                'collection'
-              ),
-              _react2.default.createElement(
                 'div',
                 { className: 'fourthDiv' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'searchText' },
+                  _react2.default.createElement(
+                    'h1',
+                    null,
+                    'FIND YOUR PHOTO\'S COLLECTION'
+                  )
+                ),
                 this.state.images.map(function (image) {
                   return _react2.default.createElement(
                     'panel',
@@ -68977,19 +68978,25 @@ var Search = function (_Component) {
                       'a',
                       { href: image.pic_url, target: '_blank' },
                       _react2.default.createElement('img', { style: style.displayImage, src: image.pic_url })
-                    )
+                    ),
+                    _react2.default.createElement(_semanticUiReact.Checkbox, { className: 'checkbox' })
                   );
                 }),
+                _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
                 _react2.default.createElement(
-                  'div',
-                  { className: 'fifthDiv' },
-                  _react2.default.createElement(_semanticUiReact.Button, { fluid: true, size: 'large', color: 'green', content: 'Download' }),
-                  _react2.default.createElement(_semanticUiReact.Button, { fluid: true, size: 'large', color: 'red', onClick: this.searchImages, content: 'Search' }),
-                  _react2.default.createElement(_semanticUiReact.Button, { fluid: true, size: 'large', color: 'green', content: 'Sort Date' })
+                  _semanticUiReact.Container,
+                  null,
+                  _react2.default.createElement(
+                    _semanticUiReact.Button.Group,
+                    null,
+                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', floated: 'left', color: 'red', onClick: this.searchImages, content: 'Search Photos' }),
+                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', floated: 'right', color: 'green', content: 'Download' })
+                  )
                 )
               )
             )
-          )
+          ),
+          _react2.default.createElement('div', { className: 'fifthDiv' })
         )
       );
     }
@@ -69002,9 +69009,15 @@ var Search = function (_Component) {
 
 var style = {
   displayImage: {
-    width: '10%',
+    width: '20%',
     height: 'auto',
-    padding: '1%'
+    padding: '2%',
+    border: '2px solid white',
+    display: 'inline-grid',
+    marginTop: '1%',
+    marginRight: '1%',
+    marginLeft: '1%',
+    marginBottom: '1%'
   }
 };
 exports.default = Search;
@@ -69049,7 +69062,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "div.searchDiv {\n  text-align: left;\n  background-image: url(\"https://images.unsplash.com/photo-1465161191540-aac346fcbaff?dpr=1&auto=compress,format&fit=crop&w=2550&h=&q=80&cs=tinysrgb&crop=\");\n  align-items: center;\n  position: fixed;\n  background-size: cover;\n  width: 100%;\n  height: 100%;\n  position: absolute; }\n\nimg.tripod {\n  width: 20vh; }\n\ndiv.searchText {\n  margin: 10% 0 5% 5%;\n  color: white;\n  font-size: 3em; }\n\ndiv.metaDiv {\n  width: 100%;\n  background-color: rgba(120, 153, 179, 0.65);\n  position: relative;\n  height: 100%;\n  text-align: center;\n  align-items: center;\n  color: white;\n  font-size: 2em; }\n\ndiv.thirdDiv {\n  width: 100%;\n  height: 15%;\n  background-color: #8b8589;\n  align-items: center;\n  text-align: center;\n  display: inline-grid;\n  opacity: 0.8; }\n\ndiv.fourthDiv {\n  width: 100%;\n  height: 60%;\n  background-color: black; }\n", ""]);
+exports.push([module.i, "div.searchDiv {\n  background-image: url(\"https://images.unsplash.com/photo-1484781663516-4c4ca4b04a13?dpr=1&auto=compress,format&fit=crop&w=2535&h=&q=80&cs=tinysrgb&crop=\");\n  align-items: center;\n  position: fixed;\n  background-size: cover;\n  width: 100%;\n  height: 35vh;\n  position: absolute; }\n\nimg.tripod {\n  width: 20vh; }\n\ndiv.searchText {\n  margin: 3% 0 3% 0;\n  color: black;\n  font-size: 1em; }\n\ndiv.metaDiv {\n  width: 100%;\n  height: 25vh;\n  text-align: center;\n  align-items: center; }\n\ndiv.thirdDiv {\n  width: 100%;\n  align-items: center;\n  text-align: center;\n  display: inline-grid;\n  padding: 2%; }\n\ndiv.fourthDiv {\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #A19893;\n  padding: 3%;\n  overflow: auto;\n  box-shadow: 2px 1px 25px black;\n  margin-bottom: 3%; }\n\ndiv.fifthDiv {\n  position: fixed;\n  bottom: 0;\n  width: 100%; }\n\ndiv.ui.checkbox.checkbox {\n  display: flex;\n  display: inline-block;\n  vertical-align: middle;\n  color: white; }\n", ""]);
 
 // exports
 
