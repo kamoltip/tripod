@@ -23,13 +23,14 @@ export default {
       	  sheaders: { "X-Requested-With": "XMLHttpRequest" },
       });
 	},
-	//change round to /api/activity
+
+	// Read from Mongo
 	getPicDetails: function(){
-		return axios.get("/activity/api/savePic")
-			.then(function(res){
-				console.log("axios resutls",res);
-				return res;
-			});
+	  return axios.get("/api/activity")
+		.then(function(res){
+		  console.log("axios resutls",res);
+			return res;
+		});
 	},
 
 	// Save in Mongo

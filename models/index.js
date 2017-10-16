@@ -1,3 +1,5 @@
+const picDetails = require('./picDetails');
+
 module.exports = {
-  PicDetails: require("./picDetails")
+  PicDetails: picDetails,
 };
