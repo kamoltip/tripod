@@ -107,15 +107,7 @@ class Search extends Component {
                   <Container>
                   <Button.Group>
                   <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
-<<<<<<< HEAD
-                 
-=======
-
                   <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
->>>>>>> 90587a17e3745462e7700a80f067bfdc519e86ff
-       
-
-                  <Button size='big' floated='right' color='green' content='Download'/>
                   {/* <Button fluid size='large' floated='right' color='green' content='Sort Date'/> */}
 
                 </Button.Group>
