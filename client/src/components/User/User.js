@@ -31,10 +31,10 @@ const User = () => (
       <Form.Field>
         <Checkbox id='agree' label=" I agree to the Terms and Conditions"/>
       </Form.Field>
-      <Button type='submit' type='submit'>Submit</Button>
+      <Button type='submit' type='submit'>Sign Up</Button>
       <div className='Or'>
         <Divider className='hr'/>
-        <p className='orTxt'>OR sign in with</p>
+        <p className='orTxt'>OR sign up with</p>
         <Divider clearing className='hr'/>
       </div>
 
