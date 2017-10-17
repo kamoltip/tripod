@@ -1,6 +1,4 @@
-
-
-div.searchDiv{
+div.searchDiv {
   background-image: url('https://images.unsplash.com/photo-1484781663516-4c4ca4b04a13?dpr=1&auto=compress,format&fit=crop&w=2535&h=&q=80&cs=tinysrgb&crop=');
   align-items: center;
   position: fixed;
@@ -9,53 +7,60 @@ div.searchDiv{
   height: 35vh;
   position: absolute;
 }
-img.tripod{
+
+img.tripod {
   width: 20vh;
 }
-div.searchText{
-  margin: 3% 0 3% 0;
+
+div.searchText {
+  margin: 3% 0;
   color: black;
   font-size: 1em;
 }
 
-div.metaDiv{
+div.metaDiv {
   width: 100%;
-  height:25vh;
+  height: 25vh;
   // background-color: rgba(120, 60%, 70%, 0.65);
-  // position: relative;
   text-align: center;
   align-items: center;
-}
-div.thirdDiv{
-  width: 100%;
-  align-items: center;
-  text-align: center;
-  display:inline-grid;
-  padding:2%;
 }
 
-div.fourthDiv{
-  top:0;
+div.thirdDiv {
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  display: inline-grid;
+  padding: 2%;
+}
+
+div.fourthDiv {
+  top: 0;
   width: 100%;
   height: 100%;
-  background-color:  #A19893;
+  background-color: #A19893;
   padding: 3%;
-  overflow:auto;
-  // margin-top:20%;
+  overflow: auto;
   box-shadow: 2px 1px 25px black;
-  // border-radius: 10px;
   margin-bottom: 3%;
 }
 
-div.fifthDiv{
-  position: fixed;
-  bottom:0;
-  width: 100%
+div.fifthDiv {
+  bottom: 0;
+  width: 100%;
 }
 
-div.ui.checkbox.checkbox{
+div.ui.buttons.click {
   display: flex;
-  display: inline-block;
-  vertical-align:middle;
-  color: white;
+  align-items: center;
+  text-align: center;
 }
+// div.ui.checkbox.checkbox{
+//   display: flex;
+//   display: inline-block;
+//   vertical-align:middle;
+//   color: white;
+// }
+// div.center.aligned.column{
+//   width:10vh;
+// }
