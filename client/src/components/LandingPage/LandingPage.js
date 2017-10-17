@@ -17,14 +17,14 @@ const LandingPage = () => (
           <br/>
           Take On A New Experience
           <br/>
-          Let The Moment Capture You</h1>
+        Let The Moment Capture You</h1>
         <h3 className='subQuote'></h3>
 
-          <Link to ='/user'><Button className='login' size='large'>Login</Button></Link>
+        <Link to ='/login'><Button className='login' size='large'>Login</Button></Link>
 
-          <Link to='/activity'><Button size='large' className='main'>Main</Button></Link>
+        <Link to='/activity'><Button size='large' className='main'>Main</Button></Link>
 
-          <Link to='/user'><Button size='large' className='signup'>Signup</Button></Link>
+        <Link to='/signup'><Button size='large' className='signup'>Signup</Button></Link>
 
       </div>
 
