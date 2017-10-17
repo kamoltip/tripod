@@ -11,8 +11,9 @@
     "deploy": "npm run build && git add . && git commit -m \"Building for production\" && git push heroku master",
     "seed": "node scripts/seedDB",
     "test": "jest",
-    "open:client": "webpack -w",
-    "open:server": "node server.js"
+    "lint": "eslint .",
+    "open:client": "webpack -w --progress",
+    "open:server": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +27,7 @@
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "^16.0.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.2.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "file-loader": "^1.1.5",
