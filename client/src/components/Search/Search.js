@@ -6,10 +6,6 @@ import {Link} from 'react-router';
 import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, Popup} from 'semantic-ui-react';
 import tripod from '../../asset/images/tripod-logo.png';
 import API from '../../utils/API';
-import { CloudinaryContext, Transformation } from 'cloudinary-react';
-
-
-// have to add - click to enlarge the img/ download buttons/ rotations / etc
 
 class Search extends Component {
 
@@ -18,12 +14,10 @@ class Search extends Component {
     this.state = {
       gallery: [],
       checkedImg: [],
-      selectedImage: '',
-      width_large: true
+      isChecked: false
     };
 
     this.searchImages = this.searchImages.bind(this);
-    // this.enlargeImg = this.enlargeImg.bind(this);
   };
 
   componentDidMount() {
@@ -37,26 +31,16 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
-  onChangeDownload(checked){
-    console.log(checked);
-    this.state.checkedImg.push(checked);
-    console.log(this.state.checkedImg);
-  };
-
-  changeColor(key,url){
-    alert(url);
-    // this.setState({width_large: !this.state.width_large})
-
-    <Popup trigger={<Image key={this.key} />}  style={style}>
-      Hello. This is a regular pop-up which does not allow for lots
-      of content. You cannot fit a lot of words here as the
-      paragraphs will be pretty narrow.
-      <Image src={this.url} />
-    </Popup>
+  toggleChange () {
+    this.setState({ isChecked: !this.state.isChecked });
   }
 
-  download(event){
-    //save checkedImg array
+  onChangeDownload(e){
+      // if (this.state.e === true) {
+      //   alert("checked");      // }
+    // alert(e + this.props.selected);    
+    // this.state.checkedImg.push(checked);
+    // console.log(this.state.checkedImg);
   };
 
   render() {
@@ -72,32 +56,28 @@ class Search extends Component {
             <div className='thirdDiv'>
               <div className='fourthDiv'>
                 <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
-
-
-                  <CloudinaryContext cloudName="tripod"> 
-                    {this.state.gallery.map(data => (
-                      <div className="responsive" key={data._id} style={style.responsive} onClick={ () => this.changeColor(data._id,data.pic_url)} >
-                        <div className="img" style={style.img} >
-                            <Image key={data.pic_url} style={style.img}>
-                              <img src ={data.pic_url} />
-                              <Transformation
-                                crop="scale"
-                                width="100px"
-                                height="100px"
-                                dpr="auto"
-                                responsive_placeholder="blank"
-                              />
-                              <input type="checkbox" 
-                                     name={data.pic_public_id} 
-                                     key={data._id}
-                                     onChange={ () => this.onChangeDownload(data)} 
-                                     defaultChecked={false} /> {data.pic_date}
-                            </Image> 
-                        </div>
-                      </div>
-                    ))}
-                  </CloudinaryContext> 
-
+                  {this.state.gallery.map(data => (
+                    <Image key={data.pic_url} style={style.displayImage}>
+                      <Popup
+                        trigger={<Image src= {data.pic_url} style={style.imgLarge} />}
+                        flowing
+                        hoverable
+                        style={style.popStyle}
+                      >
+                        <img src = {data.pic_url} style={style.img}/>        
+                      </Popup>
+                      <input type="checkbox" 
+                            checked={this.state.isChecked}
+                            onChange={this.toggleChange}
+                            name={data.pic_public_id} 
+                            key={data._id}
+                            value={data}
+                      /> 
+                      <form method="get" action={data.pic_url}>
+                         <button type="submit">D</button>
+                      </form>
+                    </Image>
+                  ))}  
                     <Divider section/>
                   <Container>
                   <Button.Group>
@@ -113,28 +93,43 @@ class Search extends Component {
 
           </div>
         </div>
-
       </div>
-
     );
   }
-
 };
 
 const style = {
-  // displayImage: {
-  //   width: '20%',
-  //   height: 'auto',
-  //   padding:'2%',
-  //   border:'2px solid white',
-  //   display:'inline-grid',
-  //   marginTop:'1%',
-  //   marginRight:'1%',
-  //   marginLeft:'1%',
-  //   marginBottom:'1%',
-  // },
+  displayImage: {
+    height: '20%',
+    width: '20%',
+    padding:'2%',
+    border:'2px solid white',
+    display:'inline-grid',
+    marginTop:'1%',
+    marginRight:'1%',
+    marginLeft:'1%',
+    marginBottom:'1%',
+  },
   img:{
-    border: '1px solid #ccc'
+    border: '0.5px solid #ccc',
+    height:'90%',
+    width: 'auto%',
+    padding:'0',
+    margin:'1',
+    display:'inline-grid'
+  },
+  popStyle:{
+    width:'50vw',
+    height:'auto',
+    position:'absolute',
+    float:'center'
+  },
+  imgLarge:{
+    width:'50vw',
+    height:'auto',
+    float:'center',
+    padding:'0',
+    margin:'0'
   },
   responsive: {
     padding:'0 6px',
