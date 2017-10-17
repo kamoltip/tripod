@@ -17,6 +17,7 @@ module.exports = {
   findAll(req, res) {
     db.PicDetails
       .find(req.query)
+      // .where({ pic_public_Id : "find id from login"})
       .sort({ data: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

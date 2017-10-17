@@ -26,16 +26,13 @@ class Search extends Component {
       checkedImg: [],
       isChecked: false
     };
-
-    this.searchImages = this.searchImages.bind(this);
   };
 
   componentDidMount() {
-    // window.addEventListener('load', this.searchImages);
+    this.searchImages();
   }
 
   searchImages(event) {
-    event.preventDefault();
     API.getPicDetails().then(res => this.setState({gallery: res.data})).catch(err => console.log(err));
   };
 
@@ -43,6 +40,17 @@ class Search extends Component {
     this.setState({
       isChecked: !this.state.isChecked
     });
+  }
+
+  deleteImage(id) {
+    // Delete from Cloudinary
+    API.deleteCloudinary()
+      .then(res => console.log("Deleted from Cloudinary"))
+      .catch(err => console.log(err));
+    // Delete form Mongo
+    API.deletePicDetails(id)
+      .then(res => this.searchImages())
+      .catch(err => console.log(err));  
   }
 
   onChangeDownload(data, name) {
@@ -73,17 +81,14 @@ class Search extends Component {
 
               <div className='fourthDiv'>
                 <div className='searchText'>
-                  <h1>FIND YOUR PHOTO'S COLLECTION</h1>
+                 <h1>FIND YOUR PHOTO'S COLLECTION</h1>
                 </div>
-
                 {this.state.gallery.map(data => (
                   <Image key={data.pic_url} style={style.displayImage}>
-                    <Popup trigger={< Image src = {
-                      data.pic_url
-                    }
-                    style = {
-                      style.imgLarge
-                    } />} hoverable flowing size='tiny' position='top center' style={style.popStyle}>
+                    <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
+                            trigger={
+                                <Image src = {data.pic_url} style = {style.imgLarge} /> }
+                    >
                       <Container>
                         <Grid centered columns='one'>
                           <Grid.Row>
@@ -92,7 +97,7 @@ class Search extends Component {
                               <br/>
                               <Button.Group className='click'>
                                 <Button centered icon='download' basic size='tiny' color='green' onClick={() => this.onChangeDownload(data, data.pic_url)}/> {/* <input type="checkbox" checked={this.state.isChecked} onChange={this.toggleChange} name={data.pic_public_id} key={data._id} value={data}/> */}
-                                <Button centered icon='trash' basic size='tiny' color='red'/>
+                                <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
                               </Button.Group>
                             </Grid.Column>
                           </Grid.Row>
@@ -105,9 +110,7 @@ class Search extends Component {
                 <Divider section/>
                 <Container>
                   <Button.Group>
-                    <Button size='big' color='green' onClick={this.searchImages} content='Search Photos'/>
-                    {/* <Button fluid size='large' floated='right' color='green' content='Sort Date'/> */}
-
+                    <Button size='big' color='green' onClick={this.searchImages()} content='Refresh Page'/>
                   </Button.Group>
                 </Container>
               </div>
