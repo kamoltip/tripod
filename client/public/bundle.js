@@ -74666,14 +74666,285 @@ exports.push([module.i, "div.divForm {\n  background-image: url(\"https://images
 
 /***/ }),
 /* 837 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: SyntaxError: C:/Users/NELUM/gtProjects/tripod/client/src/components/Search/Search.js: Unexpected token (54:6)\n\n\u001b[0m \u001b[90m 52 | \u001b[39m  }\u001b[33m;\u001b[39m\n \u001b[90m 53 | \u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 54 | \u001b[39m      \u001b[33m.\u001b[39mthen(res \u001b[33m=>\u001b[39m \u001b[36mthis\u001b[39m\u001b[33m.\u001b[39msetState({ images\u001b[33m:\u001b[39m res\u001b[33m.\u001b[39mdata})) \u001b[90m////console.log(res.data))\u001b[39m\n \u001b[90m    | \u001b[39m      \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 55 | \u001b[39m      \u001b[33m.\u001b[39m\u001b[36mcatch\u001b[39m(err \u001b[33m=>\u001b[39m console\u001b[33m.\u001b[39mlog(err))\u001b[33m;\u001b[39m\n \u001b[90m 56 | \u001b[39m  }\u001b[33m;\u001b[39m\n \u001b[90m 57 | \u001b[39m\u001b[0m\n");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(88);
+
+__webpack_require__(838);
+
+var _reactRouter = __webpack_require__(41);
+
+var _semanticUiReact = __webpack_require__(32);
+
+var _tripodLogo = __webpack_require__(64);
+
+var _tripodLogo2 = _interopRequireDefault(_tripodLogo);
+
+var _API = __webpack_require__(414);
+
+var _API2 = _interopRequireDefault(_API);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Search = function (_Component) {
+  _inherits(Search, _Component);
+
+  function Search(props) {
+    _classCallCheck(this, Search);
+
+    var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
+
+    _this.state = {
+      gallery: [],
+      checkedImg: [],
+      isChecked: false
+    };
+
+    _this.searchImages = _this.searchImages.bind(_this);
+    return _this;
+  }
+
+  _createClass(Search, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      // window.addEventListener('load', this.searchImages); 
+    }
+  }, {
+    key: 'searchImages',
+    value: function searchImages(event) {
+      var _this2 = this;
+
+      event.preventDefault();
+      _API2.default.getPicDetails().then(function (res) {
+        return _this2.setState({ gallery: res.data });
+      }).catch(function (err) {
+        return console.log(err);
+      });
+    }
+  }, {
+    key: 'toggleChange',
+    value: function toggleChange() {
+      this.setState({ isChecked: !this.state.isChecked });
+    }
+  }, {
+    key: 'onChangeDownload',
+    value: function onChangeDownload(data, name) {
+      // if (this.state.e === true) {
+      //   alert("checked");      // }
+      // alert(e + this.props.selected);    
+      // this.state.checkedImg.push(checked);
+      // console.log(this.state.checkedImg);
+      // <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
+      // console.log(data,name);
+      // const fileName = name.substr(59);
+      // console.log(fileName);
+      // localStorage.setItem(data,fileName);
+      // console.log(getItem(fineName));
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_semanticUiReact.Responsive, _extends({}, _semanticUiReact.Responsive.onlyMobile, _semanticUiReact.Responsive.onlyTablet, _semanticUiReact.Responsive.onlyComputer, _semanticUiReact.Responsive.onlyLargeScreen, _semanticUiReact.Responsive.onlyWidescreen, { as: _semanticUiReact.Grid })),
+        _react2.default.createElement(
+          'div',
+          { className: 'searchDiv' },
+          _react2.default.createElement(
+            'div',
+            { className: 'metaDiv' },
+            _react2.default.createElement(
+              _reactRouter.Link,
+              { to: '/activity' },
+              _react2.default.createElement('img', { className: 'logo', src: _tripodLogo2.default })
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'thirdDiv' },
+              _react2.default.createElement(
+                'div',
+                { className: 'fourthDiv' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'searchText' },
+                  _react2.default.createElement(
+                    'h1',
+                    null,
+                    'FIND YOUR PHOTO\'S COLLECTION'
+                  )
+                ),
+                this.state.gallery.map(function (data) {
+                  return _react2.default.createElement(
+                    _semanticUiReact.Image,
+                    { key: data.pic_url, style: style.displayImage },
+                    _react2.default.createElement(
+                      _semanticUiReact.Popup,
+                      {
+                        trigger: _react2.default.createElement(_semanticUiReact.Image, { src: data.pic_url, style: style.imgLarge }),
+                        flowing: true,
+                        hoverable: true,
+                        style: style.popStyle
+                      },
+                      _react2.default.createElement('img', { src: data.pic_url, style: style.img })
+                    ),
+                    _react2.default.createElement('input', { type: 'checkbox',
+                      checked: _this3.state.isChecked,
+                      onChange: _this3.toggleChange,
+                      name: data.pic_public_id,
+                      key: data._id,
+                      value: data
+                    }),
+                    _react2.default.createElement(
+                      _semanticUiReact.Button,
+                      { onClick: function onClick() {
+                          return _this3.onChangeDownload(data, data.pic_url);
+                        } },
+                      'D'
+                    )
+                  );
+                }),
+                _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
+                _react2.default.createElement(
+                  _semanticUiReact.Container,
+                  null,
+                  _react2.default.createElement(
+                    _semanticUiReact.Button.Group,
+                    null,
+                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', floated: 'left', color: 'red', onClick: this.searchImages, content: 'Search Photos' }),
+                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', floated: 'right', color: 'green', content: 'Download' })
+                  )
+                )
+              )
+            )
+          ),
+          _react2.default.createElement('div', { className: 'fifthDiv' })
+        )
+      );
+    }
+  }]);
+
+  return Search;
+}(_react.Component);
+
+;
+
+var style = {
+  displayImage: {
+    height: '20%',
+    width: '20%',
+    padding: '2%',
+    border: '2px solid white',
+    display: 'inline-grid',
+    marginTop: '1%',
+    marginRight: '1%',
+    marginLeft: '1%',
+    marginBottom: '1%'
+  },
+  img: {
+    border: '0.5px solid #ccc',
+    height: '90%',
+    width: 'auto%',
+    padding: '0',
+    margin: '1',
+    display: 'inline-grid'
+  },
+  popStyle: {
+    width: '50vw',
+    height: 'auto',
+    position: 'absolute',
+    float: 'center'
+  },
+  imgLarge: {
+    width: '50vw',
+    height: 'auto',
+    float: 'center',
+    padding: '0',
+    margin: '0'
+  },
+  responsive: {
+    padding: '0 6px',
+    float: 'left',
+    width: '24%',
+    margin: '10px'
+  },
+  desc: {
+    padding: '15px',
+    textAlign: 'center'
+  }
+
+};
+exports.default = Search;
 
 /***/ }),
-/* 838 */,
-/* 839 */,
+/* 838 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(839);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(30)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/sass-loader/lib/loader.js!./Search.scss", function() {
+			var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/sass-loader/lib/loader.js!./Search.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 839 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(29)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "div.searchDiv {\n  background-image: url(\"https://images.unsplash.com/photo-1484781663516-4c4ca4b04a13?dpr=1&auto=compress,format&fit=crop&w=2535&h=&q=80&cs=tinysrgb&crop=\");\n  align-items: center;\n  position: fixed;\n  background-size: cover;\n  width: 100%;\n  height: 35vh;\n  position: absolute; }\n\nimg.tripod {\n  width: 20vh; }\n\ndiv.searchText {\n  margin: 3% 0 3% 0;\n  color: black;\n  font-size: 1em; }\n\ndiv.metaDiv {\n  width: 100%;\n  height: 25vh;\n  text-align: center;\n  align-items: center; }\n\ndiv.thirdDiv {\n  width: 100%;\n  align-items: center;\n  text-align: center;\n  display: inline-grid;\n  padding: 2%; }\n\ndiv.fourthDiv {\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #A19893;\n  padding: 3%;\n  overflow: auto;\n  box-shadow: 2px 1px 25px black;\n  margin-bottom: 3%; }\n\ndiv.fifthDiv {\n  position: fixed;\n  bottom: 0;\n  width: 100%; }\n\ndiv.ui.checkbox.checkbox {\n  display: flex;\n  display: inline-block;\n  vertical-align: middle;\n  color: white; }\n", ""]);
+
+// exports
+
+
+/***/ }),
 /* 840 */
 /***/ (function(module, exports, __webpack_require__) {
 
