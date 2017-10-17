@@ -42,6 +42,15 @@ export default {
 	  		console.log("axios result" , res.data._id);
 	  		return res.data_id;
 	  	})
+	},
+
+	//Delete in Mongo
+	deletePicDetails: (id) => {
+	  return axios.delete("/api/activity/" + id )
+		.then(function(res){
+			console.log("deleted");
+			return res;
+		})
 	}
 
 };

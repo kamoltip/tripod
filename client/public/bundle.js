@@ -26347,6 +26347,14 @@ exports.default = {
 			console.log("axios result", res.data._id);
 			return res.data_id;
 		});
+	},
+
+	//Delete in Mongo
+	deletePicDetails: function deletePicDetails(id) {
+		return _axios2.default.delete("/api/activity/" + id).then(function (res) {
+			console.log("deleted");
+			return res;
+		});
 	}
 
 };
@@ -75147,22 +75155,19 @@ var Search = function (_Component) {
       checkedImg: [],
       isChecked: false
     };
-
-    _this.searchImages = _this.searchImages.bind(_this);
     return _this;
   }
 
   _createClass(Search, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      // window.addEventListener('load', this.searchImages);
+      this.searchImages();
     }
   }, {
     key: 'searchImages',
     value: function searchImages(event) {
       var _this2 = this;
 
-      event.preventDefault();
       _API2.default.getPicDetails().then(function (res) {
         return _this2.setState({ gallery: res.data });
       }).catch(function (err) {
@@ -75174,6 +75179,17 @@ var Search = function (_Component) {
     value: function toggleChange() {
       this.setState({
         isChecked: !this.state.isChecked
+      });
+    }
+  }, {
+    key: 'deleteImage',
+    value: function deleteImage(id) {
+      var _this3 = this;
+
+      _API2.default.deletePicDetails(id).then(function (res) {
+        return _this3.searchImages();
+      }).catch(function (err) {
+        return console.log(err);
       });
     }
   }, {
@@ -75194,7 +75210,7 @@ var Search = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
 
       return _react2.default.createElement(
         'div',
@@ -75232,8 +75248,9 @@ var Search = function (_Component) {
                     { key: data.pic_url, style: style.displayImage },
                     _react2.default.createElement(
                       _semanticUiReact.Popup,
-                      { trigger: _react2.default.createElement(_semanticUiReact.Image, { src: data.pic_url,
-                          style: style.imgLarge }), hoverable: true, flowing: true, size: 'tiny', position: 'top center', style: style.popStyle },
+                      { hoverable: true, flowing: true, size: 'tiny', position: 'top center', style: style.popStyle,
+                        trigger: _react2.default.createElement(_semanticUiReact.Image, { src: data.pic_url, style: style.imgLarge })
+                      },
                       _react2.default.createElement(
                         _semanticUiReact.Container,
                         null,
@@ -75252,10 +75269,12 @@ var Search = function (_Component) {
                                 _semanticUiReact.Button.Group,
                                 { className: 'click' },
                                 _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'download', basic: true, size: 'tiny', color: 'green', onClick: function onClick() {
-                                    return _this3.onChangeDownload(data, data.pic_url);
+                                    return _this4.onChangeDownload(data, data.pic_url);
                                   } }),
                                 ' ',
-                                _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'trash', basic: true, size: 'tiny', color: 'red' })
+                                _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'trash', basic: true, size: 'tiny', color: 'red', onClick: function onClick() {
+                                    return _this4.deleteImage(data._id);
+                                  } })
                               )
                             )
                           )
@@ -75271,7 +75290,7 @@ var Search = function (_Component) {
                   _react2.default.createElement(
                     _semanticUiReact.Button.Group,
                     null,
-                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', color: 'green', onClick: this.searchImages, content: 'Search Photos' })
+                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', color: 'green', onClick: this.searchImages(), content: 'Refresh Page' })
                   )
                 )
               )
