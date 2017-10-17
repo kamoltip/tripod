@@ -44,15 +44,11 @@ class Search extends Component {
     // this.state.checkedImg.push(checked);
     // console.log(this.state.checkedImg);
      // <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
-     console.log(data,name);
-     const fileName = name.substr(59);
-     console.log(fileName);
-     localStorage.setItem(data,fileName);
-     console.log(getItem(fineName));
-  };
-
-      .then(res => this.setState({ images: res.data})) ////console.log(res.data))
-      .catch(err => console.log(err));
+     // console.log(data,name);
+     // const fileName = name.substr(59);
+     // console.log(fileName);
+     // localStorage.setItem(data,fileName);
+     // console.log(getItem(fineName));
   };
 
   render() {
@@ -69,6 +65,7 @@ class Search extends Component {
 
               <div className='fourthDiv'>
                 <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
+
                   {this.state.gallery.map(data => (
                     <Image key={data.pic_url} style={style.displayImage}>
                       <Popup
@@ -89,25 +86,11 @@ class Search extends Component {
                       <Button onClick={ () => this.onChangeDownload(data,data.pic_url)}>D</Button>
                     </Image>
                   ))}  
-
-
-              <div className='fourthDiv'>
-                <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
-
-                  {this.state.images.map(image => (
-
-                    <panel key={ image._id }>
-                      <a href={ image.pic_url } target='_blank'><img style={style.displayImage} src={ image.pic_url } /></a>
-                      <Checkbox className='checkbox' />
-                    </panel>
-
-                  ))}
-
                     <Divider section/>
                   <Container>
                   <Button.Group>
                   <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
-                  <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
+                  <Button size='big' floated='right' color='green' content='Download'/>
                   {/* <Button fluid size='large' floated='right' color='green' content='Sort Date'/> */}
 
                 </Button.Group>
