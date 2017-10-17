@@ -28,6 +28,15 @@ module.exports = {
   },
 
   login(req, res) {
+    const validationResult = auth.validateLoginForm(req.body);
+    if (!validationResult.success) {
+      return res.status(400).json({
+        success: false,
+        message: validationResult.message,
+        errors: validationResult.errors
+      });
+    }
+    console.log('made it');
     passport.authenticate('local')(req, res, () => {
       if (req.user) {
         return res.json(req.user);
@@ -37,7 +46,9 @@ module.exports = {
   },
 
   logout(req, res) {
+    console.log(req.user);
     req.logout();
+    console.log(req.user);
     return res.json(req.user);
   },
 };

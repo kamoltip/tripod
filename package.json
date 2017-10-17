@@ -13,7 +13,7 @@
     "test": "jest",
     "lint": "eslint .",
     "open:client": "webpack -w --progress",
-    "open:server": "node server.js"
+    "open:server": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
