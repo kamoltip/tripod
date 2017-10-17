@@ -3,6 +3,7 @@ import React , { Component } from 'react';
 import { render } from 'react-dom';
 import './Search.scss';
 import {Link} from 'react-router';
+
 import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, Popup} from 'semantic-ui-react';
 import tripod from '../../asset/images/tripod-logo.png';
 import API from '../../utils/API';
@@ -50,6 +51,10 @@ class Search extends Component {
      console.log(getItem(fineName));
   };
 
+      .then(res => this.setState({ images: res.data})) ////console.log(res.data))
+      .catch(err => console.log(err));
+  };
+
   render() {
 
     return (
@@ -61,6 +66,7 @@ class Search extends Component {
             <Link to='/activity'><img className='logo' src={tripod}/></Link>
             {/* <Divider section/> */}
             <div className='thirdDiv'>
+
               <div className='fourthDiv'>
                 <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
                   {this.state.gallery.map(data => (
@@ -83,12 +89,35 @@ class Search extends Component {
                       <Button onClick={ () => this.onChangeDownload(data,data.pic_url)}>D</Button>
                     </Image>
                   ))}  
+
+
+              <div className='fourthDiv'>
+                <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
+
+                  {this.state.images.map(image => (
+
+                    <panel key={ image._id }>
+                      <a href={ image.pic_url } target='_blank'><img style={style.displayImage} src={ image.pic_url } /></a>
+                      <Checkbox className='checkbox' />
+                    </panel>
+
+                  ))}
+
                     <Divider section/>
                   <Container>
                   <Button.Group>
                   <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
+<<<<<<< HEAD
                  
+=======
+
+                  <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
+>>>>>>> 90587a17e3745462e7700a80f067bfdc519e86ff
        
+
+                  <Button size='big' floated='right' color='green' content='Download'/>
+                  {/* <Button fluid size='large' floated='right' color='green' content='Sort Date'/> */}
+
                 </Button.Group>
                 </Container>
               </div>
@@ -98,6 +127,7 @@ class Search extends Component {
 
           </div>
         </div>
+
       </div>
     );
   }
