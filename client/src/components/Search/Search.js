@@ -8,6 +8,7 @@ import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, 
 import tripod from '../../asset/images/tripod-logo.png';
 import API from '../../utils/API';
 
+
 class Search extends Component {
 
   constructor(props) {
@@ -22,7 +23,7 @@ class Search extends Component {
   };
 
   componentDidMount() {
-    // window.addEventListener('load', this.searchImages); // h
+    // window.addEventListener('load', this.searchImages); 
   }
 
   searchImages(event) {
@@ -36,16 +37,18 @@ class Search extends Component {
     this.setState({ isChecked: !this.state.isChecked });
   }
 
-  onChangeDownload(e){
+  onChangeDownload(data,name){
       // if (this.state.e === true) {
       //   alert("checked");      // }
     // alert(e + this.props.selected);    
     // this.state.checkedImg.push(checked);
     // console.log(this.state.checkedImg);
-  };
-
-      .then(res => this.setState({ images: res.data})) ////console.log(res.data))
-      .catch(err => console.log(err));
+     // <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
+     // console.log(data,name);
+     // const fileName = name.substr(59);
+     // console.log(fileName);
+     // localStorage.setItem(data,fileName);
+     // console.log(getItem(fineName));
   };
 
   render() {
@@ -62,6 +65,7 @@ class Search extends Component {
 
               <div className='fourthDiv'>
                 <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
+
                   {this.state.gallery.map(data => (
                     <Image key={data.pic_url} style={style.displayImage}>
                       <Popup
@@ -69,43 +73,23 @@ class Search extends Component {
                         flowing
                         hoverable
                         style={style.popStyle}
-                      >
+                        >
                         <img src = {data.pic_url} style={style.img}/>        
                       </Popup>
                       <input type="checkbox" 
-                            checked={this.state.isChecked}
-                            onChange={this.toggleChange}
-                            name={data.pic_public_id} 
-                            key={data._id}
-                            value={data}
+                        checked={this.state.isChecked}
+                        onChange={this.toggleChange}
+                        name={data.pic_public_id} 
+                        key={data._id}
+                        value={data}
                       /> 
-                      <form method="get" action={data.pic_url}>
-                         <button type="submit">D</button>
-                      </form>
+                      <Button onClick={ () => this.onChangeDownload(data,data.pic_url)}>D</Button>
                     </Image>
                   ))}  
-
-
-              <div className='fourthDiv'>
-                <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
-
-                  {this.state.images.map(image => (
-
-                    <panel key={ image._id }>
-                      <a href={ image.pic_url } target='_blank'><img style={style.displayImage} src={ image.pic_url } /></a>
-                      <Checkbox className='checkbox' />
-                    </panel>
-
-                  ))}
-
                     <Divider section/>
                   <Container>
                   <Button.Group>
                   <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
-
-                  <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
-       
-
                   <Button size='big' floated='right' color='green' content='Download'/>
                   {/* <Button fluid size='large' floated='right' color='green' content='Sort Date'/> */}
 
