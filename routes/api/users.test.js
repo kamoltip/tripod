@@ -18,6 +18,6 @@ describe('The User API', () => {
     // Second, expect the array to have something in it
     expect(res.body.length).toBeGreaterThan(0);
     // Third, expect the username of the first returned user to be Administrator
-    expect(res.body[0].username).toBe('administrator');
+    expect(res.body[0].email).toBe('administrator@email.com');
   });
 });
