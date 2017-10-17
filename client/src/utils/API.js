@@ -6,6 +6,7 @@ const Cloudinary_Url = '    https://api.cloudinary.com/v1_1/tripod/upload';
 const API_Key = '447781538358186';
 const Coudinary_Upload_preset = 'mtmzmtt5';
 
+const delete_Url = 'https://api.cloudinary.com/v1_1/tripod/'
 
 export default {
 
@@ -22,6 +23,13 @@ export default {
 	  return axios.post(Cloudinary_Url, formData, {
       	  sheaders: { "X-Requested-With": "XMLHttpRequest" },
       });
+	},
+
+	// Delete from Cloudinary
+	deleteCloudinary: function( pubId ) {
+	  return axios.delete(delete_Url, pubId, {
+	  	sheaders: { "X-Requested-With": "XMLHttpRequest" },
+	  });	  	
 	},
 
 	// Read from Mongo
@@ -44,7 +52,7 @@ export default {
 	  	})
 	},
 
-	//Delete in Mongo
+	//Delete from Mongo
 	deletePicDetails: (id) => {
 	  return axios.delete("/api/activity/" + id )
 		.then(function(res){

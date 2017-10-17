@@ -26314,6 +26314,8 @@ var Cloudinary_Url = '    https://api.cloudinary.com/v1_1/tripod/upload';
 var API_Key = '447781538358186';
 var Coudinary_Upload_preset = 'mtmzmtt5';
 
+var delete_Url = 'https://api.cloudinary.com/v1_1/tripod/';
+
 exports.default = {
 
 	//Cloudinary upload
@@ -26327,6 +26329,13 @@ exports.default = {
 		formData.append("timestamp", Date.now() / 1000 | 0);
 
 		return _axios2.default.post(Cloudinary_Url, formData, {
+			sheaders: { "X-Requested-With": "XMLHttpRequest" }
+		});
+	},
+
+	// Delete from Cloudinary
+	deleteCloudinary: function deleteCloudinary(pubId) {
+		return _axios2.default.delete(delete_Url, pubId, {
 			sheaders: { "X-Requested-With": "XMLHttpRequest" }
 		});
 	},
@@ -26349,7 +26358,7 @@ exports.default = {
 		});
 	},
 
-	//Delete in Mongo
+	//Delete from Mongo
 	deletePicDetails: function deletePicDetails(id) {
 		return _axios2.default.delete("/api/activity/" + id).then(function (res) {
 			console.log("deleted");
@@ -75186,6 +75195,13 @@ var Search = function (_Component) {
     value: function deleteImage(id) {
       var _this3 = this;
 
+      // Delete from Cloudinary
+      _API2.default.deleteCloudinary().then(function (res) {
+        return console.log("Deleted from Cloudinary");
+      }).catch(function (err) {
+        return console.log(err);
+      });
+      // Delete form Mongo
       _API2.default.deletePicDetails(id).then(function (res) {
         return _this3.searchImages();
       }).catch(function (err) {
@@ -75273,7 +75289,7 @@ var Search = function (_Component) {
                                   } }),
                                 ' ',
                                 _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'trash', basic: true, size: 'tiny', color: 'red', onClick: function onClick() {
-                                    return _this4.deleteImage(data._id);
+                                    return _this4.deleteImage(data._id, data.pic_public_id);
                                   } })
                               )
                             )

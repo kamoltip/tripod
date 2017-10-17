@@ -43,9 +43,14 @@ class Search extends Component {
   }
 
   deleteImage(id) {
+    // Delete from Cloudinary
+    API.deleteCloudinary()
+      .then(res => console.log("Deleted from Cloudinary"))
+      .catch(err => console.log(err));
+    // Delete form Mongo
     API.deletePicDetails(id)
       .then(res => this.searchImages())
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));  
   }
 
   onChangeDownload(data, name) {
@@ -92,7 +97,7 @@ class Search extends Component {
                               <br/>
                               <Button.Group className='click'>
                                 <Button centered icon='download' basic size='tiny' color='green' onClick={() => this.onChangeDownload(data, data.pic_url)}/> {/* <input type="checkbox" checked={this.state.isChecked} onChange={this.toggleChange} name={data.pic_public_id} key={data._id} value={data}/> */}
-                                <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id)} />
+                                <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
                               </Button.Group>
                             </Grid.Column>
                           </Grid.Row>
