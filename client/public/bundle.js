@@ -75284,9 +75284,7 @@ var Search = function (_Component) {
                               _react2.default.createElement(
                                 _semanticUiReact.Button.Group,
                                 { className: 'click' },
-                                _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'download', basic: true, size: 'tiny', color: 'green', onClick: function onClick() {
-                                    return _this4.onChangeDownload(data, data.pic_url);
-                                  } }),
+                                _react2.default.createElement(_semanticUiReact.Button, { href: data.pic_url, download: data.pic_url, centered: true, icon: 'download', basic: true, size: 'tiny', color: 'green' }),
                                 ' ',
                                 _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'trash', basic: true, size: 'tiny', color: 'red', onClick: function onClick() {
                                     return _this4.deleteImage(data._id, data.pic_public_id);
