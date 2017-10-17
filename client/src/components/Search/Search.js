@@ -22,50 +22,25 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gallery: [],
-      checkedImg: [],
-      isChecked: false
+      gallery: []
     };
+    this.searchImages = this.searchImages.bind(this); 
   };
-
-  componentDidMount() {
-    this.searchImages();
-  }
 
   searchImages(event) {
     API.getPicDetails().then(res => this.setState({gallery: res.data})).catch(err => console.log(err));
   };
 
-  toggleChange() {
-    this.setState({
-      isChecked: !this.state.isChecked
-    });
-  }
-
   deleteImage(id) {
-    // Delete from Cloudinary
-    API.deleteCloudinary()
-      .then(res => console.log("Deleted from Cloudinary"))
-      .catch(err => console.log(err));
-    // Delete form Mongo
+    // // Delete from Cloudinary
+    // API.deleteCloudinary()
+    //   .then(res => console.log("Deleted from Cloudinary"))
+    //   .catch(err => console.log(err));
+    // // Delete form Mongo
     API.deletePicDetails(id)
-      .then(res => this.searchImages())
+      .then(res => console.log("Image Deleted"))
       .catch(err => console.log(err));  
   }
-
-  onChangeDownload(data, name) {
-    // if (this.state.e === true) {
-    //   alert("checked");      // }
-    // alert(e + this.props.selected);
-    // this.state.checkedImg.push(checked);
-    // console.log(this.state.checkedImg);
-    // <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
-    // console.log(data,name);
-    // const fileName = name.substr(59);
-    // console.log(fileName);
-    // localStorage.setItem(data,fileName);
-    // console.log(getItem(fineName));
-  };
 
   render() {
 
@@ -86,8 +61,8 @@ class Search extends Component {
                 {this.state.gallery.map(data => (
                   <Image key={data.pic_url} style={style.displayImage}>
                     <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
-                            trigger={
-                                <Image src = {data.pic_url} style = {style.imgLarge} /> }
+                        trigger={
+                        <Image src = {data.pic_url} style = {style.imgLarge} /> }
                     >
                       <Container>
                         <Grid centered columns='one'>
