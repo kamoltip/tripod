@@ -27,7 +27,7 @@ class Capture extends React.Component {
       API.postCloudinary({
         file: file[0]
       })
-      .then(res => console.log(this.saveMongoDb(res.data.secure_url,file[0].coords.lat,file[0].coords.long,res.data.public_id))) 
+      .then(res => console.log(this.saveMongoDb(res.data.secure_url,file[0].coords.lat,file[0].coords.long,res.data.public_id)))
       .catch(err => console.log(err));
     });
 

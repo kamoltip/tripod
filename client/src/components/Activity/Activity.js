@@ -27,8 +27,8 @@ const Activity = () => (
 
     <p className='actText'></p>
     <div className='logoPad'>
-    <Link to = '/activity'><img className='logo' src={tripod} /></Link>
-  </div>
+      <Link to = '/activity'><img className='logo' src={tripod} /></Link>
+    </div>
     <Divider section/>
     <Container className='activityBox'>
       <div className='buttonDiv'>
@@ -52,38 +52,38 @@ const Activity = () => (
             </Grid>
           </Button>
           <div>
-              <div>
-                <Button fluid basic>
-                  <Grid columns='one'>
-                    <Grid.Row>
-                      <Grid.Column>
-                        <Link to='/home'><Icon name='home' size='massive' color='red' className='logoutButton'/></Link>
-                      </Grid.Column>
-                    </Grid.Row>
-                  </Grid>
-                </Button>
+            <div>
+              <Button fluid basic>
+                <Grid columns='one'>
+                  <Grid.Row>
+                    <Grid.Column>
+                      <Link to='/home'><Icon name='home' size='massive' color='red' className='logoutButton'/></Link>
+                    </Grid.Column>
+                  </Grid.Row>
+                </Grid>
+              </Button>
 
+              <div>
+                <div>
+                  <Button fluid basic>
+                    <Grid columns='one'>
+                      <Grid.Row>
+                        <Grid.Column>
+                          <Link to='/crew'><Icon name='users' size='massive' color='black' className='user'/></Link>
+                        </Grid.Column>
+                      </Grid.Row>
+                    </Grid>
+                  </Button>
                   <div>
-                    <div>
-                      <Button fluid basic>
-                        <Grid columns='one'>
-                          <Grid.Row>
-                            <Grid.Column>
-                              <Link to='/crew'><Icon name='users' size='massive' color='black' className='user'/></Link>
-                            </Grid.Column>
-                          </Grid.Row>
-                        </Grid>
-                      </Button>
-                      <div>
-                        <Button fluid basic>
-                          <Grid columns='one'>
-                            <Grid.Row>
-                              <Grid.Column>
-                                <Link to='/feature'><Icon name='info' size='massive' color='orange' className='feature'/></Link>
-                              </Grid.Column>
-                            </Grid.Row>
-                          </Grid>
-                        </Button>
+                    <Button fluid basic>
+                      <Grid columns='one'>
+                        <Grid.Row>
+                          <Grid.Column>
+                            <Link to='/feature'><Icon name='info' size='massive' color='orange' className='feature'/></Link>
+                          </Grid.Column>
+                        </Grid.Row>
+                      </Grid>
+                    </Button>
                     <Button fluid inverted>
                       <Grid columns='one'>
                         <Grid.Row>
