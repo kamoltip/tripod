@@ -9,7 +9,6 @@ const Coudinary_Upload_preset = 'mtmzmtt5';
 const delete_Url = 'https://api.cloudinary.com/v1_1/tripod/'
 
 export default {
-
 	//Cloudinary upload
 	postCloudinary: function( picData ) {
 	  console.log(picData.file.coords);
@@ -29,14 +28,14 @@ export default {
 	deleteCloudinary: function( pubId ) {
 	  return axios.delete(delete_Url, pubId, {
 	  	sheaders: { "X-Requested-With": "XMLHttpRequest" },
-	  });	  	
+	  });
 	},
 
 	// Read from Mongo
 	getPicDetails: function(){
 	  return axios.get("/api/activity")
 		.then(function(res){
-		  console.log("axios resutls",res);
+		  console.log("axios resutls", res);
 			return res;
 		});
 	},
@@ -59,6 +58,21 @@ export default {
 			console.log("deleted");
 			return res;
 		})
-	}
+	},
 
+	//Register User
+	registerUser: (input) => {
+		return axios.post("/api/authentication/register", input)
+			.then(function(res) {
+				return res;
+			});
+		},
+
+	//Register User
+	loginUser: (input) => {
+		return axios.post("/api/authentication/login", input)
+			.then(function(res) {
+					return res;
+			});
+	},
 };

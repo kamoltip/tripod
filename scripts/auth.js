@@ -17,7 +17,7 @@ module.exports = {
       errors.password = 'Password must have at least 8 characters.';
     }
 
-    if (!payload || typeof payload.agree !== 'string' || payload.agree.trim() !== 'ok') {
+    if (!payload || typeof payload.agree !== 'string' || payload.agree.trim() !== 'on') {
       isFormValid = false;
       errors.name = 'Must agree to Terms & Conditions to sign up with Tripod';
     }

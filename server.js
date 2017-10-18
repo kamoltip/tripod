@@ -1,28 +1,45 @@
 const express = require('express');
+const session = require('express-session');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const db = require('./connection/connection.js');
 const path = require('path');
-const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+const MongoStore = require('connect-mongo')(session);
 const routes = require('./routes');
+const config = require('./config/config.json');
 
-const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Configure body parser for AJAX requests
+const app = express();
+
+// Set static
+app.use(express.static(path.join(__dirname, 'client/public')));
+// Configure middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
-app.use(cookieParser());
-app.use(require('express-session')({ secret: 'fighting whale', resave: false, saveUninitialized: false }));
+app.use(session({
+  secret: process.env.CCRET || config.secret,
+  cookie: {
+    maxAge: 1800000,
+  },
+  resave: true,
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: db }),
+}));
+
+// app.use((req, res, next) => {
+//   console.log(req.session);
+//   const id = req.session.user;
+//   console.log(id);
+//   // req.session.user = id;
+//   req.session.save();
+// });
 
 app.use(passport.initialize());
 app.use(passport.session());
-// Serve up static assets
-app.use(express.static('./client/public'));
-// Add routes, both API and view
 app.use(routes);
 
 const User = require('./models/user');
@@ -31,51 +48,55 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
-//   next();
-// });
-// app.get("/api", (req, res) => {
-//     res.json({username:'accimes'})
-// });
-// ******************************************
-// Set up promises with mongoose and connect to Mongo with Mongoose
-mongoose.Promise = global.Promise;
+// session tests
+var sess;
 
-mongoose.connect(
-process.env.MONGODB_URI || 'mongodb://admin:tripod@ds117605.mlab.com:17605/heroku_r1s063tw',
-  // process.env.MONGODB_URI || 'mongodb://localhost/tripod',
-  { useMongoClient: true }
-);
-
-const db = mongoose.connection;
-
-db.on('error', (err) => {
-  console.log(`Mongoose Error : ${err}`);
+app.get('/start',function (req,res) {
+sess = req.session;
+console.log(req.user)
+//Session set when user Request our app via URL
+if(req.user) {
+/*
+* This line check Session existence.
+* If it existed will do some action.
+*/
+res.redirect('/admin');
+}
+else {
+console.log('no session');
+}
 });
 
-db.once('open', () => {
-  console.log('Mongoose connection successful');
+app.post('/check',function (req,res){
+  sess = req.session;
+
+//In this we are assigning email to sess.email variable.
+//email comes from HTML page.
+  sess.email=req.body.email;
+  res.end('done');
 });
 
-// app.get("/activity/api/savePic", function(req,res){
-// 	PicDetails.find({})
-// 	.exec(function(err,doc){
-// 		if(err) {
-// 			console.log(err);
-// 		}
-// 		else {
-// 			res.send(doc);
-// 		};
-// 	});
-// });
+app.get('/admin',function (req,res){
+  sess = req.session;
+if(sess.email) {
+res.write('<h1>Hello '+sess.email+'</h1>');
+res.end('<a href="+">Logout</a>');
+} else {
+    res.write('<h1>Please logins first.</h1>');
+    res.end('<a href="+">Login</a>');
+}
+});
 
-// ******************************************
-// app.get("*", (req, res) => {
-//     res.sendFile(path.join(__dirname, "./client/public/index.html"))
-// });
+app.get('/logouttahere',function (req,res){
+req.session.destroy(function (err) {
+  if(err) {
+    console.log(err);
+  } else {
+    console.log(req.user._id);
+    res.redirect('/');
+  }
+});
+});
 
 app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
