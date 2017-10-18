@@ -14,7 +14,6 @@ class Search extends Component {
     this.state = {
       gallery: []
     };
-
     this.searchImages = this.searchImages.bind(this);
   };
 
@@ -29,10 +28,10 @@ class Search extends Component {
       .catch(err => console.log(err));
   };
 
+
   // Delete an image
   deleteImage(id, pId) {
-    confirm(" Delete this image ? ");
-    if (confirm("Press a button!") == true) {
+    if (confirm("Delete this image ?") == true) {
       // // Delete from Cloudinary
       // API.deleteCloudinary()
       //   .then(res => console.log("Deleted from Cloudinary"))
@@ -66,6 +65,18 @@ class Search extends Component {
 
   };
 
+  deleteImage(id){
+    // // Delete from Cloudinary
+    // API.deleteCloudinary()
+    //   .then(res => console.log("Deleted from Cloudinary"))
+    //   .catch(err => console.log(err));
+    // // Delete form Mongo
+    API.deletePicDetails(id)
+      .then(res => console.log("Image Deleted"))
+      .catch(err => console.log(err));
+  }
+
+
   render() {
 
     return (
@@ -79,14 +90,15 @@ class Search extends Component {
             <div className='thirdDiv'>
               <div className='fourthDiv'>
                 <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
-                  <CloudinaryContext cloudName="tripod"> 
+                  <CloudinaryContext cloudName="tripod">
                     {this.state.gallery.map(data => (
                       <div className="responsive" key={data._id} style={style.responsive} >
                         <div className="img" style={style.img} >
                           <Image key={data.pic_url} style={style.displayImage}>
                             <CloudinaryContext cloudName="tripod">                    
-                              <Transformation width="200" crop="scale" angle="10" />
-                              <Image publicId={data.pic_public_id}>
+                              <Transformation width="200" crop="scale" />
+                              <Transformation angle="auto"/> 
+                              <Image src={data.pic_url}>
                               <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
                                 trigger={<Image src = {data.pic_url} style = {style.imgLarge} />}
                               >
@@ -113,12 +125,12 @@ class Search extends Component {
                         </div>
                       </div>
                     ))}
-                  </CloudinaryContext> 
+                  </CloudinaryContext>
                     <Divider section/>
                   <Container>
                   <Button.Group>
                   <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
-      
+
                 </Button.Group>
                 </Container>
               </div>
@@ -133,9 +145,9 @@ class Search extends Component {
 };
 const style = {
   displayImage: {
-    width: '100%',
-    height: 'auto',    
-    padding: '1%',
+    height: 'auto',
+    width: 'auto',
+    padding: '1.5%',
     border: '3px solid white',
     boxShadow:'2px, 5px, 50px black',
     display: 'inline-grid',
