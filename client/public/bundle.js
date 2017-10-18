@@ -75160,19 +75160,13 @@ var Search = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
 
     _this.state = {
-      gallery: [],
-      checkedImg: [],
-      isChecked: false
+      gallery: []
     };
+    _this.searchImages = _this.searchImages.bind(_this);
     return _this;
   }
 
   _createClass(Search, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.searchImages();
-    }
-  }, {
     key: 'searchImages',
     value: function searchImages(event) {
       var _this2 = this;
@@ -75184,49 +75178,23 @@ var Search = function (_Component) {
       });
     }
   }, {
-    key: 'toggleChange',
-    value: function toggleChange() {
-      this.setState({
-        isChecked: !this.state.isChecked
-      });
-    }
-  }, {
     key: 'deleteImage',
     value: function deleteImage(id) {
-      var _this3 = this;
-
-      // Delete from Cloudinary
-      _API2.default.deleteCloudinary().then(function (res) {
-        return console.log("Deleted from Cloudinary");
-      }).catch(function (err) {
-        return console.log(err);
-      });
-      // Delete form Mongo
+      // // Delete from Cloudinary
+      // API.deleteCloudinary()
+      //   .then(res => console.log("Deleted from Cloudinary"))
+      //   .catch(err => console.log(err));
+      // // Delete form Mongo
       _API2.default.deletePicDetails(id).then(function (res) {
-        return _this3.searchImages();
+        return console.log("Image Deleted");
       }).catch(function (err) {
         return console.log(err);
       });
-    }
-  }, {
-    key: 'onChangeDownload',
-    value: function onChangeDownload(data, name) {
-      // if (this.state.e === true) {
-      //   alert("checked");      // }
-      // alert(e + this.props.selected);
-      // this.state.checkedImg.push(checked);
-      // console.log(this.state.checkedImg);
-      // <Button size='big' floated='right' color='green' content='Download' onClick={this.download} />
-      // console.log(data,name);
-      // const fileName = name.substr(59);
-      // console.log(fileName);
-      // localStorage.setItem(data,fileName);
-      // console.log(getItem(fineName));
     }
   }, {
     key: 'render',
     value: function render() {
-      var _this4 = this;
+      var _this3 = this;
 
       return _react2.default.createElement(
         'div',
@@ -75287,7 +75255,7 @@ var Search = function (_Component) {
                                 _react2.default.createElement(_semanticUiReact.Button, { href: data.pic_url, download: data.pic_url, centered: true, icon: 'download', basic: true, size: 'tiny', color: 'green' }),
                                 ' ',
                                 _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'trash', basic: true, size: 'tiny', color: 'red', onClick: function onClick() {
-                                    return _this4.deleteImage(data._id, data.pic_public_id);
+                                    return _this3.deleteImage(data._id, data.pic_public_id);
                                   } })
                               )
                             )
