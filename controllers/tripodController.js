@@ -32,10 +32,12 @@ module.exports = {
   },
 
   update(req, res) {
+    // console.log(res.body.pic_url);
     db.PicDetails
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.params.id }, { pic_url: req.body.pic_url })//req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+
   },
 
   remove(req, res) {
