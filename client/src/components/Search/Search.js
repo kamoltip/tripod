@@ -6,7 +6,6 @@ import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, 
 import tripod from '../../asset/images/tripod-logo.png';
 import API from '../../utils/API';
 import { CloudinaryContext, Transformation } from 'cloudinary-react';
-import isNumeric from 'validator/lib/isNumeric';
 
 class Search extends Component {
 
