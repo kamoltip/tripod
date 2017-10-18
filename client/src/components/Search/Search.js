@@ -50,7 +50,7 @@ class Search extends Component {
     // Delete form Mongo
     API.deletePicDetails(id)
       .then(res => this.searchImages())
-      .catch(err => console.log(err));  
+      .catch(err => console.log(err));
   }
 
   onChangeDownload(data, name) {
@@ -96,8 +96,9 @@ class Search extends Component {
                               <img src={data.pic_url}/>
                               <br/>
                               <Button.Group className='click'>
-                                <Button centered icon='download' basic size='tiny' color='green' onClick={() => this.onChangeDownload(data, data.pic_url)}/> {/* <input type="checkbox" checked={this.state.isChecked} onChange={this.toggleChange} name={data.pic_public_id} key={data._id} value={data}/> */}
-                                <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
+                                <Button color = 'green' centered icon='download' basic size='big' onClick={() => this.onChangeDownload(data, data.pic_url)}></Button>
+                                {/* <input type="checkbox" checked={this.state.isChecked} onChange={this.toggleChange} name={data.pic_public_id} key={data._id} value={data}/> */}
+                                <Button color = 'red' centered icon='trash' basic size='big' onClick={() => this.deleteImage(data._id , data.pic_public_id)}></Button>
                               </Button.Group>
                             </Grid.Column>
                           </Grid.Row>
@@ -128,41 +129,20 @@ const style = {
   displayImage: {
     height: 'auto',
     width: '20%',
-    padding: '1%',
-    border: '2px solid white',
+    padding: '1.5%',
+    border: '3px solid white',
+    boxShadow:'2px, 5px, 50px black',
     display: 'inline-grid',
     marginTop: '1%',
     marginRight: '1%',
     marginLeft: '1%',
     marginBottom: '1%'
   },
-  img: {
-    // border: '0.5px solid #ccc',
-    // height: 'auto',
-    // width: 'auto',
-    // padding: '0',
-    // display: 'inline-grid',
-    // verticalAlign: 'middle',
-    // objectFit: 'cover',
-    // overflowWrap: 'normal'
-  },
-  popStyle: {},
-  // imgLarge: {
-  //   width:'100%',
-  //   height:'auto',
-  //   padding: '0',
-  //   margin: '0'
-  // },
-  responsive: {
-    // padding: '0 6px',
-    // float: 'left',
-    // width: '24%',
-    // margin: '10px'
-  },
-  desc: {
-    // padding: '15px',
-    // textAlign: 'center'
-  }
 
+  popStyle: {
+  backgroundColor:'rgba(0,0,0,0.0)',
+  border:'none',
+  boxShadow:'none'
+  },
 };
 export default Search;
