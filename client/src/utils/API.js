@@ -25,20 +25,20 @@ export default {
       });
 	},
 
-	// Delete from Cloudinary
-	deleteCloudinary: function( pubId ) {
-	  return axios.delete(delete_Url, pubId, {
-	  	sheaders: { "X-Requested-With": "XMLHttpRequest" },
-	  });	  	
-	},
+	// // Delete from Cloudinary
+	// deleteCloudinary: function( pubId ) {
+	//   return axios.delete(delete_Url, pubId, {
+	//   	sheaders: { "X-Requested-With": "XMLHttpRequest" },
+	//   });	  	
+	// },
 
 	// Read from Mongo
-	getPicDetails: function(){
+	getPicDetails: () => {
 	  return axios.get("/api/activity")
 		.then(function(res){
 		  console.log("axios resutls",res);
-			return res;
-		});
+		  return res;
+		})
 	},
 
 	// Save in Mongo
@@ -55,10 +55,10 @@ export default {
 	//Delete from Mongo
 	deletePicDetails: (id) => {
 	  return axios.delete("/api/activity/" + id )
-		.then(function(res){
-			console.log("deleted");
-			return res;
-		})
+		// .then(function(res){
+		// 	console.log("deleted");
+		// 	return res;
+		// })
 	}
 
 };
