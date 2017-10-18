@@ -2,7 +2,8 @@ import React, {Component} from 'react'
 import './Activity.scss'
 import {Link} from 'react-router'
 import tripod from '../../asset/images/tripod-logo.png'
-import Capture from '../Capture/Capture';
+import Capture from '../Capture/Capture'
+import Pin from '../Pin/Pin'
 import {
   Image,
   Button,
@@ -11,9 +12,11 @@ import {
   Grid,
   Segment,
   Divider,
-  Responsive
+  Responsive,
+  Input,
+  Modal,
+  Form
 } from 'semantic-ui-react'
-// import Footer from '../Footer/Footer'
 
 const Activity = () => (
   <div className='activityDiv'>
@@ -27,7 +30,7 @@ const Activity = () => (
 
     <p className='actText'></p>
     <div className='logoPad'>
-      <Link to = '/activity'><img className='logo' src={tripod} /></Link>
+      <Link to = '/home'><img className='logo' src={tripod} /></Link>
     </div>
     <Divider section/>
     <Container className='activityBox'>
@@ -36,7 +39,9 @@ const Activity = () => (
           <Grid columns='one'>
             <Grid.Row>
               <Grid.Column>
-                <Link to=''><Capture/></Link>
+
+                <Pin />
+
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -46,7 +51,7 @@ const Activity = () => (
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
-                  <Link to='/search'><Icon name='image' size='massive' color='blue' className='search'/></Link>
+                  <Link to='/search'><Icon name='image' size='massive' color='black' className='search'/></Link>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -57,7 +62,7 @@ const Activity = () => (
                 <Grid columns='one'>
                   <Grid.Row>
                     <Grid.Column>
-                      <Link to='/home'><Icon name='home' size='massive' color='red' className='logoutButton'/></Link>
+                      <Link to='/home'><Icon name='home' size='massive' color='black' className='logoutButton'/></Link>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
@@ -69,26 +74,26 @@ const Activity = () => (
                     <Grid columns='one'>
                       <Grid.Row>
                         <Grid.Column>
-                          <Link to='/crew'><Icon name='users' size='massive' color='black' className='user'/></Link>
+                          <Link to='/crew'><Icon name='users' size='massive' color='grey' className='user'/></Link>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>
                   </Button>
                   <div>
-                    <Button fluid basic>
+                    {/* <Button fluid basic>
                       <Grid columns='one'>
                         <Grid.Row>
                           <Grid.Column>
-                            <Link to='/feature'><Icon name='info' size='massive' color='orange' className='feature'/></Link>
+                            <Link to='/feature'><Icon name='info' size='massive' color='grey' className='feature'/></Link>
                           </Grid.Column>
                         </Grid.Row>
                       </Grid>
-                    </Button>
+                    </Button> */}
                     <Button fluid inverted>
                       <Grid columns='one'>
                         <Grid.Row>
                           <Grid.Column>
-                            <Link to='/login'><Icon name='log out' size='massive' color='purple' className='logout'/></Link>
+                            <Link to='/login'><Icon name='log out' size='massive' color='grey' className='logout'/></Link>
                           </Grid.Column>
                         </Grid.Row>
                       </Grid>
@@ -102,7 +107,7 @@ const Activity = () => (
         </div>
       </div>
     </Container>
-    {/* <Footer /> */}
+
   </div>
 )
 

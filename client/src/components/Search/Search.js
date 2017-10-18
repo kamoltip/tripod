@@ -24,7 +24,7 @@ class Search extends Component {
     this.state = {
       gallery: []
     };
-    this.searchImages = this.searchImages.bind(this); 
+    this.searchImages = this.searchImages.bind(this);
   };
 
   searchImages(event) {
@@ -39,7 +39,7 @@ class Search extends Component {
     // // Delete form Mongo
     API.deletePicDetails(id)
       .then(res => console.log("Image Deleted"))
-      .catch(err => console.log(err));  
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -103,41 +103,20 @@ const style = {
   displayImage: {
     height: 'auto',
     width: '20%',
-    padding: '1%',
-    border: '2px solid white',
+    padding: '1.5%',
+    border: '3px solid white',
+    boxShadow:'2px, 5px, 50px black',
     display: 'inline-grid',
     marginTop: '1%',
     marginRight: '1%',
     marginLeft: '1%',
     marginBottom: '1%'
   },
-  img: {
-    // border: '0.5px solid #ccc',
-    // height: 'auto',
-    // width: 'auto',
-    // padding: '0',
-    // display: 'inline-grid',
-    // verticalAlign: 'middle',
-    // objectFit: 'cover',
-    // overflowWrap: 'normal'
-  },
-  popStyle: {},
-  // imgLarge: {
-  //   width:'100%',
-  //   height:'auto',
-  //   padding: '0',
-  //   margin: '0'
-  // },
-  responsive: {
-    // padding: '0 6px',
-    // float: 'left',
-    // width: '24%',
-    // margin: '10px'
-  },
-  desc: {
-    // padding: '15px',
-    // textAlign: 'center'
-  }
 
+  popStyle: {
+  backgroundColor:'rgba(0,0,0,0.0)',
+  border:'none',
+  boxShadow:'none'
+  },
 };
 export default Search;
