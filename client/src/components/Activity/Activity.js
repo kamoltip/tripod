@@ -18,7 +18,15 @@ import {
   Form
 } from 'semantic-ui-react'
 
-const Activity = () => (
+class Activity extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // this.logout = this.logout.bind(this);
+  };
+
+  render() {
+    return (
   <div className='activityDiv'>
     <Responsive
       {...Responsive.onlyMobile}
@@ -83,9 +91,9 @@ const Activity = () => (
                     {/* <Button fluid basic>
                       <Grid columns='one'>
                         <Grid.Row>
-                          <Grid.Column>
-                            <Link to='/feature'><Icon name='info' size='massive' color='grey' className='feature'/></Link>
-                          </Grid.Column>
+                      <Grid.Column>
+                      <Link to='/feature'><Icon name='info' size='massive' color='grey' className='feature'/></Link>
+                      </Grid.Column>
                         </Grid.Row>
                       </Grid>
                     </Button> */}
@@ -110,5 +118,6 @@ const Activity = () => (
 
   </div>
 )
-
+}
+}
 export default Activity

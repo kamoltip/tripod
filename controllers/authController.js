@@ -15,17 +15,18 @@ module.exports = {
     const newUser = new User({
       email: req.body.email,
       agree: req.body.agree,
+      pin: req.body.pin,
     });
 
     User.register(newUser, req.body.password, (err, user) => {
       if (err) {
         return res.json({ error: err });
       }
+      res.redirect('/');
     });
   },
 
   login(req, res) {
-    console.log(req.session)
     const validationResult = auth.validateLoginForm(req.body);
     if (!validationResult.success) {
       return res.status(400).json({
@@ -35,9 +36,10 @@ module.exports = {
       });
     }
     passport.authenticate('local', { failureRedirect: '/login' })(req, res, () => {
-      console.log(req);
+      console.log(req.session.user);
       if (req.user) {
-        return res.json(user.id);
+        // res.redirect('/');
+        return res.json(data);
       }
       return res.json({ error: 'There was an error logging in' });
     });

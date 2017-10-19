@@ -44,46 +44,20 @@ app.use(routes);
 
 const User = require('./models/user');
 
-passport.use(new LocalStrategy(User.authenticate({ passReqToCallback: false })));
-//   {usernameField: 'email',
-//   passwordField: 'password',
-//   passReqToCallback: true,
-// }, ((username, password, done) => {
-//     User.findOne({ 'email': email }, (err, user) => {
-//       if (err) { return done(err); }
-//       if (!user) { return done(null, false); }
-//       if (!user.verifyPassword(password)) { return done(null, false); }
-//       return done(null, user);
-//     });
-//   })));
+passport.use(new LocalStrategy(User.authenticate({'_body': false})));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // session tests
-let sess;
 
 app.get('/start', (req, res) => {
-  sess = req.session;
-  console.log(req.user);
-  // Session set when user Request our app via URL
+
+  console.log(req.user.pin);
   if (req.user) {
-    /*
-* This line check Session existence.
-* If it existed will do some action.
-*/
     res.redirect('/admin');
   } else {
     console.log('no session');
   }
-});
-
-app.post('/check', (req, res) => {
-  sess = req.session;
-
-  // In this we are assigning email to sess.email variable.
-  // email comes from HTML page.
-  sess.email = req.body.email;
-  res.end('done');
 });
 
 app.get('/admin', (req, res) => {

@@ -27,6 +27,7 @@ class SignupPage extends React.Component {
       'email': this.state.user.email,
       'password': this.state.user.password,
       'agree': this.state.user.agree,
+      'pin': Math.floor(100000 + Math.random() * 900000),
     }
       API.registerUser(input)
       .then(res => {
