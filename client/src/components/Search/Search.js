@@ -18,12 +18,11 @@ class Search extends Component {
   };
 
 
-componentDidMount(){
+componentWillUpdate(nextProps, nextState){
     this.searchImages();
 }
 
   searchImages(event) {
-    // event.preventDefault();
       API.getPicDetails()
       .then(res => this.setState({ gallery: res.data}))
       .catch(err => console.log(err));
@@ -32,29 +31,20 @@ componentDidMount(){
 
   // Delete an image
   deleteImage(id, pId) {
-    event.preventDefault();
     if (confirm("Delete this image ?") == true) {
-      // // Delete from Cloudinary
-      // API.deleteCloudinary()
-      //   .then(res => console.log("Deleted from Cloudinary"))
-      //   .catch(err => console.log(err));
-      // // Delete form Mongo
       API.deletePicDetails(id)
-        .then(res => searchImages())//console.log("Image Deleted"))
+        .then(res => searchImages())
         .catch(err => console.log(err));
     };
   };
 
   // After rotating the image save it in Mongo
   saveImageChanges(id,newUrl){
-
-    event.preventDefault();
     API.editPicDetails(id , newUrl) 
-
       .then(res => searchImages())
       .catch(err => console.log(err));
     };
-
+    
   // Rotate the image
   rotateImage(id, url, pId) {
     event.preventDefault();
@@ -69,18 +59,6 @@ componentDidMount(){
     }
 
   };
-
-  deleteImage(id){
-    event.preventDefault();
-    // // Delete from Cloudinary
-    // API.deleteCloudinary()
-    //   .then(res => console.log("Deleted from Cloudinary"))
-    //   .catch(err => console.log(err));
-    // // Delete form Mongo
-    API.deletePicDetails(id)
-      .then(res => console.log("Image Deleted"))
-      .catch(err => console.log(err));
-  }
 
 
   render() {

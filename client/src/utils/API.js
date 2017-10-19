@@ -35,7 +35,6 @@ export default {
 	getPicDetails: () => {
 	  return axios.get("/api/activity")
 		.then(function(res){
-		  console.log("axios resutls",res);
 		  return res;
 		})
 	},
@@ -49,10 +48,8 @@ export default {
 			pic_public_id: pid,
 			pin: pin,
 		};
-	  console.log("Save Mongo : " + url);
 	  return axios.post("/api/activity", newPic)
 	  	.then(function(res) {
-	  		console.log("axios result" , res.data._id);
 	  		return res.data_id;
 	  	})
 	},
@@ -61,7 +58,6 @@ export default {
 	deletePicDetails: (id) => {
 	  return axios.delete("/api/activity/" + id )
 		.then(function(res){
-			console.log("deleted");
 			return res;
 		})
 	},
@@ -71,7 +67,6 @@ export default {
 		const newUrl = {pic_url: url};
 		return axios.put("/api/activity/" + id , newUrl )
 		.then(function(res){
-			console.log("Rotated", res.data._id);
 			return res.data_id;
 		})
 	},
