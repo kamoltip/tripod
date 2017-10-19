@@ -7,7 +7,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const MongoStore = require('connect-mongo')(session);
 const routes = require('./routes');
-const config = require('./config/config.json');
+// const config = require('./config/config.json');
 
 const PORT = process.env.PORT || 3001;
 
