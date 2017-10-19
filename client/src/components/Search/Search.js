@@ -40,15 +40,15 @@ componentWillUpdate(nextProps, nextState){
 
   // After rotating the image save it in Mongo
   saveImageChanges(id,newUrl){
-    API.editPicDetails(id , newUrl) 
+    API.editPicDetails(id , newUrl)
       .then(res => searchImages())
       .catch(err => console.log(err));
     };
-    
+
   // Rotate the image
   rotateImage(id, url, pId) {
-    event.preventDefault();
-    const angle = prompt("Enter your rotation degrees ex: 90  45 -45 -90 180 360");
+
+    const angle = prompt("Enter your rotation degrees ex: 90 -90 180 360");
     if(isNaN(angle)) {
       alert("enter a valid number");
     }
@@ -73,16 +73,17 @@ componentWillUpdate(nextProps, nextState){
             {/* <Divider section/> */}
             <div className='thirdDiv'>
               <div className='fourthDiv'>
-                <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
+
                   <CloudinaryContext cloudName="tripod">
+                    <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
                     {this.state.gallery.map(data => (
                       <div className="responsive" key={data._id} style={style.responsive} >
                         <div className="img" style={style.img} >
 
                           <Image key={data.pic_url}>
-                            <CloudinaryContext cloudName="tripod">                    
+                            <CloudinaryContext cloudName="tripod">
                               <Transformation width="200" crop="scale" />
-                              <Transformation angle="auto"/> 
+                              <Transformation angle="auto"/>
                               <Image src={data.pic_url} style={style.img}>
 
 
@@ -98,7 +99,7 @@ componentWillUpdate(nextProps, nextState){
                                       <Button.Group className='click'>
                                         <Button href={data.pic_url} download={data.pic_url} centered icon='download' basic size='tiny' color='green' />
                                         <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
-                                        <Button centered icon='refresh's basic size='tiny' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
+                                        <Button centered icon='repeat' basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
                                       </Button.Group>
                                     </Grid.Column>
                                   </Grid.Row>
@@ -112,15 +113,17 @@ componentWillUpdate(nextProps, nextState){
                         </div>
                       </div>
                     ))}
-                  </CloudinaryContext>
-                    <Divider section/>
-                  <Container>
-                  <Button.Group>
-                  <Button size='big' floated='left' color='green' onClick={this.searchImages} content='Refresh' />
 
-                </Button.Group>
-                </Container>
+                  </CloudinaryContext>
+
+                <Container>
+                <Button.Group>
+                <Button size='big' color='green' onClick={this.searchImages} content='Refresh' className='refresh'/>
+
+              </Button.Group>
+              </Container>
               </div>
+
             </div>
           </div>
           <div className='fifthDiv'>
@@ -139,26 +142,23 @@ const style = {
     marginTop: '1%',
     marginRight: '1%',
     marginLeft: '1%',
-    marginBottom: '2%',
+    marginBottom: '1%',
+    alignItems:'center'
   },
   popStyle: {
   backgroundColor:'rgba(0,0,0,0.0)',
   border:'none',
   boxShadow:'none'
   },
-  img:{
-    // border: '1px solid #ccc',
-    height:'auto',
-    width:'auto',
-    border: '3px solid white',
-    boxShadow:'2px, 5px, 50px black',
-  },
-  responsive: {
-    padding:'0px',
-    float:'left',
-    width:'100px',
-    height:'100px',
-    margin:'10px',
-  }
+  // img:{
+  //   border: '1px solid #ccc'
+  // },
+  // responsive: {
+  //
+  //   padding:'0px',
+  //   float:'left',
+  //   width:'20%',
+  //   margin:'10px'
+  // }
 };
 export default Search;
