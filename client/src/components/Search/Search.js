@@ -41,14 +41,16 @@ componentDidMount(){
       // // Delete form Mongo
       API.deletePicDetails(id)
         .then(res => searchImages())//console.log("Image Deleted"))
-        .catch(err => console.log(err));  
+        .catch(err => console.log(err));
     };
   };
 
   // After rotating the image save it in Mongo
   saveImageChanges(id,newUrl){
+
     event.preventDefault();
     API.editPicDetails(id , newUrl) 
+
       .then(res => searchImages())
       .catch(err => console.log(err));
     };
@@ -98,11 +100,14 @@ componentDidMount(){
                     {this.state.gallery.map(data => (
                       <div className="responsive" key={data._id} style={style.responsive} >
                         <div className="img" style={style.img} >
+
                           <Image key={data.pic_url}>
                             <CloudinaryContext cloudName="tripod">                    
                               <Transformation width="200" crop="scale" />
                               <Transformation angle="auto"/> 
                               <Image src={data.pic_url} style={style.img}>
+
+
                               <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
                                 trigger={<Image src = {data.pic_url} style = {style.imgLarge} />}
                               >
@@ -124,7 +129,7 @@ componentDidMount(){
                             </Popup>
                               </Image>
                             </CloudinaryContext>
-                            
+
                           </Image>
                         </div>
                       </div>

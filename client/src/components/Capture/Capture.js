@@ -46,8 +46,10 @@ class Capture extends React.Component {
       <div style={style.container}>
         <form encType="multipart/form-data">
           <label htmlFor="upload">
-            <span style={style.photoIcon}><Icon name='photo' size='huge' /></span>
-            <input type="file" name="image" id="upload" accept="image/*" capture="capture" onChange={ this.takePicture } style={style.captureInput}/>
+
+            <span style={style.photoIcon}><Icon name='photo' size='huge' color="blue" /></span>
+            <input type="file" name="image" id="upload" accept="image/*" capture="capture" onChange={this.takePicture} style={style.captureInput}/>
+
           </label>
         </form>
         <img style={style.captureImage} ref={(img) => {
