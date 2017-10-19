@@ -73866,13 +73866,8 @@ var Search = function (_Component) {
 
     // Rotate the image
     value: function rotateImage(id, url, pId) {
-<<<<<<< HEAD
-      event.preventDefault();
-      var angle = prompt("Enter your rotation degrees ex: 90  45 -45 -90 180 360");
-=======
 
       var angle = prompt("Enter your rotation degrees ex: 90 -90 180 360");
->>>>>>> air
       if (isNaN(angle)) {
         alert("enter a valid number");
       } else {
@@ -73963,11 +73958,7 @@ var Search = function (_Component) {
                                           _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'trash', basic: true, size: 'tiny', color: 'red', onClick: function onClick() {
                                               return _this3.deleteImage(data._id, data.pic_public_id);
                                             } }),
-<<<<<<< HEAD
-                                          _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'refresh', s: true, basic: true, size: 'tiny', color: 'blue', onClick: function onClick() {
-=======
                                           _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'repeat', basic: true, size: 'undo', color: 'blue', onClick: function onClick() {
->>>>>>> air
                                               return _this3.rotateImage(data._id, data.pic_url, data.pic_public_id);
                                             } })
                                         )
@@ -73982,16 +73973,17 @@ var Search = function (_Component) {
                       )
                     );
                   })
-                ),
-                _react2.default.createElement(
-                  _semanticUiReact.Container,
-                  null,
-                  _react2.default.createElement(
-                    _semanticUiReact.Button.Group,
-                    null,
-                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', color: 'green', onClick: this.searchImages, content: 'Refresh', className: 'refresh' })
-                  )
                 )
+              )
+            ),
+            _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
+            _react2.default.createElement(
+              _semanticUiReact.Container,
+              null,
+              _react2.default.createElement(
+                _semanticUiReact.Button.Group,
+                null,
+                _react2.default.createElement(_semanticUiReact.Button, { size: 'big', color: 'green', onClick: this.searchImages, content: 'Refresh', className: 'refresh' })
               )
             )
           ),
@@ -74014,34 +74006,13 @@ var style = {
     marginTop: '1%',
     marginRight: '1%',
     marginLeft: '1%',
-<<<<<<< HEAD
-    marginBottom: '2%'
-=======
     marginBottom: '1%',
     alignItems: 'center'
->>>>>>> air
   },
   popStyle: {
     backgroundColor: 'rgba(0,0,0,0.0)',
     border: 'none',
     boxShadow: 'none'
-<<<<<<< HEAD
-  },
-  img: {
-    // border: '1px solid #ccc',
-    height: 'auto',
-    width: 'auto',
-    border: '3px solid white',
-    boxShadow: '2px, 5px, 50px black'
-  },
-  responsive: {
-    padding: '0px',
-    float: 'left',
-    width: '100px',
-    height: '100px',
-    margin: '10px'
-=======
->>>>>>> air
   }
   // img:{
   //   border: '1px solid #ccc'
@@ -74096,11 +74067,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-<<<<<<< HEAD
-exports.push([module.i, "div.searchDiv {\n  background-image: url(\"https://images.unsplash.com/photo-1484781663516-4c4ca4b04a13?dpr=1&auto=compress,format&fit=crop&w=2535&h=&q=80&cs=tinysrgb&crop=\");\n  align-items: center;\n  position: fixed;\n  background-size: cover;\n  width: 100%;\n  height: 35vh;\n  position: absolute; }\n\nimg.tripod {\n  width: 20vh; }\n\nui.img img {\n  width: 130px;\n  height: auto;\n  margin: 3%; }\n\ndiv.searchText {\n  margin: 3% 0;\n  color: black;\n  font-size: 1em; }\n\ndiv.metaDiv {\n  width: 100%;\n  height: 25vh;\n  text-align: center;\n  align-items: center; }\n\ndiv.thirdDiv {\n  width: 100%;\n  align-items: center;\n  text-align: center;\n  display: inline-grid;\n  padding: 2%; }\n\ndiv.fourthDiv {\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #A19893;\n  padding: 3%;\n  overflow: auto;\n  box-shadow: 2px 1px 25px black;\n  margin-bottom: 3%; }\n\ndiv.fifthDiv {\n  bottom: 0;\n  width: 100%; }\n\ndiv.ui.buttons.click {\n  display: flex;\n  align-items: center;\n  text-align: center;\n  background-color: #000; }\n\n.popup {\n  background-color: rgba(0, 0, 0, 0.1); }\n", ""]);
-=======
-exports.push([module.i, "div.searchDiv {\n  background-image: url(\"https://images.unsplash.com/photo-1484781663516-4c4ca4b04a13?dpr=1&auto=compress,format&fit=crop&w=2535&h=&q=80&cs=tinysrgb&crop=\");\n  align-items: center;\n  position: fixed;\n  background-size: cover;\n  width: 100%;\n  height: 35vh;\n  position: absolute; }\n\nimg.tripod {\n  width: 20vh; }\n\ndiv.searchText {\n  margin: 3% 0;\n  color: black;\n  font-size: 1em; }\n\ndiv.metaDiv {\n  width: 100%;\n  height: 25vh;\n  text-align: center; }\n\ndiv.thirdDiv {\n  width: 100%;\n  align-items: center;\n  text-align: center;\n  display: inline-grid;\n  padding: 2%; }\n\nbutton.ui.green.big.button.refresh {\n  margin-top: 30%; }\n\ndiv.fourthDiv {\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #A19893;\n  padding: 3%;\n  overflow: auto;\n  box-shadow: 2px 1px 25px black; }\n\ndiv.img {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  float: left;\n  width: 28%;\n  margin-left: 3.5%;\n  margin-top: 3%;\n  padding: 0px; }\n\ndiv.fifthDiv {\n  bottom: 0;\n  width: 100%; }\n\ndiv.ui.buttons.click {\n  display: flex;\n  align-items: center;\n  text-align: center; }\n\n.popup {\n  background-color: rgba(0, 0, 0, 0.1); }\n", ""]);
->>>>>>> air
+exports.push([module.i, "div.searchDiv {\n  background-image: url(\"https://images.unsplash.com/photo-1484781663516-4c4ca4b04a13?dpr=1&auto=compress,format&fit=crop&w=2535&h=&q=80&cs=tinysrgb&crop=\");\n  align-items: center;\n  position: fixed;\n  background-size: cover;\n  width: 100%;\n  height: 35vh;\n  position: absolute; }\n\nimg.tripod {\n  width: 20vh; }\n\nui.img img {\n  width: 130px;\n  height: auto;\n  margin: 3%; }\n\ndiv.searchText {\n  margin: 3% 0;\n  color: black;\n  font-size: 1em; }\n\ndiv.metaDiv {\n  width: 100%;\n  height: 25vh;\n  text-align: center; }\n\ndiv.thirdDiv {\n  width: 100%;\n  align-items: center;\n  text-align: center;\n  display: inline-grid;\n  padding: 2%; }\n\nbutton.ui.green.big.button.refresh {\n  margin-top: 30%; }\n\ndiv.fourthDiv {\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background-color: #A19893;\n  padding: 3%;\n  overflow: auto;\n  box-shadow: 2px 1px 25px black;\n  margin-top: 10%; }\n\ndiv.img {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  float: left;\n  width: 28%;\n  margin-left: 3.5%;\n  margin-top: 3%;\n  padding: 0px; }\n\ndiv.fifthDiv {\n  bottom: 0;\n  width: 100%; }\n\ndiv.ui.buttons.click {\n  display: flex;\n  align-items: center;\n  text-align: center;\n  background-color: #000; }\n\n.popup {\n  background-color: rgba(0, 0, 0, 0.1); }\n", ""]);
 
 // exports
 

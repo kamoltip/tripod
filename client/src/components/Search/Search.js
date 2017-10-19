@@ -115,16 +115,15 @@ componentWillUpdate(nextProps, nextState){
                     ))}
 
                   </CloudinaryContext>
-
-                <Container>
-                <Button.Group>
-                <Button size='big' color='green' onClick={this.searchImages} content='Refresh' className='refresh'/>
-
-              </Button.Group>
-              </Container>
               </div>
-
             </div>
+            <Divider section />
+            <Container>
+            <Button.Group>
+            <Button size='big' color='green' onClick={this.searchImages} content='Refresh' className='refresh'/>
+
+          </Button.Group>
+          </Container>
           </div>
           <div className='fifthDiv'>
           </div>
