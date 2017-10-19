@@ -32,8 +32,12 @@ export default {
 	},
 
 	// Read from Mongo
-	getPicDetails: () => {
-	  return axios.get("/api/activity")
+	getPicDetails: (pin) => {
+	  return axios.get("/api/activity", {
+	  	params: {
+	  		pin: pin
+	  	}
+	  })
 		.then(function(res){
 		  return res;
 		})

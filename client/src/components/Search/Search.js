@@ -2,7 +2,8 @@ import React , { Component } from 'react';
 import { render } from 'react-dom';
 import './Search.scss';
 import {Link} from 'react-router';
-import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, Popup} from 'semantic-ui-react';
+import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, Popup, Input,
+  Modal, Icon} from 'semantic-ui-react';
 import tripod from '../../asset/images/tripod-logo.png';
 import API from '../../utils/API';
 import { CloudinaryContext, Transformation } from 'cloudinary-react';
@@ -12,18 +13,25 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gallery: []
+      gallery: [],
+      pin:"",
     };
     this.searchImages = this.searchImages.bind(this);
+    this.getPin = this.getPin.bind(this);
   };
 
 
-componentWillUpdate(nextProps, nextState){
-    this.searchImages();
-}
+  componentWillUpdate(nextProps, nextState){
+      this.searchImages();
+  }
 
-  searchImages(event) {
-      API.getPicDetails()
+  getPin(event){
+    event.preventDefault();
+    this.setState({pin:event.target.value});
+  };
+
+  searchImages() {
+      API.getPicDetails(this.state.pin)
       .then(res => this.setState({ gallery: res.data}))
       .catch(err => console.log(err));
   };
@@ -72,8 +80,25 @@ componentWillUpdate(nextProps, nextState){
             <Link to='/activity'><img className='logo' src={tripod}/></Link>
             {/* <Divider section/> */}
             <div className='thirdDiv'>
+<<<<<<< HEAD
               <div className='fourthDiv'>
 
+=======
+              <div className='fourthDiv'>               
+
+                <div className='enterPin'>
+                    <h1>PIN required</h1>
+                    <Divider section/>
+                    { this.state.pin.length === parseInt(6) ? <h2>{this.state.pin}</h2> :
+                    <form required>
+                       <Input onChange={this.getPin} fluid required label={{ icon: 'asterisk'
+                      }} labelPosition='left corner' placeholder='PIN 6 digits' name='pin' type='text' size='huge' />
+                      <br/>                      
+                    </form> }
+                </div>
+
+                <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
+>>>>>>> 6745c9771431a4b221b416b13a06e2cdda5cf71b
                   <CloudinaryContext cloudName="tripod">
                     <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
                     {this.state.gallery.map(data => (
@@ -85,7 +110,6 @@ componentWillUpdate(nextProps, nextState){
                               <Transformation width="200" crop="scale" />
                               <Transformation angle="auto"/>
                               <Image src={data.pic_url} style={style.img}>
-
 
                               <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
                                 trigger={<Image src = {data.pic_url} style = {style.imgLarge} />}
