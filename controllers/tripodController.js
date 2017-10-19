@@ -17,10 +17,10 @@ module.exports = {
   findAll(req, res) {
     db.PicDetails
       .find(req.query)
-      // .where({ pic_public_Id : "find id from login"})
       .sort({ data: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+            // .where({ pic_public_Id : "find id from login"})
   },
 
   findById(req, res) {
@@ -32,10 +32,12 @@ module.exports = {
   },
 
   update(req, res) {
+    // console.log(res.body.pic_url);
     db.PicDetails
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.params.id }, { pic_url: req.body.pic_url })//req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+
   },
 
   remove(req, res) {

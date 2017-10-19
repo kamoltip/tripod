@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Signup from './Signup';
+import API from '../../utils/API'
 
 class SignupPage extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class SignupPage extends React.Component {
         email: '',
         password: '',
         agree: '',
+        session: '',
       }
     };
 
@@ -21,10 +23,17 @@ class SignupPage extends React.Component {
 
   handleForm(event) {
     event.preventDefault();
-    console.log('email:', this.state.user.email);
-    console.log('password:', this.state.user.password);
-    console.log('agree:', this.state.user.agree);
-  }
+    const input = {
+      'email': this.state.user.email,
+      'password': this.state.user.password,
+      'agree': this.state.user.agree,
+    }
+      API.registerUser(input)
+      .then(res => {
+        console.log(res)
+      })
+      .catch(err => console.log(err));
+    };
 
   getUserInput(event) {
     const field = event.target.name;
@@ -34,7 +43,7 @@ class SignupPage extends React.Component {
     this.setState({
       user
     });
-  }
+  };
 
   render() {
     return (

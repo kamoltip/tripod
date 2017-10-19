@@ -21,13 +21,11 @@ module.exports = {
       if (err) {
         return res.json({ error: err });
       }
-      return res.json(user);
     });
-    // .then(result => res.json(result))
-    // .catch(err => res.json(err));
   },
 
   login(req, res) {
+    console.log(req.session)
     const validationResult = auth.validateLoginForm(req.body);
     if (!validationResult.success) {
       return res.status(400).json({
@@ -36,10 +34,10 @@ module.exports = {
         errors: validationResult.errors
       });
     }
-    console.log('made it');
-    passport.authenticate('local')(req, res, () => {
+    passport.authenticate('local', { failureRedirect: '/login' })(req, res, () => {
+      console.log(req);
       if (req.user) {
-        return res.json(req.user);
+        return res.json(user.id);
       }
       return res.json({ error: 'There was an error logging in' });
     });
@@ -51,4 +49,5 @@ module.exports = {
     console.log(req.user);
     return res.json(req.user);
   },
+
 };

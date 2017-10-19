@@ -9,7 +9,6 @@ const Coudinary_Upload_preset = 'mtmzmtt5';
 const delete_Url = 'https://api.cloudinary.com/v1_1/tripod/'
 
 export default {
-
 	//Cloudinary upload
 	postCloudinary: function( picData ) {
 	  console.log(picData.file.coords);
@@ -29,16 +28,16 @@ export default {
 	deleteCloudinary: function( pubId ) {
 	  return axios.delete(delete_Url, pubId, {
 	  	sheaders: { "X-Requested-With": "XMLHttpRequest" },
-	  });	  	
+	  });
 	},
 
 	// Read from Mongo
-	getPicDetails: function(){
+	getPicDetails: () => {
 	  return axios.get("/api/activity")
 		.then(function(res){
 		  console.log("axios resutls",res);
-			return res;
-		});
+		  return res;
+		})
 	},
 
 	// Save in Mongo
@@ -55,10 +54,35 @@ export default {
 	//Delete from Mongo
 	deletePicDetails: (id) => {
 	  return axios.delete("/api/activity/" + id )
-		.then(function(res){
-			console.log("deleted");
-			return res;
-		})
-	}
+		// .then(function(res){
+		// 	console.log("deleted");
+		// 	return res;
+		// })
+	},
 
+	// Edit rotation
+	editPicDetails: (id,url) => {
+		const newUrl = {pic_url: url};
+		return axios.put("/api/activity/" + id , newUrl )
+		.then(function(res){
+			console.log("Rotated", res.data._id);
+			return res.data_id;
+		})
+	},
+
+	//Register User
+	registerUser: (input) => {
+		return axios.post("/api/authentication/register", input)
+			.then(function(res) {
+				return res;
+			});
+		},
+
+	//Register User
+	loginUser: (input) => {
+		return axios.post("/api/authentication/login", input)
+			.then(function(res) {
+					return res;
+			});
+	},
 };
