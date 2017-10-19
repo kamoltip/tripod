@@ -8386,8 +8386,12 @@ exports.default = {
 	},
 
 	// Read from Mongo
-	getPicDetails: function getPicDetails() {
-		return _axios2.default.get("/api/activity").then(function (res) {
+	getPicDetails: function getPicDetails(pin) {
+		return _axios2.default.get("/api/activity", {
+			params: {
+				pin: pin
+			}
+		}).then(function (res) {
 			return res;
 		});
 	},
@@ -80045,9 +80049,11 @@ var Search = function (_Component) {
     var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
 
     _this.state = {
-      gallery: []
+      gallery: [],
+      pin: ""
     };
     _this.searchImages = _this.searchImages.bind(_this);
+    _this.getPin = _this.getPin.bind(_this);
     return _this;
   }
 
@@ -80057,11 +80063,17 @@ var Search = function (_Component) {
       this.searchImages();
     }
   }, {
+    key: 'getPin',
+    value: function getPin(event) {
+      event.preventDefault();
+      this.setState({ pin: event.target.value });
+    }
+  }, {
     key: 'searchImages',
-    value: function searchImages(event) {
+    value: function searchImages() {
       var _this2 = this;
 
-      _API2.default.getPicDetails().then(function (res) {
+      _API2.default.getPicDetails(this.state.pin).then(function (res) {
         return _this2.setState({ gallery: res.data });
       }).catch(function (err) {
         return console.log(err);
@@ -80135,6 +80147,27 @@ var Search = function (_Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'fourthDiv' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'enterPin' },
+                  _react2.default.createElement(
+                    'h1',
+                    null,
+                    'PIN required'
+                  ),
+                  _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
+                  this.state.pin.length === parseInt(6) ? _react2.default.createElement(
+                    'h2',
+                    null,
+                    this.state.pin
+                  ) : _react2.default.createElement(
+                    'form',
+                    { required: true },
+                    _react2.default.createElement(_semanticUiReact.Input, { onChange: this.getPin, fluid: true, required: true, label: { icon: 'asterisk'
+                      }, labelPosition: 'left corner', placeholder: 'PIN 6 digits', name: 'pin', type: 'text', size: 'huge' }),
+                    _react2.default.createElement('br', null)
+                  )
+                ),
                 _react2.default.createElement(
                   'div',
                   { className: 'searchText' },
