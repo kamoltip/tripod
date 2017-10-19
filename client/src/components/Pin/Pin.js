@@ -10,20 +10,22 @@ import {
   Form
 } from 'semantic-ui-react'
 
-// class Pin extends React.Component{
-//   Constructor(props){
-//     super(props);
-//
-//   };
-//
-// render(){
-// return(
+class Pin extends React.Component{
+  constructor(props){
+    super(props);
+  this.state = {
+    pin:"",
+  },
+  this.getPin = this.getPin.bind(this);
 
-// const pin = this.state;
-// const isEnabled =
-// pin.length != 6;
+};
+  getPin(event){
+  this.setState({pin:event.target.value})
+};
 
-const Pin = () => (
+render() {
+
+  return (
 
   <div>
     <Modal trigger={< Icon name = 'camera' size = 'massive' color = 'black' className = 'search' />} closeIcon basic size='large'>
@@ -32,24 +34,26 @@ const Pin = () => (
         <br/>
         <h1>PIN required</h1>
         <Divider section/>
-
+        { this.state.pin.length === parseInt(6) ? <h2>{this.state.pin}</h2> :
         <form required>
-          <Input fluid required label={{
+          <Input onChange={this.getPin} fluid required label={{
             icon: 'asterisk'
           }} labelPosition='left corner' placeholder='PIN 6 digits' name='pin' type='text' size='huge' />
           <br/>
-          <Modal trigger={< Input type = "submit" value = "submit" />} closeIcon basic size='large'>
-            <Modal.Content>
-              <Capture/>
-            </Modal.Content>
-          </Modal>
-        </form>
+        </form> }
+        { this.state.pin.length === parseInt(6) ? <Capture pin={this.state.pin}/> : "" }
       </Modal.Content>
     </Modal>
   </div>
-)
-//     );
-//   }
-// }
+);
+  }
+}
 
 export default Pin
+
+
+{/* <Modal trigger={< Input type = "submit" value = "submit" />} closeIcon basic size='large'>
+  <Modal.Content>
+
+  </Modal.Content>
+</Modal> */}

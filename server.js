@@ -44,58 +44,68 @@ app.use(routes);
 
 const User = require('./models/user');
 
-passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(User.authenticate({ passReqToCallback: false })));
+//   {usernameField: 'email',
+//   passwordField: 'password',
+//   passReqToCallback: true,
+// }, ((username, password, done) => {
+//     User.findOne({ 'email': email }, (err, user) => {
+//       if (err) { return done(err); }
+//       if (!user) { return done(null, false); }
+//       if (!user.verifyPassword(password)) { return done(null, false); }
+//       return done(null, user);
+//     });
+//   })));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // session tests
-var sess;
+let sess;
 
-app.get('/start',function (req,res) {
-sess = req.session;
-console.log(req.user)
-//Session set when user Request our app via URL
-if(req.user) {
-/*
+app.get('/start', (req, res) => {
+  sess = req.session;
+  console.log(req.user);
+  // Session set when user Request our app via URL
+  if (req.user) {
+    /*
 * This line check Session existence.
 * If it existed will do some action.
 */
-res.redirect('/admin');
-}
-else {
-console.log('no session');
-}
+    res.redirect('/admin');
+  } else {
+    console.log('no session');
+  }
 });
 
-app.post('/check',function (req,res){
+app.post('/check', (req, res) => {
   sess = req.session;
 
-//In this we are assigning email to sess.email variable.
-//email comes from HTML page.
-  sess.email=req.body.email;
+  // In this we are assigning email to sess.email variable.
+  // email comes from HTML page.
+  sess.email = req.body.email;
   res.end('done');
 });
 
-app.get('/admin',function (req,res){
+app.get('/admin', (req, res) => {
   sess = req.session;
-if(sess.email) {
-res.write('<h1>Hello '+sess.email+'</h1>');
-res.end('<a href="+">Logout</a>');
-} else {
+  if (sess.email) {
+    res.write(`<h1>Hello ${sess.email}</h1>`);
+    res.end('<a href="+">Logout</a>');
+  } else {
     res.write('<h1>Please logins first.</h1>');
     res.end('<a href="+">Login</a>');
-}
-});
-
-app.get('/logouttahere',function (req,res){
-req.session.destroy(function (err) {
-  if(err) {
-    console.log(err);
-  } else {
-    console.log(req.user._id);
-    res.redirect('/');
   }
 });
+
+app.get('/logouttahere', (req, res) => {
+  req.session.destroy((err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(req.user._id);
+      res.redirect('/');
+    }
+  });
 });
 
 app.listen(PORT, () => {

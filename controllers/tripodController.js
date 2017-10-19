@@ -7,6 +7,7 @@ module.exports = {
     input.pic_latitude = req.body.pic_latitude;
     input.pic_longitude = req.body.pic_longitude;
     input.pic_public_id = req.body.pic_public_id;
+    input.pin = req.body.pin;
 
     const newPic = new db.PicDetails(input);
     newPic.save((err, doc) => {})
@@ -37,7 +38,6 @@ module.exports = {
       .findOneAndUpdate({ _id: req.params.id }, { pic_url: req.body.pic_url })//req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-
   },
 
   remove(req, res) {
