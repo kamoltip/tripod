@@ -5,46 +5,59 @@ import API from '../../utils/API';
 import Location from '../../utils/Location';
 
 class Capture extends React.Component {
-
   constructor(props) {
     super(props);
+
     this.takePicture = this.takePicture.bind(this);
   };
 
-  saveMongoDb(pic, lat, long, pid) {
-    console.log("pic details : " + pic + "..... " + "Public Id : " + pid + "...." + long);
-    API.savePicDetails(pic, lat, long, pid).then(res => console.log("details Saved")).catch(err => console.log(err));
-  };
+  saveMongoDb(pic, lat, long, pid, pin) {
+  console.log("pic details : " + pic + "..... " + "Public Id : " + pid + "...." + long);
+  API.savePicDetails(pic, lat, long, pid, pin)
+  .then(res => console.log("details Saved"))
+  .catch(err => console.log(err));
+};
 
   takePicture(event) {
-    const file = event.target.files;
-    console.log(file);
-    if (file.length > 0) {
-      Location.getLocation(coords => {
-        file[0].coords = coords;
-        API.postCloudinary({file: file[0]}).then(res => console.log(this.saveMongoDb(res.data.secure_url, file[0].coords.lat, file[0].coords.long, res.data.public_id))).catch(err => console.log(err));
-      });
-
-      const windowURL = window.URL || window.webkitURL;
-      this.img.src = windowURL.createObjectURL(file[0]);
-      this.img.onload = () => {
-        URL.revokeObjectURL(this.src);
-      }
+  const file = event.target.files;
+  console.log(file);
+  if (file.length > 0) {
+    Location.getLocation(coords => {
+      file[0].coords = coords;
+      API.postCloudinary({file: file[0]})
+      .then(res => console.log(this.saveMongoDb(
+        res.data.secure_url,
+        file[0].coords.lat,
+        file[0].coords.long,
+        res.data.public_id,
+        this.props.pin)))
+      .catch(err => console.log(err));
+    });
+    const windowURL = window.URL || window.webkitURL;
+    this.img.src = windowURL.createObjectURL(file[0]);
+    this.img.onload = () => {
+    URL.revokeObjectURL(this.src);
     }
-  };
+  }
+};
 
   render() {
     return (
       <div style={style.container}>
+        <form encType="multipart/form-data">
+          <label htmlFor="upload">
+<<<<<<< HEAD
+            <span style={style.photoIcon}><Icon name='photo' size='huge' color="blue" /></span>
+            <input type="file" name="image" id="upload" accept="image/*" capture="capture" onChange={this.takePicture} style={style.captureInput}/>
+=======
+            <span style={style.photoIcon}><Icon name='photo' size='huge' /></span>
+            <input type="file" name="image" id="upload" accept="image/*" capture="capture" onChange={ this.takePicture } style={style.captureInput}/>
+>>>>>>> development
+          </label>
+        </form>
         <img style={style.captureImage} ref={(img) => {
           this.img = img;
         }}/>
-        <form encType="multipart/form-data">
-          <label htmlFor="upload">
-            <span style={style.photoIcon}><Icon name='photo' size='huge' color="blue" /></span>
-            <input type="file" name="image" id="upload" accept="image/*" capture="capture" onChange={this.takePicture} style={style.captureInput}/>
-          </label>
-        </form>
       </div>
     );
   }
