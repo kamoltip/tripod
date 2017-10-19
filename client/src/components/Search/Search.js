@@ -79,12 +79,9 @@ class Search extends Component {
           <div className='metaDiv'>
             <Link to='/activity'><img className='logo' src={tripod}/></Link>
             {/* <Divider section/> */}
-            <div className='thirdDiv'>
-<<<<<<< HEAD
-              <div className='fourthDiv'>
 
-=======
-              <div className='fourthDiv'>               
+            <div className='thirdDiv'>
+              <div className='fourthDiv'>
 
                 <div className='enterPin'>
                     <h1>PIN required</h1>
@@ -93,12 +90,11 @@ class Search extends Component {
                     <form required>
                        <Input onChange={this.getPin} fluid required label={{ icon: 'asterisk'
                       }} labelPosition='left corner' placeholder='PIN 6 digits' name='pin' type='text' size='huge' />
-                      <br/>                      
+                      <br/>
                     </form> }
                 </div>
 
                 <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
->>>>>>> 6745c9771431a4b221b416b13a06e2cdda5cf71b
                   <CloudinaryContext cloudName="tripod">
                     <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
                     {this.state.gallery.map(data => (
