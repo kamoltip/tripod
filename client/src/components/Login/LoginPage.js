@@ -27,15 +27,8 @@ class LoginPage extends React.Component {
 
     }
       API.loginUser(input)
-      .then(res => {
-        console.log(this.props.location);
-        const location = this.props.location;
-        if (location.state && location.state.nextPathname) {
-          browserHistory.push(location.state.nextPathname)
-        } else {
-          browserHistory.push('/')
-        }
-      })
+      .then(res => {})
+
       .catch(err => console.log(err));
   }
 

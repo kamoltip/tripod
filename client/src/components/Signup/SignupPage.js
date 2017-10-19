@@ -30,7 +30,7 @@ class SignupPage extends React.Component {
     }
       API.registerUser(input)
       .then(res => {
-        console.log(res)
+        console.log(res);
       })
       .catch(err => console.log(err));
     };

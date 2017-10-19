@@ -41,8 +41,14 @@ export default {
 	},
 
 	// Save in Mongo
-	savePicDetails: ( url, lat, long, pid ) => {
-	  const newPic = { pic_url: url, pic_latitude: lat, pic_longitude: long ,pic_public_id: pid };
+	savePicDetails: ( url, lat, long, pid, pin ) => {
+	  const newPic = {
+			pic_url: url,
+			pic_latitude: lat,
+			pic_longitude: long,
+			pic_public_id: pid,
+			pin: pin,
+		};
 	  console.log("Save Mongo : " + url);
 	  return axios.post("/api/activity", newPic)
 	  	.then(function(res) {
