@@ -39,13 +39,13 @@ class Search extends Component {
       // // Delete form Mongo
       API.deletePicDetails(id)
         .then(res => searchImages())//console.log("Image Deleted"))
-        .catch(err => console.log(err));  
+        .catch(err => console.log(err));
     };
   };
 
   // After rotating the image save it in Mongo
   saveImageChanges(id,newUrl){
-    API.editPicDetails(id , newUrl) 
+    API.editPicDetails(id , newUrl)
       .then(res => searchImages())
       .catch(err => console.log(err));
     };
@@ -95,9 +95,9 @@ class Search extends Component {
                       <div className="responsive" key={data._id} style={style.responsive} >
                         <div className="img" style={style.img} >
                           <Image key={data.pic_url} style={style.displayImage}>
-                            <CloudinaryContext cloudName="tripod">                    
+                            <CloudinaryContext cloudName="tripod">
                               <Transformation width="200" crop="scale" />
-                              <Transformation angle="auto"/> 
+                              <Transformation angle="auto"/>
                               <Image src={data.pic_url}>
                               <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
                                 trigger={<Image src = {data.pic_url} style = {style.imgLarge} />}
@@ -120,7 +120,7 @@ class Search extends Component {
                             </Popup>
                               </Image>
                             </CloudinaryContext>
-                            
+
                           </Image>
                         </div>
                       </div>
@@ -129,7 +129,7 @@ class Search extends Component {
                     <Divider section/>
                   <Container>
                   <Button.Group>
-                  <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
+                  <Button size='big' floated='left' color='green' onClick={this.searchImages} content='Refresh' />
 
                 </Button.Group>
                 </Container>

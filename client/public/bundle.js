@@ -74008,7 +74008,7 @@ var Search = function (_Component) {
                   _react2.default.createElement(
                     _semanticUiReact.Button.Group,
                     null,
-                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', floated: 'left', color: 'red', onClick: this.searchImages, content: 'Search Photos' })
+                    _react2.default.createElement(_semanticUiReact.Button, { size: 'big', floated: 'left', color: 'green', onClick: this.searchImages, content: 'Refresh' })
                   )
                 )
               )
