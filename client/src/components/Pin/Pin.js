@@ -28,7 +28,7 @@ render() {
   return (
 
   <div>
-    <Modal trigger={< Icon name = 'camera' size = 'massive' color = 'black' className = 'search' />} closeIcon basic size='large'>
+    <Modal trigger={< Icon name = 'camera' size = 'massive' color = 'blue' className = 'search' />} closeIcon basic size='large'>
       <Modal.Content>
         <Icon name='cloud upload' size='massive'/>
         <br/>
