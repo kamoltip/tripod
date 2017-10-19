@@ -73129,7 +73129,7 @@ var Pin = function (_React$Component) {
         null,
         _react2.default.createElement(
           _semanticUiReact.Modal,
-          { trigger: _react2.default.createElement(_semanticUiReact.Icon, { name: 'camera', size: 'massive', color: 'black', className: 'search' }), closeIcon: true, basic: true, size: 'large' },
+          { trigger: _react2.default.createElement(_semanticUiReact.Icon, { name: 'camera', size: 'massive', color: 'blue', className: 'search' }), closeIcon: true, basic: true, size: 'large' },
           _react2.default.createElement(
             _semanticUiReact.Modal.Content,
             null,
