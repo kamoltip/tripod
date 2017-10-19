@@ -21,7 +21,6 @@ module.exports = {
       if (err) {
         return res.json({ error: err });
       }
-      return done('Success in Signing Up with Tripod');
     });
   },
 
