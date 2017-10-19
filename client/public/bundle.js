@@ -80220,7 +80220,7 @@ var Search = function (_Component) {
                                           _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'trash', basic: true, size: 'tiny', color: 'red', onClick: function onClick() {
                                               return _this3.deleteImage(data._id, data.pic_public_id);
                                             } }),
-                                          _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'Refresh', s: true, basic: true, size: 'undo', color: 'blue', onClick: function onClick() {
+                                          _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'refresh', s: true, basic: true, size: 'tiny', color: 'blue', onClick: function onClick() {
                                               return _this3.rotateImage(data._id, data.pic_url, data.pic_public_id);
                                             } })
                                         )

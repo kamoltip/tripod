@@ -115,7 +115,7 @@ componentDidMount(){
                                       <Button.Group className='click'>
                                         <Button href={data.pic_url} download={data.pic_url} centered icon='download' basic size='tiny' color='green' />
                                         <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
-                                        <Button centered icon='Refresh's basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
+                                        <Button centered icon='refresh's basic size='tiny' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
                                       </Button.Group>
                                     </Grid.Column>
                                   </Grid.Row>
