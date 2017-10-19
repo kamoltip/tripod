@@ -84,14 +84,14 @@ class Search extends Component {
               <div className='fourthDiv'>
 
                 <div className='enterPin'>
-                    <h1>PIN required</h1>
-                    <Divider section/>
-                    { this.state.pin.length === parseInt(6) ? <h2>{this.state.pin}</h2> :
-                    <form required>
-                       <Input onChange={this.getPin} fluid required label={{ icon: 'asterisk'
-                      }} labelPosition='left corner' placeholder='PIN 6 digits' name='pin' type='text' size='huge' />
-                      <br/>
-                    </form> }
+                  <h1>PIN required</h1>
+                  <Divider section/>
+                  { this.state.pin.length === parseInt(6) ? <h2>{this.state.pin}</h2> :
+                  <form required>
+                    <Input onChange={this.getPin} fluid required label={{ icon: 'asterisk'
+                    }} labelPosition='left corner' placeholder='PIN 6 digits' name='pin' type='text' size='huge' />
+                    <br/>
+                  </form> }
                 </div>
                   <CloudinaryContext cloudName="tripod">
                     <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>

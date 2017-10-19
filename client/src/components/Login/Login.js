@@ -54,7 +54,7 @@ const Login = ({
          placeholder="password" required/>
        </Form.Field>
 
-       <Button type='submit' type='submit'>Sign In</Button>
+       <Link to='/activity'><Button type='submit' type='submit'>Sign In</Button></Link>
 
        <div className='Or'>
          <Divider className='hr'/>

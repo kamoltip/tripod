@@ -79617,9 +79617,13 @@ var Login = function Login(_ref) {
           placeholder: 'password', required: true })
       ),
       _react2.default.createElement(
-        _semanticUiReact.Button,
-        _defineProperty({ type: 'submit' }, 'type', 'submit'),
-        'Sign In'
+        _reactRouter.Link,
+        { to: '/activity' },
+        _react2.default.createElement(
+          _semanticUiReact.Button,
+          _defineProperty({ type: 'submit' }, 'type', 'submit'),
+          'Sign In'
+        )
       ),
       _react2.default.createElement(
         'div',
