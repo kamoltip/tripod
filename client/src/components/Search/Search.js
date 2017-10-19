@@ -93,8 +93,6 @@ class Search extends Component {
                       <br/>
                     </form> }
                 </div>
-
-                <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
                   <CloudinaryContext cloudName="tripod">
                     <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
                     {this.state.gallery.map(data => (

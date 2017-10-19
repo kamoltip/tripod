@@ -73936,15 +73936,6 @@ var Search = function (_Component) {
                   )
                 ),
                 _react2.default.createElement(
-                  'div',
-                  { className: 'searchText' },
-                  _react2.default.createElement(
-                    'h1',
-                    null,
-                    'FIND YOUR PHOTO\'S COLLECTION'
-                  )
-                ),
-                _react2.default.createElement(
                   _cloudinaryReact.CloudinaryContext,
                   { cloudName: 'tripod' },
                   _react2.default.createElement(
