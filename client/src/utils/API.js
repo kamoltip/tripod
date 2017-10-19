@@ -60,10 +60,10 @@ export default {
 	//Delete from Mongo
 	deletePicDetails: (id) => {
 	  return axios.delete("/api/activity/" + id )
-		// .then(function(res){
-		// 	console.log("deleted");
-		// 	return res;
-		// })
+		.then(function(res){
+			console.log("deleted");
+			return res;
+		})
 	},
 
 	// Edit rotation

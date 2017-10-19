@@ -12,6 +12,12 @@ img.tripod {
   width: 20vh;
 }
 
+ui.img img{
+  width:130px;
+  height:auto;
+  margin: 3%
+}
+
 div.searchText {
   margin: 3% 0;
   color: black;
@@ -54,7 +60,9 @@ div.ui.buttons.click {
   display: flex;
   align-items: center;
   text-align: center;
+  background-color: #000;
 }
+
 .popup{
   background-color: rgba(0,0,0,0.1);
 }
