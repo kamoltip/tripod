@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Login from './Login';
+import API from '../../utils/API';
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -20,8 +21,15 @@ class LoginPage extends React.Component {
 
   handleForm(event) {
     event.preventDefault();
-    console.log('email:', this.state.user.email);
-    console.log('password:', this.state.user.password);
+    const input = {
+      'username': this.state.user.email,
+      'password': this.state.user.password,
+
+    }
+      API.loginUser(input)
+      .then(res => {})
+
+      .catch(err => console.log(err));
   }
 
   getUserInput(event) {

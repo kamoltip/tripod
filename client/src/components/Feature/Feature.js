@@ -11,7 +11,6 @@ import {
 import {Link} from 'react-router';
 import './Feature.scss';
 import Menu from '../Menu/Menu';
-import Footer from '../Footer/Footer';
 import tripod from '../../asset/images/tripod-logo.png'
 
 const Feature = () => (
@@ -19,7 +18,7 @@ const Feature = () => (
     <Link to = '/activity'><img src={tripod} position='right'/></Link>
 
     <Divider section/>
-      <p className='featureText'>FEATURES</p>
+    <p className='featureText'>FEATURES</p>
     <Grid columns={3} divided>
       <Grid.Row>
         <Grid.Column>
@@ -35,7 +34,7 @@ const Feature = () => (
             </li>
             <li>
               <h4><Icon size='large' name='camera'/>
-                camera build-in using node</h4>
+              camera build-in using node</h4>
             </li>
             <li>
               <h4><Icon size='large' name='code'/>Build with React Js</h4>
@@ -61,7 +60,7 @@ const Feature = () => (
             </li>
             <li>
               <h4><Icon size='large' name='eye'/>
-                Visual Recognition search</h4>
+              Visual Recognition search</h4>
             </li>
             <li>
               <h4><Icon size='large' name='code'/>Mongoose Database</h4>
@@ -98,11 +97,6 @@ const Feature = () => (
           <div className='space3'></div>
         </Grid.Column>
       </Grid.Row>
-    </Grid>
-    <Grid column={1}>
-      <Grid.Column>
-        <Footer/>
-      </Grid.Column>
     </Grid>
   </div>
 )

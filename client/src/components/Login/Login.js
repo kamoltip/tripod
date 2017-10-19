@@ -22,7 +22,7 @@ const Login = ({
   errors,
   user }) => (
 
-   <div className='divForm'>
+   <div className='divLoginForm'>
      <Responsive {...Responsive.onlyMobile} {...Responsive.onlyTablet} {...Responsive.onlyComputer} {...Responsive.onlyLargeScreen} {...Responsive.onlyWidescreen} as={Segment}/>
      <Link to='/'><img src={tripod} className='tripod'/></Link>
      <Divider section/>
