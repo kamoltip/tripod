@@ -23,7 +23,6 @@ div.metaDiv {
   height: 25vh;
   // background-color: rgba(120, 60%, 70%, 0.65);
   text-align: center;
-  align-items: center;
 }
 
 div.thirdDiv {
@@ -34,15 +33,29 @@ div.thirdDiv {
   padding: 2%;
 }
 
+button.ui.green.big.button.refresh{
+  margin-top: 30%;
+}
+
 div.fourthDiv {
-  top: 0;
+  top:0;
   width: 100%;
   height: 100%;
   background-color: #A19893;
   padding: 3%;
   overflow: auto;
   box-shadow: 2px 1px 25px black;
-  margin-bottom: 3%;
+  // text-align: center;
+}
+div.img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  width: 28%;
+  margin-left: 3.5%;
+  margin-top: 3%;
+  padding:0px;
 }
 
 div.fifthDiv {
@@ -58,12 +71,3 @@ div.ui.buttons.click {
 .popup{
   background-color: rgba(0,0,0,0.1);
 }
-// div.ui.checkbox.checkbox{
-//   display: flex;
-//   display: inline-block;
-//   vertical-align:middle;
-//   color: white;
-// }
-// div.center.aligned.column{
-//   width:10vh;
-// }

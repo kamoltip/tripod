@@ -53,7 +53,7 @@ class Search extends Component {
   // Rotate the image
   rotateImage(id, url, pId) {
 
-    const angle = prompt("Enter your rotation degrees ex: 90  45 -45 -90 180 360");
+    const angle = prompt("Enter your rotation degrees ex: 90 -90 180 360");
     if(isNaN(angle)) {
       alert("enter a valid number");
     }
@@ -89,8 +89,9 @@ class Search extends Component {
             {/* <Divider section/> */}
             <div className='thirdDiv'>
               <div className='fourthDiv'>
-                <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
+
                   <CloudinaryContext cloudName="tripod">
+                    <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
                     {this.state.gallery.map(data => (
                       <div className="responsive" key={data._id} style={style.responsive} >
                         <div className="img" style={style.img} >
@@ -111,7 +112,7 @@ class Search extends Component {
                                       <Button.Group className='click'>
                                         <Button href={data.pic_url} download={data.pic_url} centered icon='download' basic size='tiny' color='green' />
                                         <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
-                                        <Button centered icon='Refresh's basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
+                                        <Button centered icon='repeat' basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
                                       </Button.Group>
                                     </Grid.Column>
                                   </Grid.Row>
@@ -125,15 +126,17 @@ class Search extends Component {
                         </div>
                       </div>
                     ))}
-                  </CloudinaryContext>
-                    <Divider section/>
-                  <Container>
-                  <Button.Group>
-                  <Button size='big' floated='left' color='green' onClick={this.searchImages} content='Refresh' />
 
-                </Button.Group>
-                </Container>
+                  </CloudinaryContext>
+
+                <Container>
+                <Button.Group>
+                <Button size='big' color='green' onClick={this.searchImages} content='Refresh' className='refresh'/>
+
+              </Button.Group>
+              </Container>
               </div>
+
             </div>
           </div>
           <div className='fifthDiv'>
@@ -154,21 +157,23 @@ const style = {
     marginTop: '1%',
     marginRight: '1%',
     marginLeft: '1%',
-    marginBottom: '1%'
+    marginBottom: '1%',
+    alignItems:'center'
   },
   popStyle: {
   backgroundColor:'rgba(0,0,0,0.0)',
   border:'none',
   boxShadow:'none'
   },
-  img:{
-    border: '1px solid #ccc'
-  },
-  responsive: {
-    padding:'0px',
-    float:'left',
-    width:'20%',
-    margin:'10px'
-  }
+  // img:{
+  //   border: '1px solid #ccc'
+  // },
+  // responsive: {
+  //
+  //   padding:'0px',
+  //   float:'left',
+  //   width:'20%',
+  //   margin:'10px'
+  // }
 };
 export default Search;
