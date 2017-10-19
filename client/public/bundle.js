@@ -74610,8 +74610,6 @@ var LoginPage = function (_React$Component) {
   _createClass(LoginPage, [{
     key: 'handleForm',
     value: function handleForm(event) {
-      var _this2 = this;
-
       event.preventDefault();
       var input = {
         'username': this.state.user.email,
@@ -74619,13 +74617,14 @@ var LoginPage = function (_React$Component) {
 
       };
       _API2.default.loginUser(input).then(function (res) {
-        console.log(_this2.props.location);
-        var location = _this2.props.location;
-        if (location.state && location.state.nextPathname) {
-          browserHistory.push(location.state.nextPathname);
-        } else {
-          browserHistory.push('/');
-        }
+        console.log(res);
+        // console.log(this.props.location);
+        // const location = this.props.location;
+        // if (location.state && location.state.nextPathname) {
+        //   browserHistory.push(location.state.nextPathname)
+        // } else {
+        //   browserHistory.push('/')
+        // }
       }).catch(function (err) {
         return console.log(err);
       });
