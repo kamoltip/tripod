@@ -18,7 +18,15 @@ import {
   Form
 } from 'semantic-ui-react'
 
-const Activity = () => (
+class Activity extends React.Component {
+  constructor(props) {
+    super(props);
+
+    // this.logout = this.logout.bind(this);
+  };
+
+  render() {
+    return (
   <div className='activityDiv'>
     <Responsive
       {...Responsive.onlyMobile}
@@ -51,7 +59,7 @@ const Activity = () => (
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
-                  <Link to='/search'><Icon name='image' size='massive' color='black' className='search'/></Link>
+                  <Link to='/search'><Icon name='image' size='massive' color='purple' className='search'/></Link>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -62,7 +70,7 @@ const Activity = () => (
                 <Grid columns='one'>
                   <Grid.Row>
                     <Grid.Column>
-                      <Link to='/home'><Icon name='home' size='massive' color='black' className='logoutButton'/></Link>
+                      <Link to='/home'><Icon name='home' size='massive' color='red' className='logoutButton'/></Link>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
@@ -74,7 +82,7 @@ const Activity = () => (
                     <Grid columns='one'>
                       <Grid.Row>
                         <Grid.Column>
-                          <Link to='/crew'><Icon name='users' size='massive' color='grey' className='user'/></Link>
+                          <Link to='/crew'><Icon name='users' size='massive' color='green' className='user'/></Link>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>
@@ -83,9 +91,9 @@ const Activity = () => (
                     {/* <Button fluid basic>
                       <Grid columns='one'>
                         <Grid.Row>
-                          <Grid.Column>
-                            <Link to='/feature'><Icon name='info' size='massive' color='grey' className='feature'/></Link>
-                          </Grid.Column>
+                      <Grid.Column>
+                      <Link to='/feature'><Icon name='info' size='massive' color='grey' className='feature'/></Link>
+                      </Grid.Column>
                         </Grid.Row>
                       </Grid>
                     </Button> */}
@@ -110,5 +118,6 @@ const Activity = () => (
 
   </div>
 )
-
+}
+}
 export default Activity

@@ -2,7 +2,8 @@ import React , { Component } from 'react';
 import { render } from 'react-dom';
 import './Search.scss';
 import {Link} from 'react-router';
-import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, Popup} from 'semantic-ui-react';
+import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, Popup, Input,
+  Modal, Icon} from 'semantic-ui-react';
 import tripod from '../../asset/images/tripod-logo.png';
 import API from '../../utils/API';
 import { CloudinaryContext, Transformation } from 'cloudinary-react';
@@ -12,18 +13,25 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gallery: []
+      gallery: [],
+      pin:"",
     };
     this.searchImages = this.searchImages.bind(this);
+    this.getPin = this.getPin.bind(this);
   };
 
-  componentDidMount() {
-    // window.addEventListener('load', this.searchImages); // h
+
+  componentWillUpdate(nextProps, nextState){
+      this.searchImages();
   }
 
-  searchImages(event) {
+  getPin(event){
     event.preventDefault();
-      API.getPicDetails()
+    this.setState({pin:event.target.value});
+  };
+
+  searchImages() {
+      API.getPicDetails(this.state.pin)
       .then(res => this.setState({ gallery: res.data}))
       .catch(err => console.log(err));
   };
@@ -32,20 +40,15 @@ class Search extends Component {
   // Delete an image
   deleteImage(id, pId) {
     if (confirm("Delete this image ?") == true) {
-      // // Delete from Cloudinary
-      // API.deleteCloudinary()
-      //   .then(res => console.log("Deleted from Cloudinary"))
-      //   .catch(err => console.log(err));
-      // // Delete form Mongo
       API.deletePicDetails(id)
-        .then(res => searchImages())//console.log("Image Deleted"))
-        .catch(err => console.log(err));  
+        .then(res => searchImages())
+        .catch(err => console.log(err));
     };
   };
 
   // After rotating the image save it in Mongo
   saveImageChanges(id,newUrl){
-    API.editPicDetails(id , newUrl) 
+    API.editPicDetails(id , newUrl)
       .then(res => searchImages())
       .catch(err => console.log(err));
     };
@@ -53,7 +56,7 @@ class Search extends Component {
   // Rotate the image
   rotateImage(id, url, pId) {
 
-    const angle = prompt("Enter your rotation degrees ex: 90  45 -45 -90 180 360");
+    const angle = prompt("Enter your rotation degrees ex: 90 -90 180 360");
     if(isNaN(angle)) {
       alert("enter a valid number");
     }
@@ -64,17 +67,6 @@ class Search extends Component {
     }
 
   };
-
-  deleteImage(id){
-    // // Delete from Cloudinary
-    // API.deleteCloudinary()
-    //   .then(res => console.log("Deleted from Cloudinary"))
-    //   .catch(err => console.log(err));
-    // // Delete form Mongo
-    API.deletePicDetails(id)
-      .then(res => console.log("Image Deleted"))
-      .catch(err => console.log(err));
-  }
 
 
   render() {
@@ -87,18 +79,32 @@ class Search extends Component {
           <div className='metaDiv'>
             <Link to='/activity'><img className='logo' src={tripod}/></Link>
             {/* <Divider section/> */}
+
             <div className='thirdDiv'>
               <div className='fourthDiv'>
-                <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
+
+                <div className='enterPin'>
+                  <h1>PIN required</h1>
+                  <Divider section/>
+                  { this.state.pin.length === parseInt(6) ? <h2>{this.state.pin}</h2> :
+                  <form required>
+                    <Input onChange={this.getPin} fluid required label={{ icon: 'asterisk'
+                    }} labelPosition='left corner' placeholder='PIN 6 digits' name='pin' type='text' size='huge' />
+                    <br/>
+                  </form> }
+                </div>
                   <CloudinaryContext cloudName="tripod">
+                    <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
                     {this.state.gallery.map(data => (
                       <div className="responsive" key={data._id} style={style.responsive} >
                         <div className="img" style={style.img} >
-                          <Image key={data.pic_url} style={style.displayImage}>
-                            <CloudinaryContext cloudName="tripod">                    
+
+                          <Image key={data.pic_url}>
+                            <CloudinaryContext cloudName="tripod">
                               <Transformation width="200" crop="scale" />
-                              <Transformation angle="auto"/> 
-                              <Image src={data.pic_url}>
+                              <Transformation angle="auto"/>
+                              <Image src={data.pic_url} style={style.img}>
+
                               <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
                                 trigger={<Image src = {data.pic_url} style = {style.imgLarge} />}
                               >
@@ -111,7 +117,7 @@ class Search extends Component {
                                       <Button.Group className='click'>
                                         <Button href={data.pic_url} download={data.pic_url} centered icon='download' basic size='tiny' color='green' />
                                         <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
-                                        <Button centered icon='Refresh's basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
+                                        <Button centered icon='repeat' basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
                                       </Button.Group>
                                     </Grid.Column>
                                   </Grid.Row>
@@ -120,21 +126,22 @@ class Search extends Component {
                             </Popup>
                               </Image>
                             </CloudinaryContext>
-                            
+
                           </Image>
                         </div>
                       </div>
                     ))}
-                  </CloudinaryContext>
-                    <Divider section/>
-                  <Container>
-                  <Button.Group>
-                  <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
 
-                </Button.Group>
-                </Container>
+                  </CloudinaryContext>
               </div>
             </div>
+            <Divider section />
+            <Container>
+            <Button.Group>
+            <Button size='big' color='green' onClick={this.searchImages} content='Refresh' className='refresh'/>
+
+          </Button.Group>
+          </Container>
           </div>
           <div className='fifthDiv'>
           </div>
@@ -145,30 +152,30 @@ class Search extends Component {
 };
 const style = {
   displayImage: {
-    height: 'auto',
-    width: 'auto',
+    height: '125px',
+    width: '98px',
     padding: '1.5%',
-    border: '3px solid white',
-    boxShadow:'2px, 5px, 50px black',
     display: 'inline-grid',
     marginTop: '1%',
     marginRight: '1%',
     marginLeft: '1%',
-    marginBottom: '1%'
+    marginBottom: '1%',
+    alignItems:'center'
   },
   popStyle: {
   backgroundColor:'rgba(0,0,0,0.0)',
   border:'none',
   boxShadow:'none'
   },
-  img:{
-    border: '1px solid #ccc'
-  },
-  responsive: {
-    padding:'0px',
-    float:'left',
-    width:'20%',
-    margin:'10px'
-  }
+  // img:{
+  //   border: '1px solid #ccc'
+  // },
+  // responsive: {
+  //
+  //   padding:'0px',
+  //   float:'left',
+  //   width:'20%',
+  //   margin:'10px'
+  // }
 };
 export default Search;
