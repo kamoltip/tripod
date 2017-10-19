@@ -28159,9 +28159,133 @@ StatisticValue.propTypes = process.env.NODE_ENV !== "production" ? {
 
 /***/ }),
 /* 416 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: C:/Users/plawa/Desktop/Bootcamp hw/tripod/client/src/components/Capture/Capture.js: Unexpected token (49:1)\n\n\u001b[0m \u001b[90m 47 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mform\u001b[39m encType\u001b[33m=\u001b[39m\u001b[32m\"multipart/form-data\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 48 | \u001b[39m          \u001b[33m<\u001b[39m\u001b[33mlabel\u001b[39m htmlFor\u001b[33m=\u001b[39m\u001b[32m\"upload\"\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 49 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\n \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 50 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33mspan\u001b[39m style\u001b[33m=\u001b[39m{style\u001b[33m.\u001b[39mphotoIcon}\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33mIcon\u001b[39m name\u001b[33m=\u001b[39m\u001b[32m'photo'\u001b[39m size\u001b[33m=\u001b[39m\u001b[32m'huge'\u001b[39m color\u001b[33m=\u001b[39m\u001b[32m\"blue\"\u001b[39m \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mspan\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 51 | \u001b[39m            \u001b[33m<\u001b[39m\u001b[33minput\u001b[39m type\u001b[33m=\u001b[39m\u001b[32m\"file\"\u001b[39m name\u001b[33m=\u001b[39m\u001b[32m\"image\"\u001b[39m id\u001b[33m=\u001b[39m\u001b[32m\"upload\"\u001b[39m accept\u001b[33m=\u001b[39m\u001b[32m\"image/*\"\u001b[39m capture\u001b[33m=\u001b[39m\u001b[32m\"capture\"\u001b[39m onChange\u001b[33m=\u001b[39m{\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mtakePicture} style\u001b[33m=\u001b[39m{style\u001b[33m.\u001b[39mcaptureInput}\u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 52 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(143);
+
+var _semanticUiReact = __webpack_require__(33);
+
+var _API = __webpack_require__(226);
+
+var _API2 = _interopRequireDefault(_API);
+
+var _Location = __webpack_require__(859);
+
+var _Location2 = _interopRequireDefault(_Location);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Capture = function (_React$Component) {
+  _inherits(Capture, _React$Component);
+
+  function Capture(props) {
+    _classCallCheck(this, Capture);
+
+    var _this = _possibleConstructorReturn(this, (Capture.__proto__ || Object.getPrototypeOf(Capture)).call(this, props));
+
+    _this.takePicture = _this.takePicture.bind(_this);
+    return _this;
+  }
+
+  _createClass(Capture, [{
+    key: 'saveMongoDb',
+    value: function saveMongoDb(pic, lat, long, pid, pin) {
+      console.log("pic details : " + pic + "..... " + "Public Id : " + pid + "...." + long);
+      _API2.default.savePicDetails(pic, lat, long, pid, pin).then(function (res) {
+        return console.log("details Saved");
+      }).catch(function (err) {
+        return console.log(err);
+      });
+    }
+  }, {
+    key: 'takePicture',
+    value: function takePicture(event) {
+      var _this2 = this;
+
+      var file = event.target.files;
+      console.log(file);
+      if (file.length > 0) {
+        _Location2.default.getLocation(function (coords) {
+          file[0].coords = coords;
+          _API2.default.postCloudinary({ file: file[0] }).then(function (res) {
+            return console.log(_this2.saveMongoDb(res.data.secure_url, file[0].coords.lat, file[0].coords.long, res.data.public_id, _this2.props.pin));
+          }).catch(function (err) {
+            return console.log(err);
+          });
+        });
+        var windowURL = window.URL || window.webkitURL;
+        this.img.src = windowURL.createObjectURL(file[0]);
+        this.img.onload = function () {
+          URL.revokeObjectURL(_this2.src);
+        };
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _this3 = this;
+
+      return _react2.default.createElement(
+        'div',
+        { style: style.container },
+        _react2.default.createElement(
+          'form',
+          { encType: 'multipart/form-data' },
+          _react2.default.createElement(
+            'label',
+            { htmlFor: 'upload' },
+            _react2.default.createElement(
+              'span',
+              { style: style.photoIcon },
+              _react2.default.createElement(_semanticUiReact.Icon, { name: 'photo', size: 'huge', color: 'blue' })
+            ),
+            _react2.default.createElement('input', { type: 'file', name: 'image', id: 'upload', accept: 'image/*', capture: 'capture', onChange: this.takePicture, style: style.captureInput })
+          )
+        ),
+        _react2.default.createElement('img', { style: style.captureImage, ref: function ref(img) {
+            _this3.img = img;
+          } })
+      );
+    }
+  }]);
+
+  return Capture;
+}(_react2.default.Component);
+
+var style = {
+  photoIcon: {
+    color: 'white'
+  },
+  captureImage: {
+    height: '50%',
+    width: '50%',
+    margin: '5px 0 15px 0'
+  },
+  captureInput: {
+    display: 'none'
+  }
+};
+
+exports.default = Capture;
 
 /***/ }),
 /* 417 */
@@ -92199,6 +92323,33 @@ exports.push([module.i, ".App {\n  text-align: center; }\n\n.App-logo {\n  anima
 
 // exports
 
+
+/***/ }),
+/* 859 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    getLocation: function getLocation(cb) {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var coords = {
+                    lat: position.coords.latitude,
+                    long: position.coords.longitude,
+                    accry: position.coords.accuracy
+                };
+                cb(coords);
+            });
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    }
+};
 
 /***/ })
 /******/ ]);
