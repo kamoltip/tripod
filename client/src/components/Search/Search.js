@@ -17,12 +17,13 @@ class Search extends Component {
     this.searchImages = this.searchImages.bind(this);
   };
 
-  componentDidMount() {
-    // window.addEventListener('load', this.searchImages); // h
-  }
+
+componentDidMount(){
+    this.searchImages();
+}
 
   searchImages(event) {
-    event.preventDefault();
+    // event.preventDefault();
       API.getPicDetails()
       .then(res => this.setState({ gallery: res.data}))
       .catch(err => console.log(err));
@@ -31,6 +32,7 @@ class Search extends Component {
 
   // Delete an image
   deleteImage(id, pId) {
+    event.preventDefault();
     if (confirm("Delete this image ?") == true) {
       // // Delete from Cloudinary
       // API.deleteCloudinary()
@@ -45,6 +47,7 @@ class Search extends Component {
 
   // After rotating the image save it in Mongo
   saveImageChanges(id,newUrl){
+    event.preventDefault();
     API.editPicDetails(id , newUrl) 
       .then(res => searchImages())
       .catch(err => console.log(err));
@@ -52,7 +55,7 @@ class Search extends Component {
 
   // Rotate the image
   rotateImage(id, url, pId) {
-
+    event.preventDefault();
     const angle = prompt("Enter your rotation degrees ex: 90  45 -45 -90 180 360");
     if(isNaN(angle)) {
       alert("enter a valid number");
@@ -66,6 +69,7 @@ class Search extends Component {
   };
 
   deleteImage(id){
+    event.preventDefault();
     // // Delete from Cloudinary
     // API.deleteCloudinary()
     //   .then(res => console.log("Deleted from Cloudinary"))
@@ -94,11 +98,11 @@ class Search extends Component {
                     {this.state.gallery.map(data => (
                       <div className="responsive" key={data._id} style={style.responsive} >
                         <div className="img" style={style.img} >
-                          <Image key={data.pic_url} style={style.displayImage}>
+                          <Image key={data.pic_url}>
                             <CloudinaryContext cloudName="tripod">                    
                               <Transformation width="200" crop="scale" />
                               <Transformation angle="auto"/> 
-                              <Image src={data.pic_url}>
+                              <Image src={data.pic_url} style={style.img}>
                               <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
                                 trigger={<Image src = {data.pic_url} style = {style.imgLarge} />}
                               >
@@ -129,7 +133,7 @@ class Search extends Component {
                     <Divider section/>
                   <Container>
                   <Button.Group>
-                  <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
+                  <Button size='big' floated='left' color='green' onClick={this.searchImages} content='Refresh' />
 
                 </Button.Group>
                 </Container>
@@ -145,16 +149,14 @@ class Search extends Component {
 };
 const style = {
   displayImage: {
-    height: 'auto',
-    width: 'auto',
+    height: '125px',
+    width: '98px',
     padding: '1.5%',
-    border: '3px solid white',
-    boxShadow:'2px, 5px, 50px black',
     display: 'inline-grid',
     marginTop: '1%',
     marginRight: '1%',
     marginLeft: '1%',
-    marginBottom: '1%'
+    marginBottom: '2%',
   },
   popStyle: {
   backgroundColor:'rgba(0,0,0,0.0)',
@@ -162,13 +164,18 @@ const style = {
   boxShadow:'none'
   },
   img:{
-    border: '1px solid #ccc'
+    // border: '1px solid #ccc',
+    height:'auto',
+    width:'auto',
+    border: '3px solid white',
+    boxShadow:'2px, 5px, 50px black',
   },
   responsive: {
     padding:'0px',
     float:'left',
-    width:'20%',
-    margin:'10px'
+    width:'100px',
+    height:'100px',
+    margin:'10px',
   }
 };
 export default Search;

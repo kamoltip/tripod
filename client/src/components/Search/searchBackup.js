@@ -2,37 +2,37 @@ import React , { Component } from 'react';
 import { render } from 'react-dom';
 import './Search.scss';
 import {Link} from 'react-router';
-import {Segment, Grid, Divider, Responsive, Button, Container, Checkbox, Popup} from 'semantic-ui-react';
+import {Segment, Grid, Divider, Image, Responsive, Button, Container, Checkbox, Popup} from 'semantic-ui-react';
 import tripod from '../../asset/images/tripod-logo.png';
 import API from '../../utils/API';
-import { Image, CloudinaryContext, Transformation } from 'cloudinary-react';
+import { CloudinaryContext, Transformation } from 'cloudinary-react';
 
 class Search extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      gallery: [],
-      largeImg:"",
+      gallery: []
     };
-
     this.searchImages = this.searchImages.bind(this);
   };
 
   componentDidMount() {
     // window.addEventListener('load', this.searchImages); // h
+    this.searchImages();
   }
 
   searchImages(event) {
-    event.preventDefault();
+    // event.preventDefault();
       API.getPicDetails()
       .then(res => this.setState({ gallery: res.data}))
       .catch(err => console.log(err));
   };
 
+
+  // Delete an image
   deleteImage(id, pId) {
-    confirm(" Delete this image ? ");
-    if (confirm("Press a button!") == true) {
+    if (confirm("Delete this image ?") == true) {
       // // Delete from Cloudinary
       // API.deleteCloudinary()
       //   .then(res => console.log("Deleted from Cloudinary"))
@@ -44,23 +44,39 @@ class Search extends Component {
     };
   };
 
+  // After rotating the image save it in Mongo
   saveImageChanges(id,newUrl){
     API.editPicDetails(id , newUrl) 
       .then(res => searchImages())
       .catch(err => console.log(err));
     };
 
-  rotateImage(id, url,pId) {
-    let angle = prompt("Enter your rotation degrees ex: 90, 45, -45, -90, 180, 360");
-    const change = "a_" + angle;
-    const newUrl = url.substr(0,47) + change + "/" + pId;
-    this.saveImageChanges(id,newUrl);
+  // Rotate the image
+  rotateImage(id, url, pId) {
+
+    const angle = prompt("Enter your rotation degrees ex: 90  45 -45 -90 180 360");
+    if(isNaN(angle)) {
+      alert("enter a valid number");
+    }
+    else{
+      const change = "a_" + angle;
+      const newUrl = url.substr(0,47) + change + "/" + pId;
+      this.saveImageChanges(id,newUrl);
+    }
+
   };
 
-  enlargeImage(data){
-    alert(data.pic_url);
-    largeImg: {data.pic_url};
+  deleteImage(id){
+    // // Delete from Cloudinary
+    // API.deleteCloudinary()
+    //   .then(res => console.log("Deleted from Cloudinary"))
+    //   .catch(err => console.log(err));
+    // // Delete form Mongo
+    API.deletePicDetails(id)
+      .then(res => console.log("Image Deleted"))
+      .catch(err => console.log(err));
   }
+
 
   render() {
 
@@ -75,51 +91,47 @@ class Search extends Component {
             <div className='thirdDiv'>
               <div className='fourthDiv'>
                 <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
-                  <CloudinaryContext cloudName="tripod"> 
+                  <CloudinaryContext cloudName="tripod">
                     {this.state.gallery.map(data => (
-                      <div className="responsive" key={data._id} style={style.responsive}>
+                      <div className="responsive" key={data._id} style={style.responsive} >
                         <div className="img" style={style.img} >
-             
-                                  
-                    <Image publicId={data.pic_public_id} onClick={() => this.enlargeImage(data)}>
-                      <Transformation angle="auto"/>                      
-                      <Transformation width="100" crop="scale" />
-                        <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
-                            trigger={
-                          <Image src = {data.pic_url} style = {style.imgLarge} />
-                           }
-                        >
-                          <Container>
-                            <Grid centered columns='one'>
-                              <Grid.Row>
-                                <Grid.Column centered width={7} centered>
-                                  <img src={data.pic_url}/>
-                                  <br/>
-                                  <Button.Group className='click'>
-                                    <Button href={data.pic_url} download={data.pic_url} centered icon='download' basic size='tiny' color='green' />
-                                    <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
-                                    <Button centered icon='Refresh's basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
-                                  </Button.Group>
-                                </Grid.Column>
-                              </Grid.Row>
-                            </Grid>
-                          </Container>
-                        </Popup>
-                    </Image>
-     
-
-
-                              
-                        
+                          <Image key={data.pic_url} style={style.displayImage}>
+                            <CloudinaryContext cloudName="tripod">                    
+                              <Transformation width="200" crop="scale" />
+                              <Transformation angle="auto"/> 
+                              <Image src={data.pic_url} style = {style.imgLarge} >
+                              <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
+                                trigger={<Image src = {data.pic_url} style = {style.imgLarge} />}
+                              >
+                              <Container>
+                                <Grid centered columns='one'>
+                                  <Grid.Row>
+                                    <Grid.Column centered width={7} centered>
+                                      <img src={data.pic_url}/>
+                                      <br/>
+                                      <Button.Group className='click'>
+                                        <Button href={data.pic_url} download={data.pic_url} centered icon='download' basic size='tiny' color='green' />
+                                        <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
+                                        <Button centered icon='Refresh's basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
+                                      </Button.Group>
+                                    </Grid.Column>
+                                  </Grid.Row>
+                                </Grid>
+                              </Container>
+                            </Popup>
+                              </Image>
+                            </CloudinaryContext>
+                            
+                          </Image>
                         </div>
                       </div>
                     ))}
-                  </CloudinaryContext> 
+                  </CloudinaryContext>
                     <Divider section/>
                   <Container>
                   <Button.Group>
                   <Button size='big' floated='left' color='red' onClick={this.searchImages} content='Search Photos' />
-      
+
                 </Button.Group>
                 </Container>
               </div>
@@ -135,41 +147,32 @@ class Search extends Component {
 const style = {
   displayImage: {
     height: 'auto',
-    width: '20%',
-    padding: '1%',
-    border: '2px solid white',
+    width: 'auto',
+    padding: '1.5%',
+    border: '3px solid white',
+    boxShadow:'2px, 5px, 50px black',
     display: 'inline-grid',
     marginTop: '1%',
     marginRight: '1%',
     marginLeft: '1%',
     marginBottom: '1%'
   },
-  // displayImage: {
-  //   width: '20%',
-  //   height: 'auto',
-  //   padding:'2%',
-  //   border:'2px solid white',
-  //   display:'inline-grid',
-  //   marginTop:'1%',
-  //   marginRight:'1%',
-  //   marginLeft:'1%',
-  //   marginBottom:'1%',
-  // },
+  popStyle: {
+  backgroundColor:'rgba(0,0,0,0.0)',
+  border:'none',
+  boxShadow:'none'
+  },
   img:{
-    border: '1px solid #ccc'
+    border: '1px solid #ccc',
+    height:'100px',
+    width:'auto',
   },
   responsive: {
-    padding:'0 6px',
+    padding:'0px',
     float:'left',
-    width:'24%',
-    margin:'10px'
-  },
-  desc: {
-    padding: '15px',
-    textAlign:'center'
+    width:'100px',
+    height:'100px',
+    margin:'10px',
   }
 };
 export default Search;
-
-             /*Image key={data.pic_url} style={style.displayImage} */
-               /*/Image */
