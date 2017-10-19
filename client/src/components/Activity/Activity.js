@@ -51,7 +51,7 @@ const Activity = () => (
             <Grid columns='one'>
               <Grid.Row>
                 <Grid.Column>
-                  <Link to='/search'><Icon name='image' size='massive' color='black' className='search'/></Link>
+                  <Link to='/search'><Icon name='image' size='massive' color='purple' className='search'/></Link>
                 </Grid.Column>
               </Grid.Row>
             </Grid>
@@ -62,7 +62,7 @@ const Activity = () => (
                 <Grid columns='one'>
                   <Grid.Row>
                     <Grid.Column>
-                      <Link to='/home'><Icon name='home' size='massive' color='black' className='logoutButton'/></Link>
+                      <Link to='/home'><Icon name='home' size='massive' color='red' className='logoutButton'/></Link>
                     </Grid.Column>
                   </Grid.Row>
                 </Grid>
@@ -74,7 +74,7 @@ const Activity = () => (
                     <Grid columns='one'>
                       <Grid.Row>
                         <Grid.Column>
-                          <Link to='/crew'><Icon name='users' size='massive' color='grey' className='user'/></Link>
+                          <Link to='/crew'><Icon name='users' size='massive' color='green' className='user'/></Link>
                         </Grid.Column>
                       </Grid.Row>
                     </Grid>

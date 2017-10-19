@@ -28391,7 +28391,7 @@ var Capture = function (_React$Component) {
             _react2.default.createElement(
               'span',
               { style: style.photoIcon },
-              _react2.default.createElement(_semanticUiReact.Icon, { name: 'photo', size: 'huge' })
+              _react2.default.createElement(_semanticUiReact.Icon, { name: 'photo', size: 'huge', color: 'blue' })
             ),
             _react2.default.createElement('input', { type: 'file', name: 'image', id: 'upload', accept: 'image/*', capture: 'capture', onChange: this.takePicture, style: style.captureInput })
           )
@@ -72150,7 +72150,7 @@ var Activity = function Activity() {
                   _react2.default.createElement(
                     _reactRouter.Link,
                     { to: '/search' },
-                    _react2.default.createElement(_semanticUiReact.Icon, { name: 'image', size: 'massive', color: 'black', className: 'search' })
+                    _react2.default.createElement(_semanticUiReact.Icon, { name: 'image', size: 'massive', color: 'purple', className: 'search' })
                   )
                 )
               )
@@ -72177,7 +72177,7 @@ var Activity = function Activity() {
                       _react2.default.createElement(
                         _reactRouter.Link,
                         { to: '/home' },
-                        _react2.default.createElement(_semanticUiReact.Icon, { name: 'home', size: 'massive', color: 'black', className: 'logoutButton' })
+                        _react2.default.createElement(_semanticUiReact.Icon, { name: 'home', size: 'massive', color: 'red', className: 'logoutButton' })
                       )
                     )
                   )
@@ -72204,7 +72204,7 @@ var Activity = function Activity() {
                           _react2.default.createElement(
                             _reactRouter.Link,
                             { to: '/crew' },
-                            _react2.default.createElement(_semanticUiReact.Icon, { name: 'users', size: 'massive', color: 'grey', className: 'user' })
+                            _react2.default.createElement(_semanticUiReact.Icon, { name: 'users', size: 'massive', color: 'green', className: 'user' })
                           )
                         )
                       )
