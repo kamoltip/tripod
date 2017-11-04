@@ -30,56 +30,18 @@ app.use(session({
   store: new MongoStore({ mongooseConnection: db }),
 }));
 
-// app.use((req, res, next) => {
-//   console.log(req.session);
-//   const id = req.session.user;
-//   console.log(id);
-//   // req.session.user = id;
-//   req.session.save();
-// });
-
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(routes);
 
 const User = require('./models/user');
 
-passport.use(new LocalStrategy(User.authenticate({'_body': false})));
+passport.use(new LocalStrategy(User.authenticate({ '_body': false })));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-// session tests
-
-app.get('/start', (req, res) => {
-
-  console.log(req.user.pin);
-  if (req.user) {
-    res.redirect('/admin');
-  } else {
-    console.log('no session');
-  }
-});
-
-app.get('/admin', (req, res) => {
-  sess = req.session;
-  if (sess.email) {
-    res.write(`<h1>Hello ${sess.email}</h1>`);
-    res.end('<a href="+">Logout</a>');
-  } else {
-    res.write('<h1>Please logins first.</h1>');
-    res.end('<a href="+">Login</a>');
-  }
-});
-
-app.get('/logouttahere', (req, res) => {
-  req.session.destroy((err) => {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log(req.user._id);
-      res.redirect('/');
-    }
-  });
+app.use((req, res) => {
+  res.sendFile(path.join(__dirname, './client/public/index.html'));
 });
 
 app.listen(PORT, () => {

@@ -12,7 +12,8 @@ class LoginPage extends React.Component {
       user: {
         email: '',
         password: ''
-      }
+      },
+      userPin: ''
     };
 
     this.handleForm = this.handleForm.bind(this);
@@ -27,7 +28,7 @@ class LoginPage extends React.Component {
 
     }
       API.loginUser(input)
-      .then(res => {})
+      .then(res => this.setState({'userPin': res.data }))
 
       .catch(err => console.log(err));
   }
@@ -49,6 +50,7 @@ class LoginPage extends React.Component {
         onChange={this.getUserInput}
         errors={this.state.errors}
         user={this.state.user}
+        pin={this.state.userPin}
       />
     );
   }

@@ -79477,7 +79477,8 @@ var LoginPage = function (_React$Component) {
       user: {
         email: '',
         password: ''
-      }
+      },
+      userPin: ''
     };
 
     _this.handleForm = _this.handleForm.bind(_this);
@@ -79488,13 +79489,17 @@ var LoginPage = function (_React$Component) {
   _createClass(LoginPage, [{
     key: 'handleForm',
     value: function handleForm(event) {
+      var _this2 = this;
+
       event.preventDefault();
       var input = {
         'username': this.state.user.email,
         'password': this.state.user.password
 
       };
-      _API2.default.loginUser(input).then(function (res) {}).catch(function (err) {
+      _API2.default.loginUser(input).then(function (res) {
+        return _this2.setState({ 'userPin': res.data });
+      }).catch(function (err) {
         return console.log(err);
       });
     }
@@ -79516,7 +79521,8 @@ var LoginPage = function (_React$Component) {
         onSubmit: this.handleForm,
         onChange: this.getUserInput,
         errors: this.state.errors,
-        user: this.state.user
+        user: this.state.user,
+        pin: this.state.userPin
       });
     }
   }]);
@@ -79565,7 +79571,8 @@ var Login = function Login(_ref) {
   var onSubmit = _ref.onSubmit,
       onChange = _ref.onChange,
       errors = _ref.errors,
-      user = _ref.user;
+      user = _ref.user,
+      pin = _ref.pin;
   return _react2.default.createElement(
     'div',
     { className: 'divLoginForm' },
@@ -79576,6 +79583,12 @@ var Login = function Login(_ref) {
       _react2.default.createElement('img', { src: _tripodLogo2.default, className: 'tripod' })
     ),
     _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
+    pin ? _react2.default.createElement(
+      'h2',
+      null,
+      'User PIN: ',
+      pin
+    ) : "",
     _react2.default.createElement(
       _semanticUiReact.Form,
       { className: 'form', action: '/activity', onSubmit: onSubmit },
@@ -79617,13 +79630,9 @@ var Login = function Login(_ref) {
           placeholder: 'password', required: true })
       ),
       _react2.default.createElement(
-        _reactRouter.Link,
-        { to: '/activity' },
-        _react2.default.createElement(
-          _semanticUiReact.Button,
-          _defineProperty({ type: 'submit' }, 'type', 'submit'),
-          'Sign In'
-        )
+        _semanticUiReact.Button,
+        _defineProperty({ type: 'submit' }, 'type', 'submit'),
+        'Sign In'
       ),
       _react2.default.createElement(
         'div',
@@ -80083,37 +80092,31 @@ var Search = function (_Component) {
       pin: ""
     };
     _this.searchImages = _this.searchImages.bind(_this);
-    _this.getPin = _this.getPin.bind(_this);
+    // this.getPin = this.getPin.bind(this);
     return _this;
   }
 
+  // getPin(event){
+  //   event.preventDefault();
+  //   this.setState({pin:event.target.value});
+  // };
+
   _createClass(Search, [{
-    key: 'componentWillUpdate',
-    value: function componentWillUpdate(nextProps, nextState) {
-      this.searchImages();
-    }
-  }, {
-    key: 'getPin',
-    value: function getPin(event) {
-      event.preventDefault();
-      this.setState({ pin: event.target.value });
-    }
-  }, {
     key: 'searchImages',
     value: function searchImages() {
       var _this2 = this;
 
-      _API2.default.getPicDetails(this.state.pin).then(function (res) {
+      _API2.default.getPicDetails().then(function (res) {
         return _this2.setState({ gallery: res.data });
       }).catch(function (err) {
         return console.log(err);
       });
     }
-  }, {
-    key: 'deleteImage',
-
 
     // Delete an image
+
+  }, {
+    key: 'deleteImage',
     value: function deleteImage(id, pId) {
       if (confirm("Delete this image ?") == true) {
         _API2.default.deletePicDetails(id).then(function (res) {
@@ -80121,13 +80124,13 @@ var Search = function (_Component) {
         }).catch(function (err) {
           return console.log(err);
         });
-      };
+      }
     }
-  }, {
-    key: 'saveImageChanges',
-
 
     // After rotating the image save it in Mongo
+
+  }, {
+    key: 'saveImageChanges',
     value: function saveImageChanges(id, newUrl) {
       _API2.default.editPicDetails(id, newUrl).then(function (res) {
         return searchImages();
@@ -80141,7 +80144,6 @@ var Search = function (_Component) {
 
     // Rotate the image
     value: function rotateImage(id, url, pId) {
-
       var angle = prompt("Enter your rotation degrees ex: 90 -90 180 360");
       if (isNaN(angle)) {
         alert("enter a valid number");
@@ -80171,33 +80173,13 @@ var Search = function (_Component) {
               { to: '/activity' },
               _react2.default.createElement('img', { className: 'logo', src: _tripodLogo2.default })
             ),
+            _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
             _react2.default.createElement(
               'div',
               { className: 'thirdDiv' },
               _react2.default.createElement(
                 'div',
                 { className: 'fourthDiv' },
-                _react2.default.createElement(
-                  'div',
-                  { className: 'enterPin' },
-                  _react2.default.createElement(
-                    'h1',
-                    null,
-                    'PIN required'
-                  ),
-                  _react2.default.createElement(_semanticUiReact.Divider, { section: true }),
-                  this.state.pin.length === parseInt(6) ? _react2.default.createElement(
-                    'h2',
-                    null,
-                    this.state.pin
-                  ) : _react2.default.createElement(
-                    'form',
-                    { required: true },
-                    _react2.default.createElement(_semanticUiReact.Input, { onChange: this.getPin, fluid: true, required: true, label: { icon: 'asterisk'
-                      }, labelPosition: 'left corner', placeholder: 'PIN 6 digits', name: 'pin', type: 'text', size: 'huge' }),
-                    _react2.default.createElement('br', null)
-                  )
-                ),
                 _react2.default.createElement(
                   _cloudinaryReact.CloudinaryContext,
                   { cloudName: 'tripod' },
@@ -80254,7 +80236,7 @@ var Search = function (_Component) {
                                           _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'trash', basic: true, size: 'tiny', color: 'red', onClick: function onClick() {
                                               return _this3.deleteImage(data._id, data.pic_public_id);
                                             } }),
-                                          _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'repeat', basic: true, size: 'undo', color: 'blue', onClick: function onClick() {
+                                          _react2.default.createElement(_semanticUiReact.Button, { centered: true, icon: 'repeat', basic: true, size: 'tiny', color: 'blue', onClick: function onClick() {
                                               return _this3.rotateImage(data._id, data.pic_url, data.pic_public_id);
                                             } })
                                         )

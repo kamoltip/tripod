@@ -35,11 +35,10 @@ module.exports = {
         errors: validationResult.errors
       });
     }
-    passport.authenticate('local', { failureRedirect: '/login' })(req, res, () => {
-      console.log(req.session.user);
+    passport.authenticate('local')(req, res, () => {
       if (req.user) {
         // res.redirect('/');
-        return res.json(data);
+        return res.json(req.user.pin);
       }
       return res.json({ error: 'There was an error logging in' });
     });

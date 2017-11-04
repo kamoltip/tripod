@@ -20,12 +20,16 @@ const Login = ({
   onSubmit,
   onChange,
   errors,
-  user }) => (
+  user,
+  pin }) => (
 
    <div className='divLoginForm'>
      <Responsive {...Responsive.onlyMobile} {...Responsive.onlyTablet} {...Responsive.onlyComputer} {...Responsive.onlyLargeScreen} {...Responsive.onlyWidescreen} as={Segment}/>
      <Link to='/'><img src={tripod} className='tripod'/></Link>
      <Divider section/>
+
+     { pin ? <h2>User PIN: {pin}</h2> : ""}
+
      <Form className='form' action='/activity' onSubmit={ onSubmit }>
 
        { errors.summary &&  <Message
@@ -54,7 +58,8 @@ const Login = ({
          placeholder="password" required/>
        </Form.Field>
 
-       <Link to='/activity'><Button type='submit' type='submit'>Sign In</Button></Link>
+       {/* <Link to='/activity'><Button type='submit' type='submit'>Sign In</Button></Link> */}
+       <Button type='submit' type='submit'>Sign In</Button>
 
        <div className='Or'>
          <Divider className='hr'/>
@@ -82,7 +87,7 @@ const Login = ({
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
 };
 
 export default Login;

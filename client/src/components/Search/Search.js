@@ -17,25 +17,19 @@ class Search extends Component {
       pin:"",
     };
     this.searchImages = this.searchImages.bind(this);
-    this.getPin = this.getPin.bind(this);
-  };
-
-
-  componentWillUpdate(nextProps, nextState){
-      this.searchImages();
+    // this.getPin = this.getPin.bind(this);
   }
 
-  getPin(event){
-    event.preventDefault();
-    this.setState({pin:event.target.value});
-  };
+  // getPin(event){
+  //   event.preventDefault();
+  //   this.setState({pin:event.target.value});
+  // };
 
   searchImages() {
-      API.getPicDetails(this.state.pin)
+      API.getPicDetails()
       .then(res => this.setState({ gallery: res.data}))
       .catch(err => console.log(err));
-  };
-
+  }
 
   // Delete an image
   deleteImage(id, pId) {
@@ -43,8 +37,8 @@ class Search extends Component {
       API.deletePicDetails(id)
         .then(res => searchImages())
         .catch(err => console.log(err));
-    };
-  };
+    }
+  }
 
   // After rotating the image save it in Mongo
   saveImageChanges(id,newUrl){
@@ -55,7 +49,6 @@ class Search extends Component {
 
   // Rotate the image
   rotateImage(id, url, pId) {
-
     const angle = prompt("Enter your rotation degrees ex: 90 -90 180 360");
     if(isNaN(angle)) {
       alert("enter a valid number");
@@ -78,12 +71,12 @@ class Search extends Component {
         <div className='searchDiv'>
           <div className='metaDiv'>
             <Link to='/activity'><img className='logo' src={tripod}/></Link>
-            {/* <Divider section/> */}
+            <Divider section/>
 
             <div className='thirdDiv'>
               <div className='fourthDiv'>
 
-                <div className='enterPin'>
+                {/* <div className='enterPin'>
                   <h1>PIN required</h1>
                   <Divider section/>
                   { this.state.pin.length === parseInt(6) ? <h2>{this.state.pin}</h2> :
@@ -92,53 +85,53 @@ class Search extends Component {
                     }} labelPosition='left corner' placeholder='PIN 6 digits' name='pin' type='text' size='huge' />
                     <br/>
                   </form> }
-                </div>
-                  <CloudinaryContext cloudName="tripod">
-                    <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
-                    {this.state.gallery.map(data => (
-                      <div className="responsive" key={data._id} style={style.responsive} >
-                        <div className="img" style={style.img} >
+                </div> */}
+                <CloudinaryContext cloudName="tripod">
+                  <div className='searchText'><h1>FIND YOUR PHOTO'S COLLECTION</h1></div>
+                  {this.state.gallery.map(data => (
+                    <div className="responsive" key={data._id} style={style.responsive} >
+                      <div className="img" style={style.img} >
 
-                          <Image key={data.pic_url}>
-                            <CloudinaryContext cloudName="tripod">
-                              <Transformation width="200" crop="scale" />
-                              <Transformation angle="auto"/>
-                              <Image src={data.pic_url} style={style.img}>
+                        <Image key={data.pic_url}>
+                          <CloudinaryContext cloudName="tripod">
+                            <Transformation width="200" crop="scale" />
+                            <Transformation angle="auto"/>
+                            <Image src={data.pic_url} style={style.img}>
 
                               <Popup hoverable flowing size='tiny' position='top center' style={style.popStyle}
                                 trigger={<Image src = {data.pic_url} style = {style.imgLarge} />}
                               >
-                              <Container>
-                                <Grid centered columns='one'>
-                                  <Grid.Row>
-                                    <Grid.Column centered width={7} centered>
-                                      <img src={data.pic_url}/>
-                                      <br/>
-                                      <Button.Group className='click'>
-                                        <Button href={data.pic_url} download={data.pic_url} centered icon='download' basic size='tiny' color='green' />
-                                        <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
-                                        <Button centered icon='repeat' basic size='undo' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
-                                      </Button.Group>
-                                    </Grid.Column>
-                                  </Grid.Row>
-                                </Grid>
-                              </Container>
-                            </Popup>
-                              </Image>
-                            </CloudinaryContext>
+                                <Container>
+                                  <Grid centered columns='one'>
+                                    <Grid.Row>
+                                      <Grid.Column centered width={7} centered>
+                                        <img src={data.pic_url}/>
+                                        <br/>
+                                        <Button.Group className='click'>
+                                          <Button href={data.pic_url} download={data.pic_url} centered icon='download' basic size='tiny' color='green' />
+                                          <Button centered icon='trash' basic size='tiny' color='red' onClick={() => this.deleteImage(data._id , data.pic_public_id)} />
+                                          <Button centered icon='repeat' basic size='tiny' color='blue' onClick={() => this.rotateImage(data._id, data.pic_url, data.pic_public_id)} />
+                                        </Button.Group>
+                                      </Grid.Column>
+                                    </Grid.Row>
+                                  </Grid>
+                                </Container>
+                              </Popup>
+                            </Image>
+                          </CloudinaryContext>
 
-                          </Image>
-                        </div>
+                        </Image>
                       </div>
-                    ))}
+                    </div>
+                  ))}
 
-                  </CloudinaryContext>
+                </CloudinaryContext>
               </div>
             </div>
             <Divider section />
             <Container>
-            <Button.Group>
-            <Button size='big' color='green' onClick={this.searchImages} content='Refresh' className='refresh'/>
+              <Button.Group>
+                <Button size='big' color='green' onClick={this.searchImages} content='Refresh' className='refresh'/>
 
           </Button.Group>
           </Container>
